@@ -40,7 +40,7 @@
             exit();
         }
 
-        if(uidExists($conn, $uid) !== false){
+        if(uidExists($connection, $uid) !== false){
             head("location: ../signup.php?err=uidTaken");
             exit();
         }

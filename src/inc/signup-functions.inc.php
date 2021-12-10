@@ -37,10 +37,8 @@
         return false;
     }
 
-    function uidExists($uid){
-        $filter = ["username" => implode($uid)];
-        $options = [];
-        $query = new MongoDB\Driver\Query($filter, $options);
+    function uidExists($conn, $uid){
+        
     }
 
     function createUser($con, $name, $email, $pwd){
