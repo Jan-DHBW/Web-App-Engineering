@@ -35,3 +35,8 @@ body {
     overflow: auto;
     width: -webkit-fill-available;
 }
+
+#spelllist {
+    overflow: auto;
+    width: -webkit-fill-available;
+}
