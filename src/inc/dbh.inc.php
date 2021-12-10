@@ -1,15 +1,21 @@
 <?php
 
-    //$manager = new MongoDB\Driver\Manager("mongodb://admin:admin@localhost:27017");
-    $manager = new MongoDB\Driver\Manager("mongodb+srv://root:testPwd!@cluster0.ojodh.mongodb.net/dnd-spellbook?retryWrites=true&w=majority");
-    $filter = [];
-    $options = ["uid" => "test1"];
-    $query = new MongoDB\Driver\Query($filter, $options);
-    $cursor = $manager->executeQuery('dnd-spellbook.users', $query);
-    
-    
+    require_once($_SERVER['DOCUMENT_ROOT']."/vendor/autoload.php");
 
-    foreach($cursor as $doc){
+    //TODO: SEC ISSUE: plaintext pwd
+    $m = new MongoDB\Client("mongodb+srv://root:testPwd!@cluster0.ojodh.mongodb.net/dnd-spellbook?retryWrites=true&w=majority");
+    $db = "dnd-spellbook";
+    $col = "users";
+    
+    $collection = $m->$db->$col;
+
+    $filter = ['uid' => ['$eq' => 'test']];
+
+    $rs = $collection->find($filter);
+
+    foreach($rs as $doc){
         var_dump($doc);
     }
+
+   
 ?>
