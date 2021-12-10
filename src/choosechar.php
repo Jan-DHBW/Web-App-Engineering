@@ -10,6 +10,8 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/style_sidebar.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -79,12 +81,51 @@
         include("inc/sidebar.html");
         ?>
 
-        <div class="grid">
-            <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
-            <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
-            <div class="g-col-6 g-col-md-4">.g-col-6 .g-col-md-4</div>
+        <div id="firstchoose">
+            <h1><center>Choose your character</center></h1>
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Character</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Class</th>
+                        <th scope="col">Level</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></td>
+                        <td>Hentai Slayer</td>
+                        <td>Magician</td>
+                        <td>69</td>
+                        <td>very very fresh</td>
+                    </tr>
+
+                    <?php
+                    for ($i = 0; $i <= 20; $i++) {
+                    ?>
+                        <tr>
+                            <th scope="row">
+                                <?php echo $i; ?>
+                            </th>
+                            <td><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></td>
+                            <td>Hentai Slayer</td>
+                            <td>Magician</td>
+                            <td>69</td>
+                            <td>very very fresh</td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+
+                </tbody>
+            </table>
         </div>
     </main>
+
 
 
     <script src="https://getbootstrap.com/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
