@@ -5,7 +5,7 @@
 
 <section class ="signup-form">
     <h2>Sign Up</h2>
-    <form action ="signup.inc.php" method ="post">
+    <form action ="inc/signup.inc.php" method ="post">
         <label for="uid"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uid" required>
         <label for="email"><b>E-Mail</b></label>
@@ -16,7 +16,7 @@
         <input type="password" placeholder="Enter Password" name="pwd" required>
         <label for="pwdRepeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Repeat Password" name="pwdRepeat" required>
-        <button class="submit" type="submit">Sign Up</button>
+        <input class="submit" type="submit" value="Sign Up">
     </form>
 
 </section>

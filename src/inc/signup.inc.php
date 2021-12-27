@@ -1,54 +1,60 @@
 <?php
 
-    if(isset($_POST["submit"])){
-        $name = addlashes($_POST["uid"]);
-        $email = addlashes($_POST["email"]);
-        $emailRepeat = addlashes($_POST["emailRepeat"]);
-        $pwd = addlashes($_POST["pwd"]);
-        $pwdRepeat = addlashes($_POST["pwdRepeat"]);
 
-        require_once("dhb.inc.php");
+    if(isset($_POST)){
+        $name = addslashes($_POST["uid"]);
+        $email = addslashes($_POST["email"]);
+        $emailRepeat = addslashes($_POST["emailRepeat"]);
+        $pwd = addslashes($_POST["pwd"]);
+        $pwdRepeat = addslashes($_POST["pwdRepeat"]);
+
+        require_once("db/dbh.inc.php");
+        require_once("db/db.user.createUser.inc.php");
+        require_once("db/db.user.uidExists.inc.php");
+        require_once("db/db.user.emailExists.inc.php");
         require_once("signup-functions.inc.php");
 
         if(emptyInputSignup($name, $email, $emailRepeat, $pwd, $pwdRepeat) !== false){
-            head("location: ../signup.php?err=emptyInput");
+            header("location: ../signup.php?err=emptyInput");
             exit();
         }
 
         if(invalidUid($name) !== false){
-            head("location: ../signup.php?err=invalidUid");
+            header("location: ../signup.php?err=invalidUid");
             exit();
         }
 
         if(invalidEmail($email) !== false){
-            head("location: ../signup.php?err=invalidEmail");
+            header("location: ../signup.php?err=invalidEmail");
             exit();
         }
 
-        if(emailMatch($email, $emailRepeat) !== false){
-            head("location: ../signup.php?err=emailMissmatch");
+        if(emailMatch($email, $emailRepeat) !== true){
+            header("location: ../signup.php?err=emailMissmatch");
             exit();
         }
 
-        if(emailExists($con, $uid) !== false){
-            head("location: ../signup.php?err=emailTaken");
+        if(emailExists($DB_spellbook, $email) !== false){
+            header("location: ../signup.php?err=emailTaken");
             exit();
         }
 
-        if(pwdMatch($pwd, $pwdRepeat) !== false){
-            head("location: ../signup.php?err=pwdMissmatch");
+        if(pwdMatch($pwd, $pwdRepeat) !== true){
+            header("location: ../signup.php?err=pwdMissmatch");
             exit();
         }
 
-        if(uidExists($connection, $uid) !== false){
-            head("location: ../signup.php?err=uidTaken");
+        if(uidExists($DB_spellbook, $uid) !== false){
+            header("location: ../signup.php?err=uidTaken");
             exit();
         }
 
-        createUser($conn, $name, $email, $pwd);
+        createUser($DB_spellbook, $name, $email, $pwd);
+
+        header("location: ../login.php");
 
     }else{
-        head("location: ../signup.php")
+        header("location: ../signup.php");
         exit();
     }
 

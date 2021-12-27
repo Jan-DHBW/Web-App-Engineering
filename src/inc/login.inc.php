@@ -1,9 +1,9 @@
 <?php
     if(isset($_POST["submit"])){
         $name = $_POST["uid"];
-        $pwd =  $_POST["pwd"]
+        $pwd =  $_POST["pwd"];
         
-        require_once("dhb.inc.php");
+        require_once("inc/db/dhb.inc.php");
         require_once("login-functions.inc.php");
 
         if(emptyInputLogin($name, $pwd) !== false){
