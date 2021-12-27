@@ -40,3 +40,8 @@ body {
     overflow: auto;
     width: -webkit-fill-available;
 }
+
+#edit {
+    overflow: auto;
+    width: -webkit-fill-available;
+}

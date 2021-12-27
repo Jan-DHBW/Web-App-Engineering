@@ -95,17 +95,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!--<tr>
                         <th scope="row">1</th>
                         <td><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></td>
                         <td>Hentai Slayer</td>
                         <td>Magician</td>
                         <td>69</td>
                         <td>very very fresh</td>
-                    </tr>
+                    </tr>!-->
 
                     <?php
-                    for ($i = 0; $i <= 20; $i++) {
+                    for ($i = 1; $i <= 20; $i++) {
                     ?>
                         <tr>
                             <th scope="row">
