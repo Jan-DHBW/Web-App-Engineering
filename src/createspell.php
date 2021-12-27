@@ -81,57 +81,43 @@
         include("inc/sidebar.html");
         ?>
 
-        <div id="spelllist">
-            <h1>
-                <center>Character's Spelllist</center>
-                <center><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></center>
-            </h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Spell</th>
-                        <th scope="col">Prepared</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">School</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <!--<tr>
-                        <th scope="row">1</th>
-                        <td>Fireball</td>
-                        <td>xx</td>
-                        <td>120</td>
-                        <td>Idk</td>
-                        <td>old</td>
-                        <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
-                    </tr> !-->
-
-                    <?php
-                    for ($i = 1; $i <= 20; $i++) {
-                    ?>
-                        <tr>
-                            <th scope="row">
-                                <?php echo $i; ?>
-                            </th>
-                            <td>Fireball</td>
-                            <td>xx</td>
-                            <td>120</td>
-                            <td>Idk</td>
-                            <td>old</td>
-                            <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-
-                </tbody>
-            </table>
-        </div>
         <div>
+            <h1>
+                <center>Create new spell</center>
+            </h1>
+            <br>
+            <form>
+                <div>
+                    <label>Name:</label><br>
+                    <input type="text">
+                </div><br>
 
+                <div>
+                    <label>Level:</label><br>
+                    <input>
+                </div><br>
+
+                <div>
+                    <label>Time:</label><br>
+                    <input>
+                </div><br>
+
+                <div>
+                    <label>School:</label><br>
+                    <input>
+                </div><br>
+
+                <div>
+                    <label>Description:</label><br>
+                    <input>
+                </div><br>
+                
+                <div>
+                    <button>Cancel</button>
+                    <button>Submit</button>
+                </div>
+                
+            </form>
         </div>
     </main>
 

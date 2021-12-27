@@ -83,7 +83,7 @@
 
         <div id="spelllist">
             <h1>
-                <center>Character's Spelllist</center>
+                <center>Edit Spelllist</center>
                 <center><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></center>
             </h1>
             <table class="table text-white">

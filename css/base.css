@@ -31,12 +31,23 @@ body {
     transform: translateY(-3px) scale(1.1);
 }
 
+
 #firstchoose {
     overflow: auto;
     width: -webkit-fill-available;
 }
 
 #spelllist {
+    overflow: auto;
+    width: -webkit-fill-available;
+}
+
+#editspell {
+    overflow: auto;
+    width: -webkit-fill-available;
+}
+
+#global {
     overflow: auto;
     width: -webkit-fill-available;
 }

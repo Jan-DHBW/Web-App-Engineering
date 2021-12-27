@@ -81,7 +81,7 @@
         include("inc/sidebar.html");
         ?>
 
-        <div id="spelllist">
+        <div id="global">
             <h1>
                 <center>Character's Spelllist</center>
                 <center><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></center>
@@ -110,7 +110,7 @@
                     </tr> !-->
 
                     <?php
-                    for ($i = 1; $i <= 20; $i++) {
+                    for ($i = 1; $i <= 50; $i++) {
                     ?>
                         <tr>
                             <th scope="row">
