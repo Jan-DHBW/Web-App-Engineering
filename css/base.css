@@ -31,6 +31,7 @@ body {
     transform: translateY(-3px) scale(1.1);
 }
 
+
 #firstchoose {
     overflow: auto;
     width: -webkit-fill-available;
@@ -41,7 +42,12 @@ body {
     width: -webkit-fill-available;
 }
 
-#edit {
+#editspell {
+    overflow: auto;
+    width: -webkit-fill-available;
+}
+
+#global {
     overflow: auto;
     width: -webkit-fill-available;
 }
