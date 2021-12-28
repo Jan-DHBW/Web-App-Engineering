@@ -12,6 +12,7 @@
         require_once("db/db.user.createUser.inc.php");
         require_once("db/db.user.uidExists.inc.php");
         require_once("db/db.user.emailExists.inc.php");
+        require_once("pwd.inc.php");
         require_once("signup-functions.inc.php");
 
         if(emptyInputSignup($name, $email, $emailRepeat, $pwd, $pwdRepeat) !== false){
@@ -48,9 +49,7 @@
             header("location: ../signup.php?err=uidTaken");
             exit();
         }
-
-        $pwd = password_hash($pwd, PASSWORD_ARGON2ID);
-
+        
         createUser($DB_spellbook, $name, $email, $pwd);
 
         header("location: ../login.php?msg=signedUp");

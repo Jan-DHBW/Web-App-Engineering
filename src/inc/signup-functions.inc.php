@@ -42,7 +42,8 @@
     }
 
     function createUser($con, $name, $email, $pwd){
-        db_user_createUser($con, $name, $email, $pwd);
+        $hash = hashPwd($pwd);
+        db_user_createUser($con, $name, $email, $hash);
     }
     
 ?>
