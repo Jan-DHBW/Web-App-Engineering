@@ -1,6 +1,5 @@
 <?php
     require_once("inc/head.inc.php");
-
 ?>
 
 <section class ="signup-form">
@@ -17,7 +16,10 @@
         <label for="pwdRepeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Repeat Password" name="pwdRepeat" required>
         <input class="submit" type="submit" value="Sign Up">
+        <div id="err"></div>
     </form>
 
 </section>
+
+
 

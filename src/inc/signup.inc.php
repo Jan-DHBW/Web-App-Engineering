@@ -49,9 +49,11 @@
             exit();
         }
 
+        $pwd = password_hash($pwd, PASSWORD_ARGON2ID);
+
         createUser($DB_spellbook, $name, $email, $pwd);
 
-        header("location: ../login.php");
+        header("location: ../login.php?msg=signedUp");
 
     }else{
         header("location: ../signup.php");
