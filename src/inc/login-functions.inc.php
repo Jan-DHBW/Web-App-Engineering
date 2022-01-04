@@ -12,7 +12,7 @@
     }
 
     function verifyLogin($con, $uid, $pwd){
-        return db_user_verifyPasword($con, $uid, $pwd);
+        return db_user_verifyPassword($con, $uid, $pwd);
     }
 
     function getUserId($con, $uid){
