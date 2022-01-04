@@ -15,4 +15,8 @@
         return db_user_verifyPasword($con, $uid, $pwd);
     }
 
+    function getUserId($con, $uid){
+        return db_user_getId($con, $uid);
+    }
+
 ?>
