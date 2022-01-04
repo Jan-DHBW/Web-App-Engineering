@@ -1,3 +1,11 @@
+<?php 
+    require_once("inc/db/dbh.inc.php");
+    require_once("inc/db/db.character.class.inc.php");
+    require_once("inc/db/db.char.function.inc.php");
+    require_once("inc/choosechar-functions.inc.php");
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -95,32 +103,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!--<tr>
-                        <th scope="row">1</th>
-                        <td><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></td>
-                        <td>Hentai Slayer</td>
-                        <td>Magician</td>
-                        <td>69</td>
-                        <td>very very fresh</td>
-                    </tr>!-->
-
                     <?php
-                    for ($i = 1; $i <= 20; $i++) {
+                        showCharacters($DB_spellbook, "61b366ee689f7efa0345ceb5");
                     ?>
-                        <tr>
-                            <th scope="row">
-                                <?php echo $i; ?>
-                            </th>
-                            <td><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></td>
-                            <td>Hentai Slayer</td>
-                            <td>Magician</td>
-                            <td>69</td>
-                            <td>very very fresh</td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-
                 </tbody>
             </table>
         </div>
