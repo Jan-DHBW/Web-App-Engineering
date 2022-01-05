@@ -4,6 +4,7 @@
     require_once("inc/db/db.character.class.inc.php");
     require_once("inc/db/db.char.function.inc.php");
     require_once("inc/choosechar-functions.inc.php");
+    
 ?>
 
 
@@ -91,16 +92,18 @@
         ?>
 
         <div id="firstchoose">
-            <h1><center>Choose your character</center></h1>
+            <h1><center>Characters</center></h1>
+            <div class="table-actions">
+               <button type="buton" class="btn btn-primary" name="btnNewCharacter">New Character</button>
+            </div>
             <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Character</th>
+                        <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Class</th>
                         <th scope="col">Level</th>
-                        <th scope="col">Description</th>
                     </tr>
                 </thead>
                 <tbody>

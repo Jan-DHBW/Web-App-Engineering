@@ -13,7 +13,12 @@
             echo "<td>{$elmt->name}</td>";
             echo "<td>{$elmt->class}</td>";
             echo "<td>{$elmt->level}</td>";
-            echo '<td>very very fresh</td>';
+            echo "<td>";
+            echo "<button type='buton' class='btn btn-primary' name='btnNewCharacter'>Show Spells</button>";
+            echo "<button type='buton' class='btn btn-primary' name='btnNewCharacter'>Edit Character</button>";
+            echo "<button type='buton' class='btn btn-primary' name='btnNewCharacter'>Delete Character</button>";
+            echo "</td>";
+            //echo "<td><button name='rowID' type='submit' value='{$elmtCnt}' formaction='choosechar.inc.php'>Show Spells</button></td>";
             echo '</tr>';
             $elmtCnt++;
         }
