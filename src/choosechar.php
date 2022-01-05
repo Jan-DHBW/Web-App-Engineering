@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once("inc/db/dbh.inc.php");
     require_once("inc/db/db.character.class.inc.php");
     require_once("inc/db/db.char.function.inc.php");
@@ -103,9 +104,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        showCharacters($DB_spellbook, "61b366ee689f7efa0345ceb5");
-                    ?>
+                        <?php
+                            showCharacters($DB_spellbook, $_SESSION['current_user_id']);
+                        ?>
                 </tbody>
             </table>
         </div>
