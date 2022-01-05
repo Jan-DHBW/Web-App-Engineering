@@ -51,3 +51,8 @@ body {
     overflow: auto;
     width: -webkit-fill-available;
 }
+
+#editchar {
+    overflow: auto;
+    width: -webkit-fill-available;
+}
