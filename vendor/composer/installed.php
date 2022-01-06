@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f5b19effff586bc4698409aa30218bb5ecea00d5',
+        'reference' => 'bf283a1c6947ee8e1a53989016c8d87471918c79',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f5b19effff586bc4698409aa30218bb5ecea00d5',
+            'reference' => 'bf283a1c6947ee8e1a53989016c8d87471918c79',
             'dev_requirement' => false,
         ),
         'jean85/pretty-package-versions' => array(
@@ -35,6 +35,15 @@
             'install_path' => __DIR__ . '/../mongodb/mongodb',
             'aliases' => array(),
             'reference' => '9e0da590ec94e8af9a0ee065294627ffaee6244e',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.5.3',
+            'version' => '6.5.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'baeb7cde6b60b1286912690ab0693c7789a31e71',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-php80' => array(
