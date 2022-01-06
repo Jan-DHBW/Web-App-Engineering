@@ -14,8 +14,4 @@
         return $m->$db;
     }
     
-    $DB_spellbook = createDbConnection()
-    
-
-   
-?>
+    $DB_spellbook = createDbConnection();

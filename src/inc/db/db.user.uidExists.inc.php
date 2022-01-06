@@ -1,17 +1,17 @@
 <?php
-    
-    function db_user_uidExists($con, $uid){
-        $col =  "users";
-        $collection = $con->$col;
 
-        $filter = ['uid' => ['$eq' => $uid]];
+function db_user_uidExists($con, $uid)
+{
+    $col =  "users";
+    $collection = $con->$col;
 
-        $cursor = $collection->find($filter);
+    $filter = ['uid' => ['$eq' => $uid]];
 
-        foreach($cursor as $doc){
-            return true;
-        }
+    $cursor = $collection->find($filter);
 
-        return false;
+    foreach ($cursor as $doc) {
+        return true;
     }
-?>
+
+    return false;
+}

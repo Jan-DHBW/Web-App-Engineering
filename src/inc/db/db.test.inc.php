@@ -13,6 +13,3 @@
     foreach($rs as $doc){
         var_dump($doc);
     }
-
-
-?>

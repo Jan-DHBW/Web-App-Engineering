@@ -1,6 +1,7 @@
 <?php
 
-class Character {
+class Character
+{
 
     public $name;
     public $_id;
@@ -9,15 +10,15 @@ class Character {
     public $spells;
     public $level;
 
-    function __construct() {
+    function __construct()
+    {
         $spells = array();
-
     }
 
-     // 1. Char aud datenbank geladen
-   // 2.Char wird erstellt
-   //     2.2 neuer datenbank eintrag und der wird dann neu eingelesen
-    
-    
+    // 1. Char aud datenbank geladen
+    // 2.Char wird erstellt
+    //     2.2 neuer datenbank eintrag und der wird dann neu eingelesen
+
+
 
 }

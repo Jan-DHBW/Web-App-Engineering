@@ -1,8 +1,7 @@
 <?php
 
-function db_user_verifyPassword($con, $uid, $pwd){
-    $result;
-
+function db_user_verifyPassword($con, $uid, $pwd)
+{
     $col = "users";
     $collection = $con->$col;
 
@@ -10,9 +9,9 @@ function db_user_verifyPassword($con, $uid, $pwd){
 
     $resObj = $collection->findOne($filter);
 
-    if(empty($resObj)){
+    if (empty($resObj)) {
         return false;
     }
-    
+
     return verifyPwd($pwd, $resObj['pwd']);
 }

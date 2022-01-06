@@ -1,6 +1,7 @@
 <?php
 
-function db_user_getId($con, $uid){
+function db_user_getId($con, $uid)
+{
     $col = "users";
     $collection = $con->$col;
 
@@ -8,7 +9,7 @@ function db_user_getId($con, $uid){
 
     $resObj = $collection->findOne($filter);
 
-    if(empty($resObj)){
+    if (empty($resObj)) {
         return null;
     }
 

@@ -1,17 +1,17 @@
 <?php
-    
-    function db_user_emailExists($con, $email){
-        $col =  "users";
-        $collection = $con->$col;
 
-        $filter = ['email' => ['$eq' => $email]];
+function db_user_emailExists($con, $email)
+{
+    $col =  "users";
+    $collection = $con->$col;
 
-        $cursor = $collection->find($filter);
+    $filter = ['email' => ['$eq' => $email]];
 
-        foreach($cursor as $doc){
-            return true;
-        }
+    $cursor = $collection->find($filter);
 
-        return false;
+    foreach ($cursor as $doc) {
+        return true;
     }
-?>
+
+    return false;
+}
