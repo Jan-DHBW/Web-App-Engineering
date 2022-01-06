@@ -3,8 +3,13 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function db_user_sendAuthEmail($con, $name, $email, $pwdHash)
+function db_user_sendAuthEmail($con, $id, $name, $email, $authHashToken)
 {
+
+    $con->users;
+    $filter = ['_id' => ['eq' => $id]];
+
+
     $mail = new PHPMailer(true);
 
     $mail->IsSMTP(); // telling the class to use SMTP
@@ -19,7 +24,7 @@ function db_user_sendAuthEmail($con, $name, $email, $pwdHash)
     $mail->setFrom("my.dnd.spellbook@gmail.com", "dnd spellbook");
     $mail->addAddress($email, $name);
     $mail->Subject = 'DnD Spellbook email authentification';
-    $mail->Body = 'Please confirm the following link: <a href="http://'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$pwdHash.'">'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$pwdHash.'</a>';
+    $mail->Body = 'Please confirm the following link: <a href="http://'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'">'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'</a>';
 
     return $mail->send();
 }
