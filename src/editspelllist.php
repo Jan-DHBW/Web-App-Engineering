@@ -99,16 +99,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                <!--<tr>
-                        <th scope="row">1</th>
-                        <td>Fireball</td>
-                        <td>xx</td>
-                        <td>120</td>
-                        <td>Idk</td>
-                        <td>old</td>
-                        <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
-                    </tr> !-->
-
                     <?php
                     for ($i = 1; $i <= 20; $i++) {
                     ?>

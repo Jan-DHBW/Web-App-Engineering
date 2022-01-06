@@ -85,26 +85,18 @@
             width: -webkit-fill-available;
         ">
             <h1>
-                <center>Create new character</center>
+                <center>Delete account</center>
             </h1>
+            <br>
+            <h4><center>Please enter your email adress and a verification link will be sent to you. </center></h4>
             <br>
             <form style="
                 justify-content: center;
                 display: grid;
             ">
                 <div>
-                    <label>Name:</label><br>
-                    <input type="text">
-                </div><br>
-
-                <div>
-                    <label>Class:</label><br>
-                    <input>
-                </div><br>
-
-                <div>
-                    <label>Level:</label><br>
-                    <input>
+                    <label>Email:</label><br>
+                    <input type="text" size="35">
                 </div><br>
 
                 <div>
@@ -114,6 +106,7 @@
                             location.href = "choosechar.php";
                         };
                     </script>
+
                     <button id="subNewChar" type="button" class="btn btn-primary" name="btnSubNewChar">Submit</button>
                     <script type="text/javascript">
                         document.getElementById("subnewChar").onclick = function() {

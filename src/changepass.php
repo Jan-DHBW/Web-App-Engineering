@@ -83,9 +83,9 @@
 
         <div style="
             width: -webkit-fill-available;
-        ">
+            ">
             <h1>
-                <center>Create new character</center>
+                <center>Change password</center>
             </h1>
             <br>
             <form style="
@@ -93,18 +93,18 @@
                 display: grid;
             ">
                 <div>
-                    <label>Name:</label><br>
-                    <input type="text">
+                    <label>Old password:</label><br>
+                    <input type="password">
                 </div><br>
 
                 <div>
-                    <label>Class:</label><br>
-                    <input>
+                    <label>New password:</label><br>
+                    <input type="password">
                 </div><br>
 
                 <div>
-                    <label>Level:</label><br>
-                    <input>
+                    <label>Confirm new password:</label><br>
+                    <input type="password">
                 </div><br>
 
                 <div>
@@ -114,9 +114,9 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="subNewChar" type="button" class="btn btn-primary" name="btnSubNewChar">Submit</button>
+                    <button id="changePw" type="button" class="btn btn-primary" name="btnChangePw">Change password!</button>
                     <script type="text/javascript">
-                        document.getElementById("subnewChar").onclick = function() {
+                        document.getElementById("changePw").onclick = function() {
                             location.href = "";
                         };
                     </script>
