@@ -1,15 +1,16 @@
 <?php
-    function db_user_createUser($con, $name, $email, $pwd){
-        $col = "users";
+function db_user_createUser($con, $name, $email, $pwd)
+{
+    $col = "users";
 
-        $collection = $con->$col;
+    $collection = $con->$col;
 
-        $newDocument = array(
-            "uid" => $name,
-            "email" => $email,
-            "pwd" => $pwd
-        );
+    $newDocument = array(
+        "uid" => $name,
+        "email" => $email,
+        "pwd" => $pwd,
+        "isVerified" => false
+    );
 
-        $collection->insertOne($newDocument);
-    }
-?>
+    $collection->insertOne($newDocument);
+}
