@@ -83,8 +83,7 @@
 
         <div id="global">
             <h1>
-                <center>Character's Spelllist</center>
-                <center><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></center>
+                <center>Global Spells</center>
             </h1>
             <table class="table text-white">
                 <thead>

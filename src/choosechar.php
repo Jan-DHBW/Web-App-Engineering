@@ -1,10 +1,10 @@
-<?php 
-    session_start();
-    require_once("inc/db/dbh.inc.php");
-    require_once("inc/db/db.character.class.inc.php");
-    require_once("inc/db/db.char.function.inc.php");
-    require_once("inc/choosechar-functions.inc.php");
-    
+<?php
+session_start();
+require_once("inc/db/dbh.inc.php");
+require_once("inc/db/db.character.class.inc.php");
+require_once("inc/db/db.char.function.inc.php");
+require_once("inc/choosechar-functions.inc.php");
+
 ?>
 
 
@@ -92,9 +92,16 @@
         ?>
 
         <div id="firstchoose">
-            <h1><center>Characters</center></h1>
+            <h1>
+                <center>Characters</center>
+            </h1>
             <div class="table-actions">
-               <button type="buton" class="btn btn-primary" name="btnNewCharacter">New Character</button>
+                <button id="btnNewChar" type="button" class="btn btn-primary" name="btnNewCharacter">New Character</button>
+                <script type="text/javascript">
+                    document.getElementById("btnNewChar").onclick = function() {
+                        location.href = "createchar.php";
+                    };
+                </script>
             </div>
             <table class="table text-white">
                 <thead>
@@ -107,9 +114,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <?php
-                            showCharacters($DB_spellbook, $_SESSION['current_user_id']);
-                        ?>
+                    <?php
+                    showCharacters($DB_spellbook, $_SESSION['current_user_id']);
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -101,12 +101,22 @@
                     <label>Level:</label><br>
                     <input>
                 </div><br>
-                
+
                 <div>
-                    <button>Cancel</button>
-                    <button>Submit</button>
+                    <button id="goMain" type="button" class="btn btn-primary" name="btnCancel">Cancel</button>
+                    <script type="text/javascript">
+                        document.getElementById("goMain").onclick = function() {
+                            location.href = "choosechar.php";
+                        };
+                    </script>
+                    <button id="subNewChar" type="button" class="btn btn-primary" name="btnSubNewChar">Submit</button>
+                    <script type="text/javascript">
+                        document.getElementById("subnewChar").onclick = function() {
+                            location.href = "";
+                        };
+                    </script>
                 </div>
-                
+
             </form>
         </div>
     </main>
