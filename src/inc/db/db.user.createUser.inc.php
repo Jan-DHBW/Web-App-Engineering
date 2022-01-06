@@ -1,16 +1,16 @@
 <?php
-function db_user_createUser($con, $name, $email, $pwd)
+function db_user_createUser($con, $name, $email, $pwdHash)
 {
-    $col = "users";
-
-    $collection = $con->$col;
+    $collection = $con->users;
 
     $newDocument = array(
         "uid" => $name,
         "email" => $email,
-        "pwd" => $pwd,
+        "pwd" => $pwdHash,
         "isVerified" => false
     );
 
-    $collection->insertOne($newDocument);
+    $insertOneResult = $collection->insertOne($newDocument);
+
+    return (string) $insertOneResult->getInsertedId();
 }

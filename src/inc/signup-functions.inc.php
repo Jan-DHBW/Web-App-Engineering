@@ -48,22 +48,20 @@ function uidExists($con, $uid)
     return db_user_uidExists($con, $uid);
 }
 
-function createUser($con, $name, $email, $pwd)
+function createUser($con, $uid, $email, $pwd)
 {
     $isSuccesfull = false;
     $hash = hashPwd($pwd);
 
-    $session = $con->startSession();
-
     try {
 
-        db_user_createUser($session, $name, $email, $hash);
-        db_user_sendAuthEmail($session, $name, $email, $hash);
+        $_id = db_user_createUser($con, $uid, $email, $hash);
+        db_user_sendAuthEmail($con, $_id, $uid, $email, hashPwd($_id));
 
-        $session->commitTransaction();
+        
         $isSuccesfull = true;
     } catch (Exception $ex) {
-        $session->abortTransaction();
+        
     }
 
     return $isSuccesfull;
