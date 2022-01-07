@@ -6,9 +6,13 @@ use PHPMailer\PHPMailer\SMTP;
 function db_user_sendAuthEmail($con, $id, $name, $email, $authHashToken)
 {
 
-    $con->users;
-    $filter = ['_id' => ['eq' => $id]];
+    $collection = $con->users;
+    
 
+    $updateOneResult = $collection->updateOne(
+        ['_id' => ['eq' => new MongoDB\BSON\ObjectId($id)]],
+        ['$set' => ['authHashToken' => $authHashToken]]
+    );
 
     $mail = new PHPMailer(true);
 
@@ -24,7 +28,7 @@ function db_user_sendAuthEmail($con, $id, $name, $email, $authHashToken)
     $mail->setFrom("my.dnd.spellbook@gmail.com", "dnd spellbook");
     $mail->addAddress($email, $name);
     $mail->Subject = 'DnD Spellbook email authentification';
-    $mail->Body = 'Please confirm the following link: <a href="http://'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'">'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'</a>';
+    $mail->MsgHTML('<p>Please confirm the following link: <a href="http://'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'">'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'</a></p>');
 
     return $mail->send();
 }
