@@ -12,7 +12,10 @@ function verifyPwd($pwd, $hash)
 function getAuthHashToken($text)
 {
     $hash = password_hash($text, PASSWORD_ARGON2ID);
-    $authHashToken = substr($hash, strpos($hash, "$"));
+
+    $revHash = strrev($hash);
+    $revAuthHashToken = substr($revHash, 0, strpos($revHash, "$"));
+    $authHashToken = strrev($revAuthHashToken);
 
     return $authHashToken;
 }
