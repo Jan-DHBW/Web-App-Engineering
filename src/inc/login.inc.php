@@ -7,7 +7,7 @@
         require_once("db/db.user.uidExists.inc.php");
         require_once("db/db.user.getId.inc.php");
         require_once("db/db.user.verifyPassword.inc.php");
-        require_once("pwd.inc.php");
+        require_once("hash.inc.php");
         require_once("login-functions.inc.php");
 
         if(emptyInputLogin($uid, $pwd) !== false){
