@@ -1,7 +1,5 @@
 <?php
     if(isset($_POST)){
-        $uid = addslashes($_POST["uid"]);
-        $pwd =  addslashes($_POST["pwd"]);
         
         require_once("db/dbh.inc.php");
         require_once("db/db.user.uidExists.inc.php");
@@ -10,19 +8,23 @@
         require_once("hash.inc.php");
         require_once("login-functions.inc.php");
 
-        if(emptyInputLogin($uid, $pwd) !== false){
+        //TODO:sanitize user input
+        $name = $_POST["uid"];
+        $pwd =  $_POST["pwd"];
+
+        if(emptyInputLogin($name, $pwd) !== false){
             header("location: ../login.php?err=emptyInput");
             exit();
         }
 
-        if(!verifyLogin($DB, $uid, $pwd)){
+        if(!verifyLogin($DB, $name, $pwd)){
             header("location: ../login.php?err=incorrectLogin");
             exit();
         }
        
         session_start();
 
-        $_SESSION['current_user_id'] = getUserId($DB, $uid);
+        $_SESSION['current_user_id'] = getUserId($DB, $name);
 
         header("location: ../choosechar.php?msg=successfullLogin");
 

@@ -1,10 +1,10 @@
 <?php
 
-function db_user_getId($con, $uid)
+function db_user_getId($con, $name)
 {
     $collection = $con->users;
 
-    $filter = ['uid' => ['$eq' => $uid]];
+    $filter = ['name' => ['$eq' => $uid]];
 
     $findOneResult = $collection->findOne($filter);
 

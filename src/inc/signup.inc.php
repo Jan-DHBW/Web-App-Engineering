@@ -11,7 +11,7 @@ if (isset($_POST)) {
     require_once("hash.inc.php");
     require_once("signup-functions.inc.php");
 
-    $uid = sanitize($_POST["uid"]);
+    $name = sanitize($_POST["uid"]);
     $email = sanitizeEmail($_POST["email"]);
     $emailRepeat = sanitizeEmail($_POST["emailRepeat"]);
     $pwd = addslashes($_POST["pwd"]);
@@ -19,12 +19,12 @@ if (isset($_POST)) {
 
     
 
-    if (emptyInput($uid, $email, $emailRepeat, $pwd, $pwdRepeat) !== false) {
+    if (emptyInput($name, $email, $emailRepeat, $pwd, $pwdRepeat) !== false) {
         header("location: ../signup.php?err=emptyInput");
         exit();
     }
 
-    if (invalidUid($uid) !== false) {
+    if (invalidName($name) !== false) {
         header("location: ../signup.php?err=invalidUid");
         exit();
     }
@@ -49,7 +49,7 @@ if (isset($_POST)) {
         exit();
     }
 
-    if (uidExists($DB, $uid) !== false) {
+    if (nameExists($DB, $name) !== false) {
         header("location: ../signup.php?err=uidTaken");
         exit();
     }

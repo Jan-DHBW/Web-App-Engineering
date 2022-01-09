@@ -4,7 +4,7 @@ function db_user_createUser($con, $name, $email, $pwdHash)
     $collection = $con->users;
 
     $newDocument = array(
-        "uid" => $name,
+        "name" => $name,
         "email" => $email,
         "pwd" => $pwdHash,
         "isVerified" => false
