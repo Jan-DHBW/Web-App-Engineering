@@ -5,7 +5,7 @@ if (isset($_POST)) {
 
     require_once("db/dbh.inc.php");
     require_once("db/db.user.createUser.inc.php");
-    require_once("db/db.user.uidExists.inc.php");
+    require_once("db/db.user.nameExists.inc.php");
     require_once("db/db.user.emailExists.inc.php");
     require_once("db/db.user.createHashTokenAuthEmail.inc.php");
     require_once("hash.inc.php");
@@ -55,7 +55,7 @@ if (isset($_POST)) {
     }
 
     //create new user
-    $uid = createUser($DB, $uid, $email, $pwd);
+    $uid = createUser($DB, $name, $email, $pwd);
 
     //create auth hash token
     $token = createAuthHashToken($DB, $uid);

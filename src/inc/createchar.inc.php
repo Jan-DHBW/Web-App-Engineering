@@ -9,14 +9,14 @@ if(isset($_POST['btnSubNewChar'])){
     require_once('hash.inc.php');
     require_once('db/dbh.inc.php');
     require_once('db/db.char.createCharacter.inc.php');
-    require_once('db/db.user.oIDExists.inc.php');
+    require_once('db/db.user.uidExists.inc.php');
 
     //check user id isset
 
     $name = $_POST['name'];
     $class = $_POST['class'];
     $level = $_POST['level'];
-    $oID = $_SESSION['current_user_id'];
+    $oID = $_SESSION['uid'];
 
     //check all vars isset
 

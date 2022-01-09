@@ -49,7 +49,7 @@ function pwdMatch($pwd, $pwdRepeat)
 
 function nameExists($con, $name)
 {
-    return db_user_uidExists($con, $name);
+    return db_user_nameExists($con, $name);
 }
 
 function createUser($con, $name, $email, $pwd)

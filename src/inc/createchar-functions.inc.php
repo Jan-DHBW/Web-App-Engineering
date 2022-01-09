@@ -33,6 +33,6 @@ function invalidClass($class)
 
 function invalidUserId($con, $id)
 {
-    return !db_user_oIDExists($con, $id);
+    return !db_user_uidExists($con, $id);
 }
 

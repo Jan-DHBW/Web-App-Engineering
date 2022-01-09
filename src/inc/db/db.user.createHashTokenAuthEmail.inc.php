@@ -1,12 +1,12 @@
 <?php
 
-function db_user_createHashTokenAuthEmail($con, $id, $hashToken)
+function db_user_createHashTokenAuthEmail($con, $uid, $hashToken)
 {
 
     $collection = $con->users;
 
     $updateOneResult = $collection->updateOne(
-        ['_id' => ['$eq' => new MongoDB\BSON\ObjectId($id)]],
+        ['uid' => ['$eq' => $uid]],
         ['$set' => ['authHashToken' => $hashToken]]
     );
     
