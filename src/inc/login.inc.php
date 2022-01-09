@@ -24,7 +24,7 @@
        
         session_start();
 
-        $_SESSION['current_user_id'] = getUIDByName($DB, $name);
+        $_SESSION['uid'] = getUIDByName($DB, $name);
 
         header("location: ../choosechar.php?msg=successfullLogin");
 
