@@ -4,7 +4,7 @@ function db_user_getId($con, $name)
 {
     $collection = $con->users;
 
-    $filter = ['name' => ['$eq' => $uid]];
+    $filter = ['name' => ['$eq' => $name]];
 
     $findOneResult = $collection->findOne($filter);
 
@@ -12,5 +12,5 @@ function db_user_getId($con, $name)
         return false;
     }
 
-    return (string) $findOneResult['_id'];
+    return (string) $findOneResult['uid'];
 }
