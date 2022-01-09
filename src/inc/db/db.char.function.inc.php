@@ -40,7 +40,6 @@ function db_char_getCharsByUserId($con, $user_id)
 
     foreach ($cursor as $doc) {
         $elmt = new Character();
-        $elmt->_id = (string) $doc['_id'];
         $elmt->name = $doc['name'];
         $elmt->level = $doc['level'];
         $elmt->user_id = $doc['user_id'];
