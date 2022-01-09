@@ -88,7 +88,7 @@
                 <center>Create new character</center>
             </h1>
             <br>
-            <form style="
+            <form action= "inc/createchar.inc.php" method="POST" style="
                 justify-content: center;
                 display: grid;
             ">
@@ -114,7 +114,7 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="subNewChar" type="submitt" class="btn btn-primary" name="btnSubNewChar" value="true">Submit</button>
+                    <button id="subNewChar" type="submit" class="btn btn-primary" name="btnSubNewChar" value="true">Submit</button>
                 </div>
 
             </form>

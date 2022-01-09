@@ -12,24 +12,27 @@ function emptyInput($userId, $name, $level, $class)
 
 function invalidName($name)
 {
-    return true;
+    return !preg_match('/^[a-z0-9\040\.\-]+$/i', $name);
 }
 
 
 function invalidLevel($level)
 {
-    return true;
+    if(!preg_match('/^[0-9]/', $level))  return true;
+    if($level > 20) return true;    
+
+    return false;
 }
 
 
 function invalidClass($class)
 {
-    return true;
+    return preg_match('/[^a-zA-Z\s:-]+/', $class);
 }
 
 
-function userIdExists()
+function invalidUserId($con, $id)
 {
-    return false;
+    return !db_user_oIDExists($con, $id);
 }
 

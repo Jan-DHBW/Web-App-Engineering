@@ -15,7 +15,7 @@ function db_char_createCharacter($con, $uid, $name, $class, $level){
         return false;
     }
 
-    return (string) $insertOneResult['_id'];
+    return (string) $insertOneResult->getInsertedId();
 }
 
 
