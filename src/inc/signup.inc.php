@@ -2,19 +2,23 @@
 
 
 if (isset($_POST)) {
-    $uid = addslashes($_POST["uid"]);
-    $email = addslashes($_POST["email"]);
-    $emailRepeat = addslashes($_POST["emailRepeat"]);
-    $pwd = addslashes($_POST["pwd"]);
-    $pwdRepeat = addslashes($_POST["pwdRepeat"]);
 
     require_once("db/dbh.inc.php");
     require_once("db/db.user.createUser.inc.php");
     require_once("db/db.user.uidExists.inc.php");
     require_once("db/db.user.emailExists.inc.php");
-    require_once("db/db.user.sendAuthEmail.inc.php");
+    require_once("db/db.user.createHashTokenAuthEmail.inc.php");
+    require_once("sendEmail.inc.php");
     require_once("hash.inc.php");
     require_once("signup-functions.inc.php");
+
+    $uid = sanitize($_POST["uid"]);
+    $email = sanitizeEmail($_POST["email"]);
+    $emailRepeat = sanitizeEmail($_POST["emailRepeat"]);
+    $pwd = addslashes($_POST["pwd"]);
+    $pwdRepeat = addslashes($_POST["pwdRepeat"]);
+
+    
 
     if (emptyInputSignup($uid, $email, $emailRepeat, $pwd, $pwdRepeat) !== false) {
         header("location: ../signup.php?err=emptyInput");
@@ -36,7 +40,7 @@ if (isset($_POST)) {
         exit();
     }
 
-    if (emailExists($DB_spellbook, $email) !== false) {
+    if (emailExists($DB, $email) !== false) {
         header("location: ../signup.php?err=emailTaken");
         exit();
     }
@@ -46,16 +50,21 @@ if (isset($_POST)) {
         exit();
     }
 
-    if (uidExists($DB_spellbook, $uid) !== false) {
+    if (uidExists($DB, $uid) !== false) {
         header("location: ../signup.php?err=uidTaken");
         exit();
     }
 
-    if (!createUser($DB_spellbook, $uid, $email, $pwd)) {
-        header("location: ../signup.php?err=signUpFailed");
-    } else {
-        header("location: ../login.php?msg=signedUp");
-    }
+    //create new user
+    $_id = createUser($DB, $uid, $email, $pwd);
+
+    //create auth hash token
+    $token = createAuthHashToken($DB, $_id);
+
+    //send email with auth token
+    sendEmailAuthEmail($email, $token);
+
+    header("location: ../../index.html");
 } else {
     header("location: ../signup.php");
     exit();

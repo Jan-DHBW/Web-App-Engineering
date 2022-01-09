@@ -115,7 +115,7 @@ require_once("inc/choosechar-functions.inc.php");
                 </thead>
                 <tbody>
                     <?php
-                    showCharacters($DB_spellbook, $_SESSION['current_user_id']);
+                    showCharacters($DB, $_SESSION['current_user_id']);
                     ?>
                 </tbody>
             </table>

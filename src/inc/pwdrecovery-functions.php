@@ -3,16 +3,23 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function db_user_sendAuthEmail($con, $id, $name, $email, $authHashToken)
+
+function emailExists($con, $email){
+    return db_user_emailExists($con, $email);
+}
+
+function createResetHashToken($con, $email){
+    $hashToken = getHashToken($email);
+
+    db_user_createHashTokenResetPwd($con, $email, $hashToken);
+
+    return $hashToken;
+}
+
+function sendEmailResetPwd($email, $hashToken)
 {
 
-    $collection = $con->users;
-    
-
-    $updateOneResult = $collection->updateOne(
-        ['_id' => ['eq' => new MongoDB\BSON\ObjectId($id)]],
-        ['$set' => ['authHashToken' => $authHashToken]]
-    );
+    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authResetPwd.php?token='.$hashToken;
 
     $mail = new PHPMailer(true);
 
@@ -26,9 +33,10 @@ function db_user_sendAuthEmail($con, $id, $name, $email, $authHashToken)
     $mail->Password = "29!20BWHdmQS_p"; // GMAIL password
 
     $mail->setFrom("my.dnd.spellbook@gmail.com", "dnd spellbook");
-    $mail->addAddress($email, $name);
-    $mail->Subject = 'DnD Spellbook email authentification';
-    $mail->MsgHTML('<p>Please confirm the following link: <a href="http://'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'">'.$_SERVER["SERVER_NAME"].'/auth.php?auth='.$authHashToken.'</a></p>');
+
+    $mail->addAddress($email, ''); 
+    $mail->Subject = 'DnD Spellbook reset password';
+    $mail->MsgHTML('<p>Reset your password by clicking the following Link: <a href="'.$link.'">'.$link.'</a></p>');
 
     return $mail->send();
 }

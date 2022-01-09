@@ -15,14 +15,14 @@
             exit();
         }
 
-        if(!verifyLogin($DB_spellbook, $uid, $pwd)){
+        if(!verifyLogin($DB, $uid, $pwd)){
             header("location: ../login.php?err=incorrectLogin");
             exit();
         }
        
         session_start();
 
-        $_SESSION['current_user_id'] = getUserId($DB_spellbook, $uid);
+        $_SESSION['current_user_id'] = getUserId($DB, $uid);
 
         header("location: ../choosechar.php?msg=successfullLogin");
 

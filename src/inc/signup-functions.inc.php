@@ -1,4 +1,8 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+
 function emptyInputSignup($name, $email, $emailRepeat, $pwd, $pwdRepeat)
 {
     if (empty($name)) return true;
@@ -50,19 +54,39 @@ function uidExists($con, $uid)
 
 function createUser($con, $uid, $email, $pwd)
 {
-    $isSuccesfull = false;
-    $hash = hashPwd($pwd);
+    return db_user_createUser($con, $uid, $email, hashPwd($pwd));;
+}
 
-    try {
+function createAuthHashToken($con, $id)
+{
+    $token = getHashToken((string) $id);
 
-        $_id = db_user_createUser($con, $uid, $email, $hash);
-        db_user_sendAuthEmail($con, $_id, $uid, $email, hashPwd($_id));
+    db_user_createHashTokenAuthEmail($con, $id, $token);
 
-        
-        $isSuccesfull = true;
-    } catch (Exception $ex) {
-        
-    }
+    return $token;
+}
 
-    return $isSuccesfull;
+
+function sendEmailAuthEmail($email, $token) 
+{   
+    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authEmail.php?token='.$token;
+
+    $mail = new PHPMailer(true);
+
+    $mail->IsSMTP(); // telling the class to use SMTP
+    $mail->SMTPDebug = 0;
+    $mail->SMTPAuth = true; // enable SMTP authentication
+    $mail->SMTPSecure = "tls"; // sets the prefix to the servier
+    $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
+    $mail->Port = 587; // set the SMTP port for the GMAIL server
+    $mail->Username = "my.dnd.spellbook@gmail.com"; // GMAIL username
+    $mail->Password = "29!20BWHdmQS_p"; // GMAIL password
+
+    $mail->setFrom("my.dnd.spellbook@gmail.com", "dnd spellbook");
+
+    $mail->addAddress($email, '');
+    $mail->Subject = 'DnD Spellbook email authentification';
+    $mail->MsgHTML('<p>Please confirm your email by clicking the following link: <a href="'.$link.'">'.$link.'</a></p>');
+
+    return $mail->send();
 }
