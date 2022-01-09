@@ -9,7 +9,7 @@ if(isset($_GET['token'])){
     //sanatize parameter
     $token = $_GET['token'];
 
-    //TODO: check token valid
+    //check token valid
     //TODO: check toke expired
     if(isTokenValid($DB, $token) === false){
         header('location: errorPage.php?err=pageNotFound');
