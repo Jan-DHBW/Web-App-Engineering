@@ -2,16 +2,15 @@
 
 function db_user_getId($con, $uid)
 {
-    $col = "users";
-    $collection = $con->$col;
+    $collection = $con->users;
 
     $filter = ['uid' => ['$eq' => $uid]];
 
-    $resObj = $collection->findOne($filter);
+    $findOneResult = $collection->findOne($filter);
 
-    if (empty($resObj)) {
-        return null;
+    if (empty($findOneResult)) {
+        return false;
     }
 
-    return (string) $resObj['_id'];
+    return (string) $findOneResult['_id'];
 }
