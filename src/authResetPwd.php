@@ -3,14 +3,16 @@
 if(isset($_GET['token'])){
     //requirements
     require_once("inc/head.inc.php");
+    require_once("inc/db/dbh.inc.php");
+    require_once("inc/db/db.user.isValidHashTokenResetPwd.inc.php");
 
     //sanatize parameter
     $token = $_GET['token'];
 
     //TODO: check token valid
     //TODO: check toke expired
-    if(isTokenValid($token) === false){
-        
+    if(isTokenValid($DB, $token) === false){
+        header('location: errorPage.php?err=pageNotFound');
         exit();
     }
 
@@ -29,6 +31,7 @@ if(isset($_GET['token'])){
     //redirect to other site
 }
 
-function isTokenValid(){
 
+function isTokenValid($con, $token){
+    return db_user_isValidHashTokenResetPwd($con, $token);
 }
