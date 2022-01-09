@@ -94,17 +94,17 @@
             ">
                 <div>
                     <label>Name:</label><br>
-                    <input type="text">
+                    <input type="text" name="name">
                 </div><br>
 
                 <div>
                     <label>Class:</label><br>
-                    <input>
+                    <input type="text" name="class">
                 </div><br>
 
                 <div>
                     <label>Level:</label><br>
-                    <input>
+                    <input type="text" name="level">
                 </div><br>
 
                 <div>
@@ -114,12 +114,7 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="subNewChar" type="button" class="btn btn-primary" name="btnSubNewChar">Submit</button>
-                    <script type="text/javascript">
-                        document.getElementById("subnewChar").onclick = function() {
-                            location.href = "";
-                        };
-                    </script>
+                    <button id="subNewChar" type="submitt" class="btn btn-primary" name="btnSubNewChar" value="true">Submit</button>
                 </div>
 
             </form>
