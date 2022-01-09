@@ -15,7 +15,7 @@
         return db_user_verifyPassword($con, $name, $pwd);
     }
 
-    function getUserId($con, $name){
+    function getUIDByName($con, $name){
         return db_user_getId($con, $name);
     }
 
