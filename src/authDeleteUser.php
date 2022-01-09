@@ -6,7 +6,7 @@ if(isset($_GET['token'])){
     require_once("inc/hash.inc.php");
 
     //sanatize parameter
-    $token = sanitizeAuthHashToken($_GET['token']);
+    $token = sanitizeHashToken($_GET['token']);
 
     //TODO: check toke expired
 
