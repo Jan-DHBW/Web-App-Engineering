@@ -16,6 +16,7 @@ if (isset($_POST['pwdrecovery'])) {
     if(emailExists($DB, $email) === false){
         //redirect somewhere else
         header("location: ../requestResetPwd.php?msg=requestSent");
+        exit();
     }
 
     //create reset token

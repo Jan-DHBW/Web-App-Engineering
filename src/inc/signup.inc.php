@@ -8,7 +8,6 @@ if (isset($_POST)) {
     require_once("db/db.user.uidExists.inc.php");
     require_once("db/db.user.emailExists.inc.php");
     require_once("db/db.user.createHashTokenAuthEmail.inc.php");
-    require_once("sendEmail.inc.php");
     require_once("hash.inc.php");
     require_once("signup-functions.inc.php");
 

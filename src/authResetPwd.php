@@ -8,6 +8,8 @@ if(isset($_GET['token'])){
     //sanatize parameter
     $token = sanitizeHashToken($_GET['token']);
 
+    //TODO: check token valid
+
     //TODO: check toke expired
 
     $collection = $DB->users;
@@ -18,4 +20,5 @@ if(isset($_GET['token'])){
     );
 
     //redirect to other site
+    header('location: ../resetPwd.php?token='.$token);
 }
