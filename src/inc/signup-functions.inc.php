@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function emptyInputSignup($name, $email, $emailRepeat, $pwd, $pwdRepeat)
+function emptyInput($name, $email, $emailRepeat, $pwd, $pwdRepeat)
 {
     if (empty($name)) return true;
     if (empty($email)) return true;

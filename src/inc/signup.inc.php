@@ -19,7 +19,7 @@ if (isset($_POST)) {
 
     
 
-    if (emptyInputSignup($uid, $email, $emailRepeat, $pwd, $pwdRepeat) !== false) {
+    if (emptyInput($uid, $email, $emailRepeat, $pwd, $pwdRepeat) !== false) {
         header("location: ../signup.php?err=emptyInput");
         exit();
     }
