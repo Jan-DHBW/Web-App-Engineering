@@ -11,7 +11,7 @@
         return db_user_uidExists($con, $name);
     }
 
-    function verifyLogin($con, $uid, $pwd){
+    function verifyLogin($con, $name, $pwd){
         return db_user_verifyPassword($con, $name, $pwd);
     }
 
