@@ -15,7 +15,7 @@ if (isset($_POST['pwdrecovery'])) {
     //check email exists
     if(emailExists($DB, $email) === false){
         //redirect somewhere else
-        header("location: ../requestResetPwd.php?msg=requestSent");
+        header("location: ../pwdrecovery.php?msg=requestSent");
         exit();
     }
 
@@ -26,5 +26,5 @@ if (isset($_POST['pwdrecovery'])) {
     sendEmailResetPwd($email, $token);
 
     //redirect somewhere else
-    header("location: ../requestResetPwd.php?msg=requestSent");
+    header("location: ../pwdrecovery.php?msg=requestSent");
 }

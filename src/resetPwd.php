@@ -9,7 +9,7 @@
         <input type="password" placeholder="Enter Password" name="pwd" required>
         <label for="pwdRepeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Repeat Password" name="pwdRepeat" required>
-        <button name="pwdrecovery" type="submit" value="true">Save New Password</button>
+        <button name="resetpwd" type="submit" value="true">Save New Password</button>
         <div id="err"></div>
     </form>
 
