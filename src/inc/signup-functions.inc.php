@@ -53,8 +53,10 @@ function nameExists($con, $name)
 }
 
 function createUser($con, $name, $email, $pwd)
-{
-    return db_user_createUser($con, $name, $email, hashPwd($pwd));;
+{   
+    $uid = getHashToken($name);
+    db_user_createUser($con, $uid, $name, $email, hashPwd($pwd));
+    return $uid;
 }
 
 function createAuthHashToken($con, $id)

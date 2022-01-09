@@ -55,10 +55,10 @@ if (isset($_POST)) {
     }
 
     //create new user
-    $_id = createUser($DB, $uid, $email, $pwd);
+    $uid = createUser($DB, $uid, $email, $pwd);
 
     //create auth hash token
-    $token = createAuthHashToken($DB, $_id);
+    $token = createAuthHashToken($DB, $uid);
 
     //send email with auth token
     sendEmailAuthEmail($email, $token);
