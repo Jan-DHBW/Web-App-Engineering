@@ -16,7 +16,7 @@ if(isset($_POST['btnSubNewChar'])){
     $name = $_POST['name'];
     $class = $_POST['class'];
     $level = $_POST['level'];
-    $oID = $_SESSION['uid'];
+    $uid = $_SESSION['uid'];
 
     //check all vars isset
 
