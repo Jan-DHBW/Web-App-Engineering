@@ -20,14 +20,14 @@ if(isset($_POST['btnSubNewChar'])){
 
     //check all vars isset
 
-    if(emptyInput($oID, $name, $level, $class))
+    if(emptyInput($uid, $name, $level, $class))
     {
         header("location: ../createchar.inc.php?err=emptyInput");
         exit();
     }
 
 
-    if(invalidUserId($DB, $oID))
+    if(!uidExists($DB, $uid))
     {
         header("location: ../createchar.inc.php?err=invalidUserId");
         exit();
@@ -54,7 +54,7 @@ if(isset($_POST['btnSubNewChar'])){
         exit();
     }
 
-    db_char_createCharacter($DB, $oID, $name, $class, $level);
+    db_char_createCharacter($DB, $uid, $name, $class, $level);
 
     header("location: ../choosechar.php");
     exit();

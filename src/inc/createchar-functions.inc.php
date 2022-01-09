@@ -1,8 +1,8 @@
 <?php
 
-function emptyInput($userId, $name, $level, $class)
+function emptyInput($uid, $name, $level, $class)
 {
-    if (empty($userId)) return true;
+    if (empty($uid)) return true;
     if (empty($name)) return true;
     if (empty($level)) return true;
     if (empty($class)) return true;
@@ -31,8 +31,8 @@ function invalidClass($class)
 }
 
 
-function invalidUserId($con, $id)
+function uidExists($con, $id)
 {
-    return !db_user_uidExists($con, $id);
+    return db_user_uidExists($con, $id);
 }
 
