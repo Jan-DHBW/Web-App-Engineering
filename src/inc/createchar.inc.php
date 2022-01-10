@@ -24,35 +24,35 @@ if(isset($_POST['btnSubNewChar'])){
 
     if(emptyInput($uid, $name, $level, $class))
     {
-        header("location: ../createchar.inc.php?err=emptyInput");
+        header("location: ../createchar.php?err=emptyInput");
         exit();
     }
 
 
     if(!uidExists($DB, $uid))
     {
-        header("location: ../createchar.inc.php?err=invalidUserId");
+        header("location: ../createchar.php?err=invalidUserId");
         exit();
     }
 
 
     if(invalidCharacterName($name))
     {
-        header("location: ../createchar.inc.php?err=invalidName");
+        header("location: ../createchar.php?err=invalidName");
         exit();
     }
 
 
     if(invalidCharacterClass($class))
     {
-        header("location: ../createchar.inc.php?err=invalidClass");
+        header("location: ../createchar.php?err=invalidClass");
         exit();
     }
 
 
     if(invalidCharacterLevel($level))
     {
-        header("location: ../createchar.inc.php?err=invalidLevel");
+        header("location: ../createchar.php?err=invalidLevel");
         exit();
     }
     
@@ -60,6 +60,6 @@ if(isset($_POST['btnSubNewChar'])){
 
     db_char_createCharacter($DB, $cid ,$uid, $name, $class, $level);
 
-    header("location: ../choosechar.php");
+    header("location: ../choosechar.php?msg=charCreated");
     exit();
 }
