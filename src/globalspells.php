@@ -5,6 +5,8 @@
     require_once('inc/db/db.spell.getSpells.inc.php');
     require_once('inc/db/db.spell.class.inc.php');
 
+    session_start();
+
 ?>
 
 

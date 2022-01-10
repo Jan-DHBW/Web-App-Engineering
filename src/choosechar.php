@@ -5,9 +5,7 @@ require_once("inc/db/db.char.function.inc.php");
 require_once("inc/choosechar-functions.inc.php");
 require_once("inc/regex.inc.php");
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 
 if(!isset($_SESSION['uid'])){
     header('location: errorPage.php?err=pageNotFound');
