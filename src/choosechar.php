@@ -9,6 +9,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+if(!isset($_SESSION['uid'])){
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
 
 $uid = sanitizeHashToken($_SESSION['uid']);
 $_SESSION['uid'] = $uid;
