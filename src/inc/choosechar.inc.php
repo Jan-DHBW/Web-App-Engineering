@@ -8,19 +8,61 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 
 session_start();
 
+
+//handle show Spells
+
 if(isset($_POST['btnShowSpells'])){
-    //validate uid
-    //validate cid
+    
+    //require dependencies
+    
+    require_once('db/dbh.inc.php');
+    require_once('db/db.char.function.inc.php');
+    require_once('hash.inc.php');
+    
+    $uid = sanitizeHashToken($_POST['uid']);     //validate uid
+    $cid = sanitizeHashToken($_POST['cid']);    //validate cid
+
+
+    if(strcmp($uid, $_SESSION['uid']) != 0){
+        header('location: ../errorPage.php?err=pageNotFound');
+        exit();
+    }
+
+    $_SESSION['cid'] = $cid;
+
+    header('location: ../charspelllist.php');
     exit();
 }
 
+
+
+//handler edic character
 
 if(isset($_POST['btnEditCharacter'])){
-    //validate uid
-    //validate cid
+
+    //require dependencies
+
+    require_once('db/dbh.inc.php');
+    require_once('db/db.char.function.inc.php');
+    require_once('hash.inc.php');
+    
+    $uid = sanitizeHashToken($_POST['uid']);     //validate uid
+    $cid = sanitizeHashToken($_POST['cid']);    //validate cid
+
+
+    if(strcmp($uid, $_SESSION['uid']) != 0){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+
+    $_SESSION['cid'] = $cid;
+
+    header('location: ../editchar.php');
     exit();
 }
 
+
+//handler delete character
 
 if(isset($_POST['btnDeleteCharacter'])){
 
@@ -35,7 +77,7 @@ if(isset($_POST['btnDeleteCharacter'])){
 
 
     if(strcmp($uid, $_SESSION['uid']) != 0){
-        header('location: ../errorPage.php?err=pageNotFound');
+        header('location: errorPage.php?err=pageNotFound');
         exit();
     }
 
@@ -43,6 +85,6 @@ if(isset($_POST['btnDeleteCharacter'])){
     db_char_deleteCharcter($DB, $uid, $cid);    //delete only the character
 
 
-    header('location: ../choosechar.php?msg=charDeleted');
+    header('location: choosechar.php?msg=charDeleted');
     exit();
 }

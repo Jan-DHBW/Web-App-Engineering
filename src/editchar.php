@@ -1,12 +1,9 @@
 <?php 
 
-    if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        header("location: ../errorPage.php?err=pageNotFound");
-        exit();
-    }
+    session_start();
 
-    if(!isset($_POST['cid']) || !isset($_POST['uid'])){
-        header("location: ../errorPage.php?err=pageNotFound");
+    if(!isset($_SESSION['cid']) || !isset($_SESSION['uid'])){
+        header("location: errorPage.php?err=pageNotFound");
         exit();
     }
 
@@ -22,8 +19,8 @@
 
 
     //sanitize user input
-    $cid = sanitizeHashToken($_POST['cid']);
-    $uid = sanitizeHashToken($_POST['uid']);
+    $cid = sanitizeHashToken($_SESSION['cid']);
+    $uid = sanitizeHashToken($_SESSION['uid']);
 
 
 ?>
