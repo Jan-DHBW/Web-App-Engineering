@@ -1,3 +1,8 @@
+<?php
+    require_once('inc/regex.inc.php')
+
+?>
+
 <h1 class="visually-hidden">Sidebars examples</h1>
 
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark nav-parent" style="width: 280px;">
