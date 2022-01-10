@@ -107,10 +107,10 @@ require_once("inc/choosechar-functions.inc.php");
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Class</th>
                         <th scope="col">Level</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
