@@ -65,6 +65,7 @@ if (isset($_POST)) {
     sendEmailAuthEmail($email, $token);
 
     header("location: ../../");
+    exit();
 } else {
     header("location: ../signup.php");
     exit();

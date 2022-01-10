@@ -31,7 +31,7 @@
         $_SESSION['username'] = $name;
 
         header("location: ../choosechar.php?msg=successfullLogin");
-
+        exit();
     }
 
 header("location: ../../");
