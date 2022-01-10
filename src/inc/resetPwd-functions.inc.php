@@ -10,23 +10,13 @@ function emptyInput($pwd, $pwdRepeat)
 
 function destroyHashTokenResetPwd($con, $token)
 {
-    $collection = $con->users;
-
-    $updateOneResult = $collection->updateOne(
-        ['resetHashToken' => ['$eq' => $token]],
-        ['$unset' => ['resetHashToken' => '']]
-    );
+    db_user_destroyHashTokenResetPwd($con, $token);
 }
 
 
 function updateUserPwd($con, $token, $pwdHash)
 {
-    $collection = $con->users;
-
-    $updateOneResult = $collection->updateOne(
-        ['resetHashToken' => ['$eq' => $token]],
-        ['$set' => ['pwd' => $pwdHash]]
-    );
+    db_user_updateUserPwd($con, $token, $pwdHash);
 }
 
 
