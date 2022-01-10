@@ -5,7 +5,9 @@ require_once("inc/db/db.char.function.inc.php");
 require_once("inc/choosechar-functions.inc.php");
 require_once("inc/regex.inc.php");
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 $uid = sanitizeHashToken($_SESSION['uid']);

@@ -1,6 +1,8 @@
 <?php 
 
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
 
     if(!isset($_SESSION['cid']) || !isset($_SESSION['uid'])){
         header("location: errorPage.php?err=pageNotFound");
