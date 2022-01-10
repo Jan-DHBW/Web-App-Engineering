@@ -18,7 +18,7 @@ if(isset($_GET['token'])){
 
     echo '<section class ="resetPwd-form">';
     echo '<h2>Sign Up</h2>';
-    echo '<form action ="inc/resetPwd.inc.php" method ="post">';
+    echo '<form action ="inc/resetPwd.inc.php" method="post">';
     echo '<label for="pwd"><b>New Password</b></label>';
     echo '<input type="password" placeholder="Enter Password" name="pwd" required>';
     echo '<label for="pwdRepeat"><b>Repeat Password</b></label>';
