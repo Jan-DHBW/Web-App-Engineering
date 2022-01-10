@@ -88,7 +88,7 @@ require_once("inc/choosechar-functions.inc.php");
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
         <div id="firstchoose">
