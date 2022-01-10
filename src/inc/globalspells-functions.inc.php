@@ -10,7 +10,7 @@ function showSpells($con){
             echo '<th scope="row">';
             echo e($spellCount);
             echo '</th>';
-            echo '<td>'.e($spell->name_).'</td>';   //name
+            echo '<td>'.e($spell->name).'</td>';   //name
             echo '<td>'.e($spell->level).'</td>';        //range
             echo '<td>'.e($spell->duration).'</td>';        //duration
             echo '<td></td>';        //school

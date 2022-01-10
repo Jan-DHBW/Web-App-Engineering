@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST)){
+    if(isset($_POST['btnLogin'])){
         
         require_once("db/dbh.inc.php");
         require_once("db/db.user.uidExists.inc.php");
@@ -31,9 +31,10 @@
         $_SESSION['username'] = $name;
 
         header("location: ../choosechar.php?msg=successfullLogin");
-
-    }else{
-        header("location: ../login.php");
         exit();
     }
-?>
+
+header("location: ../../");
+exit();
+    
+

@@ -63,3 +63,7 @@ if(isset($_POST['btnSubNewChar'])){
     header("location: ../choosechar.php?msg=charCreated");
     exit();
 }
+
+
+header("location: ../errorPage.php?err=pageNotFound");
+exit();

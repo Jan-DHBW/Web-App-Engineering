@@ -64,7 +64,8 @@ if (isset($_POST)) {
     //send email with auth token
     sendEmailAuthEmail($email, $token);
 
-    header("location: ../../index.html");
+    header("location: ../../");
+    exit();
 } else {
     header("location: ../signup.php");
     exit();
