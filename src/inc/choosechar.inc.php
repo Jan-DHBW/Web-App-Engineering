@@ -104,6 +104,6 @@ if(isset($_POST['btnDeleteCharacter'])){
     db_char_deleteCharcter($DB, $uid, $cid);    //delete only the character
 
 
-    header('location: choosechar.php?msg=charDeleted');
+    header('location: ../choosechar.php?msg=charDeleted');
     exit();
 }
