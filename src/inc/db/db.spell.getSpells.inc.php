@@ -33,6 +33,7 @@ function db_spell_getSpells($con){
 
     foreach($findResult as $elmt){
         $spell = new Spell();
+        $dbValues = json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($elmt)));
 
         $spell->_id = isset($elmt['_id']) ? $elmt['_id'] : null;
         $spell->_id = isset($elmt['index']) ? $elmt['index'] : null;
