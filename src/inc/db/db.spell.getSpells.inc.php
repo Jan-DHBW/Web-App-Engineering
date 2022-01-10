@@ -35,6 +35,7 @@ function db_spell_getSpells($con){
         $spell = new Spell();
 
         $spell->_id = isset($elmt['_id']) ? $elmt['_id'] : null;
+        $spell->_id = isset($elmt['index']) ? $elmt['index'] : null;
         $spell->name = isset($elmt['name']) ? $elmt['name'] : null;
         $spell->desc = isset($elmt['desc']) ? $elmt['desc'] : null;
         $spell->range = isset($elmt['range']) ? $elmt['range'] : null;

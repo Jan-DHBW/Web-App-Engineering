@@ -4,6 +4,7 @@ class Spell
 {
 
     public $_id;
+    public $index;
     public $name;
     public $desc;
     public $range;
