@@ -1,12 +1,12 @@
 <?php
 
-function db_char_createCharacter($con, $cid, $user_id, $name, $class, $level){
+function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
     $collection = $con->characters;
 
     $insertOneResult = $collection->insertOne(
         [   
             'cid' => $cid,
-            'user_id' => $user_id,
+            'uid' => $uid,
             'level' => $level,
             'name' => $name,
             'class' => $class           

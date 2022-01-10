@@ -31,8 +31,8 @@ function invalidClass($class)
 }
 
 
-function uidExists($con, $id)
+function uidExists($con, $uid)
 {
-    return db_user_uidExists($con, $id);
+    return db_user_uidExists($con, $uid);
 }
 
