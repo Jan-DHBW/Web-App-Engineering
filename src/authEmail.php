@@ -7,7 +7,7 @@ if(isset($_GET['token'])){
     require_once("inc/db/db.user.verifyHashTokenAuthEmail.inc.php");
     require_once("inc/db/db.user.destroyHashTokenAuthEmail.inc.php");
     require_once("inc/hash.inc.php");
-    require_once('regex.inc.php');
+    require_once('inc/regex.inc.php');
     
 
     //sanatize parameter
