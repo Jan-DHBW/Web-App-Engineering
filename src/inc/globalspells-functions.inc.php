@@ -18,7 +18,7 @@ function showSpells($con){
             echo '<td>';
                 echo '<form name"'.e($spell->index).'" action="inc/globalspells.inc.php" method="post">';
                     echo '<input type="hidden" name="id" value="'.e($spell->_id).'">';
-                    echo '<button type="submit" class="hoverctnt" title="Test............">Show Details</button>';
+                    echo '<button type="submit" onclick="togglePopup" class="btn btn-primary">Show Details</button>';
                 echo "</form>";
             echo '</td>';
             echo '</tr>';
@@ -26,3 +26,10 @@ function showSpells($con){
         $spellCount++;
     }
 }
+
+//echo '<div class="popup" id="popup-1">';
+//echo '<div class="overlay"></div>';
+//echo '<div class="content">';
+//    echo '<div class="close-btn">&times;</div>';
+//    echo '<h1>Test</h1>';
+//    echo '<p>Test is test where the test is being tested for the test.</p>';
