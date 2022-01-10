@@ -7,15 +7,21 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 }
 
 if(isset($_POST['btnShowSpells'])){
+    //validate uid
+    //validate cid
     exit();
 }
 
 
 if(isset($_POST['btnEditCharacter'])){
+    //validate uid
+    //validate cid
     exit();
 }
 
 
 if(isset($_POST['btnDeleteCharacter'])){
+    //validate uid
+    //validate cid
     exit();
 }
