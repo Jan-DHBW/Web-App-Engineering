@@ -1,9 +1,15 @@
 <?php
-session_start();
 require_once("inc/db/dbh.inc.php");
 require_once("inc/db/db.character.class.inc.php");
 require_once("inc/db/db.char.function.inc.php");
 require_once("inc/choosechar-functions.inc.php");
+require_once("inc/regex.inc.php");
+
+session_start();
+
+
+$uid = sanitizeHashToken($_SESSION['uid']);
+$_SESSION['uid'] = $uid;
 
 ?>
 
@@ -115,7 +121,7 @@ require_once("inc/choosechar-functions.inc.php");
                 </thead>
                 <tbody>
                     <?php
-                    showCharacters($DB, $_SESSION['uid']);
+                    showCharacters($DB, $uid);
                     ?>
                 </tbody>
             </table>
