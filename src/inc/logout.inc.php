@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-unset($_SESSION['current_user_id']);
+unset($_SESSION['uid']);
+unset($_SESSION['cid']);
 session_destroy();
 header("location:/");
 
