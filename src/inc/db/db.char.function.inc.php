@@ -19,11 +19,18 @@ function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
 }
 
 
-function db_char_deleteCharcter($con, $cid, $uid)
+function db_char_deleteCharcter($con, $uid, $cid)
 {
     $collection = $con->characters;
 
-    $filter = ['uid' => ['$eq' => $uid], 'cid' => ['$eq' => $cid]];
+    $deleteOneResult = $collection->deleteOne(
+        [
+            'uid' => ['$eq' => $uid], 
+            'cid' => ['$eq' => $cid]
+        ]
+    );
+
+    return $deleteOneResult;
 }
 
 
