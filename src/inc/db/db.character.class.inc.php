@@ -5,7 +5,7 @@ class Character
 
     public $name;
     public $cid;
-    public $user_id;
+    public $uid;
     public $class;
     public $spells;
     public $level;
