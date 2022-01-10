@@ -107,3 +107,6 @@ if(isset($_POST['btnDeleteCharacter'])){
     header('location: ../choosechar.php?msg=charDeleted');
     exit();
 }
+
+header("location: ../errorPage.php?err=pageNotFound");
+exit();
