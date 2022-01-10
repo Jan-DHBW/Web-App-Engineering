@@ -1,38 +1,39 @@
 <?php
-function db_char_createChar($con, $name, $user_id, $class, $level)
-{
-    $col = "characters";
-    $collection = $con->$col;
+function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
+    $collection = $con->characters;
 
-    $newChar = array(
-        "name" => $name,
-        "user_id" => $user_id,
-        "level" => $level,
-        "class" => $class
+    $insertOneResult = $collection->insertOne(
+        [   
+            'cid' => $cid,
+            'uid' => $uid,
+            'level' => $level,
+            'name' => $name,
+            'class' => $class           
+        ]);
 
+    if(empty($insertOneResult)){
+        return false;
+    }
 
-    );
-    $collection->insertOne($newChar);
-}
-
-function db_char_deleteChar($con, $char_id, $user_id)
-{
-    $col = "characters";
-    $collection = $con->$col;
-
-
-
-    $filter = ['user_id' => ['$eq' => $user_id], '_id' => ['$eq' => $char_id]];
+    return $cid;
 }
 
 
-function db_char_getCharsByUserId($con, $user_id)
+function db_char_deleteChar($con, $cid, $uid)
+{
+    $collection = $con->characters;
+
+    $filter = ['uid' => ['$eq' => $uid], 'cid' => ['$eq' => $cid]];
+}
+
+
+function db_char_getCharsByUserId($con, $uid)
 {
     $result = array();
     $col = "characters";
     $collection = $con->$col;
 
-    $filter = ['user_id' => ['$eq' => $user_id]];
+    $filter = ['uid' => ['$eq' => $uid]];
 
     $cursor = $collection->find($filter);
 

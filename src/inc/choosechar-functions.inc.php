@@ -16,7 +16,7 @@
             echo "<td>";
             echo '<form name"'.$elmtCnt.'" action="inc/choosechar.inc.php" method="post">';
             echo '<input type="hidden" name="cid" value="'.$elmt->cid.'">';
-            echo '<input type="hidden" name="uid" value="'.$elmt->user_id.'">';
+            echo '<input type="hidden" name="uid" value="'.$elmt->uid.'">';
             echo '<button type="submit" class="btn btn-primary" name="btnShowSpells" value="true">Show Spells</button>';
             echo '<button type="submit" class="btn btn-primary" name="btnEditCharacter" value="true">Edit</button>';
             echo '<button type="submit" class="btn btn-primary" name="btnDeleteCharacter" value="true">Delete</button>';
