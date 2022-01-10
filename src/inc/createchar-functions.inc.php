@@ -10,27 +10,6 @@ function emptyInput($uid, $name, $level, $class)
     return false;
 }
 
-function invalidName($name)
-{
-    return !preg_match('/^[a-z0-9\040\.\-]+$/i', $name);
-}
-
-
-function invalidLevel($level)
-{
-    if(!preg_match('/^[0-9]/', $level))  return true;
-    if($level > 20) return true;    
-
-    return false;
-}
-
-
-function invalidClass($class)
-{
-    return preg_match('/[^a-zA-Z\s:-]+/', $class);
-}
-
-
 function uidExists($con, $uid)
 {
     return db_user_uidExists($con, $uid);

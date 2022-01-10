@@ -59,3 +59,19 @@ function db_char_getCharactersByUID($con, $uid)
 
     return $result;
 }
+
+
+function db_char_updateCharacter($con, $uid, $cid, $name, $class, $level){
+    $collection = $con->characters;
+
+    $updateOneResult = $collection->updateOne(
+        ['uid'=> ['$eq' => $uid], 'cid' => ['$eq' => $cid]],                        
+        ['$set' =>['name' => $name, 'class' => $class, 'level' => $level]]
+    );
+
+    if(!isset($updateOneResult)){
+        return false;
+    }
+
+    return true;
+}

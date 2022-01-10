@@ -7,6 +7,7 @@ if(isset($_POST['btnSubNewChar'])){
     //required dependencies
     require_once('createchar-functions.inc.php');
     require_once('hash.inc.php');
+    require_once('regex.inc.php');
     require_once('db/dbh.inc.php');
     require_once('db/db.char.createCharacter.inc.php');
     require_once('db/db.user.uidExists.inc.php');
@@ -34,21 +35,21 @@ if(isset($_POST['btnSubNewChar'])){
     }
 
 
-    if(invalidName($name))
+    if(invalidCharacterName($name))
     {
         header("location: ../createchar.inc.php?err=invalidName");
         exit();
     }
 
 
-    if(invalidClass($class))
+    if(invalidCharacterClass($class))
     {
         header("location: ../createchar.inc.php?err=invalidClass");
         exit();
     }
 
 
-    if(invalidlevel($level))
+    if(invalidCharacterLevel($level))
     {
         header("location: ../createchar.inc.php?err=invalidLevel");
         exit();
