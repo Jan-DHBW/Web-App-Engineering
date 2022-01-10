@@ -40,9 +40,17 @@ function db_char_getCharactersByUID($con, $uid)
     $col = "characters";
     $collection = $con->$col;
 
-    $filter = ['uid' => ['$eq' => $uid]];
-
-    $cursor = $collection->find($filter);
+    $cursor = $collection->find(
+        ['uid' => ['$eq' => $uid]],
+        [
+            '_id' => 0,
+            'cid' => 1,
+            'uid' => 1,
+            'name' => 1,
+            'class' => 1,
+            'level' => 1
+        ]
+    );
 
 
 
