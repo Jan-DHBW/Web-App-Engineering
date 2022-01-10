@@ -1,7 +1,7 @@
 <?php
     
     function showCharacters($con, $uid){
-        $chars = db_char_getCharsByUserId($con, $uid);
+        $chars = db_char_getCharactersByUID($con, $uid);
         $elmtCnt = 0;
 
         foreach($chars as $elmt){

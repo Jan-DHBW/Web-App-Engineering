@@ -19,7 +19,7 @@ function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
 }
 
 
-function db_char_deleteChar($con, $cid, $uid)
+function db_char_deleteCharcter($con, $cid, $uid)
 {
     $collection = $con->characters;
 
@@ -27,7 +27,7 @@ function db_char_deleteChar($con, $cid, $uid)
 }
 
 
-function db_char_getCharsByUserId($con, $uid)
+function db_char_getCharactersByUID($con, $uid)
 {
     $result = array();
     $col = "characters";
