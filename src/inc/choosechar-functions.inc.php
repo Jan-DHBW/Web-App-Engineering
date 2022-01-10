@@ -6,7 +6,6 @@
 
         foreach($chars as $elmt){
             echo '<tr>';
-            echo '<form action="inc/choosechar.inc.php" methond="post">';
             echo '<th scope="row">';
             echo $elmtCnt;
             echo '</th>';
@@ -15,15 +14,17 @@
             echo "<td>{$elmt->class}</td>";
             echo "<td>{$elmt->level}</td>";
             echo "<td>";
+            echo '<form name"'.$elmtCnt.'" action="inc/choosechar.inc.php" method="post">';
             echo '<input type="hidden" name="cid" value="'.$elmt->cid.'">';
             echo '<input type="hidden" name="user_id" value="'.$elmt->user_id.'">';
             echo '<button type="submit" class="btn btn-primary" name="btnShowSpells" value="true">Show Spells</button>';
             echo '<button type="submit" class="btn btn-primary" name="btnEditCharacter" value="true">Edit</button>';
             echo '<button type="submit" class="btn btn-primary" name="btnDeleteCharacter" value="true">Delete</button>';
-            echo "</td>";
             echo "</form>";
+            echo "</td>";
             //echo "<td><button name='rowID' type='submit' value='{$elmtCnt}' formaction='choosechar.inc.php'>Show Spells</button></td>";
             echo '</tr>';
+
             $elmtCnt++;
         }
     }
