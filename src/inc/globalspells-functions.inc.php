@@ -18,7 +18,7 @@ function showSpells($con){
             echo '<td>';
                 echo '<form name"'.e($spell->index).'" action="inc/globalspells.inc.php" method="post">';
                     echo '<input type="hidden" name="id" value="'.e($spell->_id).'">';
-                    echo '<button type="submit" class="btn btn-primary" name="btnShowSpellDetails" value="true">Show Details</button>';
+                    echo '<button type="submit" class="hoverctnt" title="Test............">Show Details</button>';
                 echo "</form>";
             echo '</td>';
             echo '</tr>';
