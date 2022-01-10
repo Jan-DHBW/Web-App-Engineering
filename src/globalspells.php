@@ -101,7 +101,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Spell</th>
                         <th scope="col">Level</th>
-                        <th scope="col">Time</th>
+                        <th scope="col">Cast Time</th>
                         <th scope="col">School</th>
                         <th scope="col">Description</th>
                     </tr>

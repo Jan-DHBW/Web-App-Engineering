@@ -10,9 +10,9 @@
             echo $elmtCnt;
             echo '</th>';
             //echo '<td><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></td>';
-            echo "<td>{$elmt->name}</td>";
-            echo "<td>{$elmt->class}</td>";
-            echo "<td>{$elmt->level}</td>";
+            echo "<td>{$elmt->name}</td>";      //name
+            echo "<td>{$elmt->class}</td>";     //class
+            echo "<td>{$elmt->level}</td>";     //level
             echo "<td>";
             echo '<form name"'.$elmtCnt.'" action="inc/choosechar.inc.php" method="post">';
             echo '<input type="hidden" name="cid" value="'.$elmt->cid.'">';
