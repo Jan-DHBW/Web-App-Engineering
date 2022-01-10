@@ -9,6 +9,7 @@ if (isset($_POST)) {
     require_once("db/db.user.emailExists.inc.php");
     require_once("db/db.user.createHashTokenAuthEmail.inc.php");
     require_once("hash.inc.php");
+    require_once('regex.inc.php');
     require_once("signup-functions.inc.php");
 
     $name = sanitize($_POST["uid"]);

@@ -9,6 +9,7 @@ if(isset($_POST['btnSubNewChar'])){
     require_once('hash.inc.php');
     require_once('regex.inc.php');
     require_once('db/dbh.inc.php');
+    require_once('regex.inc.php');
     require_once('db/db.char.createCharacter.inc.php');
     require_once('db/db.user.uidExists.inc.php');
 

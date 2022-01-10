@@ -6,6 +6,7 @@
         require_once("db/db.user.getId.inc.php");
         require_once("db/db.user.verifyPassword.inc.php");
         require_once("hash.inc.php");
+        require_once('regex.inc.php');
         require_once("login-functions.inc.php");
 
         //TODO:sanitize user input

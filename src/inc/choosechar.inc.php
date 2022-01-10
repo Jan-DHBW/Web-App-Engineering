@@ -18,6 +18,7 @@ if(isset($_POST['btnShowSpells'])){
     require_once('db/dbh.inc.php');
     require_once('db/db.char.function.inc.php');
     require_once('hash.inc.php');
+    require_once('regex.inc.php');
     
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
@@ -46,6 +47,7 @@ if(isset($_POST['btnEditCharacter'])){
     require_once('db/dbh.inc.php');
     require_once('db/db.char.function.inc.php');
     require_once('hash.inc.php');
+    require_once('regex.inc.php');
     
 
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
@@ -82,6 +84,7 @@ if(isset($_POST['btnDeleteCharacter'])){
     require_once('db/dbh.inc.php');
     require_once('db/db.char.function.inc.php');
     require_once('hash.inc.php');
+    require_once('regex.inc.php');
     
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid

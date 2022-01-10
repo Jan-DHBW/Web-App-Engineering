@@ -14,6 +14,7 @@
     require_once("inc/db/db.character.class.inc.php");
     require_once("inc/db/db.char.function.inc.php");
     require_once("inc/hash.inc.php");
+    require_once('regex.inc.php');
     require_once("inc/choosechar-functions.inc.php");
 
 
