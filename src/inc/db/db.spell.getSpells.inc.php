@@ -1,15 +1,12 @@
 <?php
 
-function db_spell_getSpells($con, $uid, $cid){
-    $result;
+function db_spell_getSpells($con){
+    $result = array();
 
-    $collection = $con->characters;
+    $collection = $con->spells;
 
     $findResult = $collection->find(
-        [
-            'uid' => ['$eq' => $uid], 
-            'cid' => ['$eq' => $cid]
-        ],
+        [],
         [
             '_id' => 1,
             'index' => 0,
@@ -37,18 +34,18 @@ function db_spell_getSpells($con, $uid, $cid){
     foreach($findResult as $elmt){
         $spell = new Spell();
 
-        $spell->_id = $elmt['_id'];
-        $spell->name = $elmt['name'];
-        $spell->desc = $elmt['desc'];
-        $spell->range = $elmt['range'];
-        $spell->components = $elmt['components'];
-        $spell->material = $elmt['material'];
-        $spell->ritual = $elmt['ritual'];
-        $spell->duration = $elmt['duration'];
-        $spell->concentration = $elmt['concentration'];
-        $spell->level = $elmt['level'];
-        $spell->attack_type = $elmt['attack_type'];
-        $spell->school = $elmt['school'];
+        $spell->_id = isset($elmt['_id']) ? $elmt['_id'] : null;
+        $spell->name = isset($elmt['name']) ? $elmt['name'] : null;
+        $spell->desc = isset($elmt['desc']) ? $elmt['desc'] : null;
+        $spell->range = isset($elmt['range']) ? $elmt['range'] : null;
+        $spell->components = isset($elmt['components']) ? $elmt['components'] : null;
+        $spell->material = isset($elmt['material']) ? $elmt['material'] : null;
+        $spell->ritual = isset($elmt['ritual']) ? $elmt['ritual'] : null;
+        $spell->duration = isset($elmt['duration']) ? $elmt['duration'] : null;
+        $spell->concentration = isset($elmt['concentration']) ? $elmt['concentration'] : null;
+        $spell->level = isset($elmt['level']) ? $elmt['level'] : null;
+        $spell->attack_type = isset($elmt['attack_type']) ? $elmt['attack_type'] : null;
+        $spell->school = isset($elmt['school']) ? $elmt['school'] : null;
 
         $result[] = $spell;
     }
