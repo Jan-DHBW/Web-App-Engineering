@@ -1,8 +1,31 @@
 <?php 
+
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        header("location: ../errorPage.php?err=pageNotFound");
+        exit();
+    }
+
+    if(!isset($_POST['cid']) || !isset($_POST['uid'])){
+        header("location: ../errorPage.php?err=pageNotFound");
+        exit();
+    }
+
+
+    //require dependencies
+
     require_once("inc/db/dbh.inc.php");
     require_once("inc/db/db.character.class.inc.php");
     require_once("inc/db/db.char.function.inc.php");
+    require_once("inc/hash.inc.php");
     require_once("inc/choosechar-functions.inc.php");
+
+
+
+    //sanitize user input
+    $cid = sanitizeHashToken($_POST['cid']);
+    $uid = sanitizeHashToken($_POST['uid']);
+
+
 ?>
 
 
@@ -99,12 +122,11 @@
                         <th scope="col">Name</th>
                         <th scope="col">Class</th>
                         <th scope="col">Level</th>
-                        <th scope="col">Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        showCharacters($DB_spellbook, "61b366ee689f7efa0345ceb5");
+                        showCharacters($DB, $uid);
                     ?>
                 </tbody>
             </table>
