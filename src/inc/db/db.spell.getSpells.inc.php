@@ -33,22 +33,22 @@ function db_spell_getSpells($con){
 
     foreach($findResult as $elmt){
         $spell = new Spell();
-        $dbValues = json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($elmt)));
+        $j = json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($elmt)), true);
 
-        $spell->_id = isset($elmt['_id']) ? $elmt['_id'] : null;
-        $spell->_id = isset($elmt['index']) ? $elmt['index'] : null;
-        $spell->name = isset($elmt['name']) ? $elmt['name'] : null;
-        $spell->desc = isset($elmt['desc']) ? $elmt['desc'] : null;
-        $spell->range = isset($elmt['range']) ? $elmt['range'] : null;
-        $spell->components = isset($elmt['components']) ? $elmt['components'] : null;
-        $spell->material = isset($elmt['material']) ? $elmt['material'] : null;
-        $spell->ritual = isset($elmt['ritual']) ? $elmt['ritual'] : null;
-        $spell->duration = isset($elmt['duration']) ? $elmt['duration'] : null;
-        $spell->concentration = isset($elmt['concentration']) ? $elmt['concentration'] : null;
-        $spell->level = isset($elmt['level']) ? $elmt['level'] : null;
-        $spell->attack_type = isset($elmt['attack_type']) ? $elmt['attack_type'] : null;
-        $spell->school = isset($elmt['school']) ? $elmt['school'] : null;
-        $spell->area_of_effect = isset($elmt['area_of_effect']) ? $elmt['area_of_effect'] : null;
+        $spell->_id = isset($j['_id']) ? $j['_id']['$oid'] : null;
+        $spell->index = isset($j['index']) ? $j['index'] : null;
+        $spell->name = isset($j['name']) ? $j['name'] : null;
+        $spell->desc = isset($j['desc']) ? implode(' ', $j['desc']) : null;
+        $spell->range = isset($j['range']) ? $j['range'] : null;
+        $spell->components = isset($j['components']) ? implode(', ',$j['components']) : null;
+        $spell->material = isset($j['material']) ? $j['material'] : null;
+        $spell->ritual = isset($j['ritual']) ? $j['ritual'] : null;
+        $spell->duration = isset($j['duration']) ? $j['duration'] : null;
+        $spell->concentration = isset($j['concentration']) ? $j['concentration'] : null;
+        $spell->level = isset($j['level']) ? $j['level'] : null;
+        $spell->attack_type = isset($j['attack_type']) ? $j['attack_type'] : null;
+        $spell->school = isset($j['school']) ? $j['school']['name'] : null;
+        $spell->area_of_effect = isset($j['area_of_effect']) ? implode(', ', $j['area_of_effect']) : null;
 
         $result[] = $spell;
     }

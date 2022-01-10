@@ -13,7 +13,7 @@ function showSpells($con){
             echo '<td>'.e($spell->name).'</td>';   //name
             echo '<td>'.e($spell->level).'</td>';        //range
             echo '<td>'.e($spell->duration).'</td>';        //duration
-            echo '<td></td>';        //school
+            echo '<td>'.e($spell->school).'</td>';        //school
             echo '<td></td>';           //desc
             echo '<td>';
                 echo '<form name"'.e($spell->index).'" action="inc/globalspells.inc.php" method="post">';
