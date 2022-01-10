@@ -19,13 +19,15 @@
 
 
     //sanitize user input
+
     $cid = sanitizeHashToken($_SESSION['cid']);
     $uid = sanitizeHashToken($_SESSION['uid']);
+    $name = sanitizeCharacterName($_SESSION['name']);
+    $class = sanitizeCharacterClass($_SESSION['class']);
+    $level = sanitizeCharacterLevel($_SESSION['level']);
 
 
 ?>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -109,24 +111,52 @@
         include("inc/sidebar.html");
         ?>
 
-        <div id="editchar">
-            <h1><center>Edit Character</center></h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Character</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Class</th>
-                        <th scope="col">Level</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        showCharacters($DB, $uid);
-                    ?>
-                </tbody>
-            </table>
+        <div style="
+            width: -webkit-fill-available;
+        ">
+            <h1>
+                <center>Edit Character</center>
+            </h1>
+            <br>
+            <form action= "inc/editchar.inc.php" method="POST" style="
+                justify-content: center;
+                display: grid;
+            ">
+
+
+                <?php
+                    echo '<div>';
+                        echo '<label>Name:</label><br>';
+                        echo '<input type="text" name="name" value="'.$name.'" required>';
+                    echo '</div><br>';
+
+                    echo '<div>';
+                        echo '<label>Class:</label><br>';
+                        echo '<input type="text" name="class" value="'.$class.'" required>';
+                    echo '</div><br>';
+
+                    echo '<div>';
+                        echo '<label>Level:</label><br>';
+                        echo '<input type="text" name="level" value="'.$level.'" required>';
+                    echo '</div><br>';
+                
+                    echo '<input type="hidden" name="cid" value="'.$cid.'">';
+                    echo '<input type="hidden" name="uid" value="'.$uid.'">';
+                ?>
+
+
+
+                <div>
+                    <button id="goMain" type="button" class="btn btn-primary" name="btnCancel">Cancel</button>
+                    <script type="text/javascript">
+                        document.getElementById("goMain").onclick = function() {
+                            location.href = "choosechar.php";
+                        };
+                    </script>
+                    <button id="subEditChar" type="submit" class="btn btn-primary" name="btnSubEditChar" value="true">Submit</button>
+                </div>
+
+            </form>
         </div>
     </main>
 
