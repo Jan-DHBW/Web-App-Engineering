@@ -8,20 +8,20 @@ function showSpells($con){
 
         echo '<tr>';
             echo '<th scope="row">';
-            echo $spellCount;
+            echo e($spellCount);
             echo '</th>';
-            echo '<td>'.$spell->name.'</td>';   //name
-            echo '<td>'.$spell->level.'</td>';        //range
-            echo '<td>'.$spell->duration.'</td>';        //duration
+            echo '<td>'.e($spell->name_).'</td>';   //name
+            echo '<td>'.e($spell->level).'</td>';        //range
+            echo '<td>'.e($spell->duration).'</td>';        //duration
             echo '<td></td>';        //school
             echo '<td></td>';           //desc
             echo '<td>';
-                echo '<form name"'.$spell->index.'" action="inc/globalspells.inc.php" method="post">';
-                    echo '<input type="hidden" name="id" value="'.$spell->_id.'">';
+                echo '<form name"'.e($spell->index).'" action="inc/globalspells.inc.php" method="post">';
+                    echo '<input type="hidden" name="id" value="'.e($spell->_id).'">';
                     echo '<button type="submit" class="btn btn-primary" name="btnShowSpellDetails" value="true">Show Details</button>';
                 echo "</form>";
             echo '</td>';
-        echo '</tr>';
+            echo '</tr>';
 
         $spellCount++;
     }

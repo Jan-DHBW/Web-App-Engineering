@@ -71,7 +71,7 @@ function createAuthHashToken($con, $id)
 
 function sendEmailAuthEmail($email, $token) 
 {   
-    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authEmail.php?token='.$token;
+    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authEmail.php?token='.e($token);
 
     $mail = new PHPMailer(true);
 

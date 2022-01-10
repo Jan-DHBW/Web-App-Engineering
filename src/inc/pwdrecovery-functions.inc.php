@@ -19,7 +19,7 @@ function createResetHashToken($con, $email){
 function sendEmailResetPwd($email, $hashToken)
 {
 
-    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authResetPwd.php?token='.$hashToken;
+    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authResetPwd.php?token='.e($hashToken);
 
     $mail = new PHPMailer(true);
 

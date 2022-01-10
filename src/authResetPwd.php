@@ -23,7 +23,7 @@ if(isset($_GET['token'])){
     echo '<input type="password" placeholder="Enter Password" name="pwd" required>';
     echo '<label for="pwdRepeat"><b>Repeat Password</b></label>';
     echo '<input type="password" placeholder="Repeat Password" name="pwdRepeat" required>';
-    echo '<input type="hidden" name="token" value="'.$token.'" required>';
+    echo '<input type="hidden" name="token" value="'.e($token).'" required>';
     echo '<button name="resetpwd" type="submit" value="true">Save New Password</button>';
     echo '<div id="err"></div>';
     echo '</form>';

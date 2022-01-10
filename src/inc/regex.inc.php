@@ -8,6 +8,11 @@ function sanitizeHashToken($token){
     return $token;
 }
 
+function e($value){
+    return htmlspecialchars($value, ENT_QUOTES, 'utf-8');
+}
+
+
 
 function sanitize($text){
     return preg_replace('/[^A-Za-z0-9\-]/','', $text);

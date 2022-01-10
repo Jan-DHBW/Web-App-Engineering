@@ -42,7 +42,7 @@
             data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://image.freepik.com/vektoren-kostenlos/ein-suesser-drache-sitzt-und-laechelt-dich-an-karikatur_159446-720.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
             <?php
-                echo '<strong>'.(isset($_SESSION['username']) ? $_SESSION['username'] : '').'</strong>';
+                echo '<strong>'.(isset($_SESSION['username']) ? e($_SESSION['username']) : '').'</strong>';
             ?>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

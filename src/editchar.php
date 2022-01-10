@@ -130,21 +130,21 @@ if (session_status() !== PHP_SESSION_NONE) {
                 <?php
                     echo '<div>';
                         echo '<label>Name:</label><br>';
-                        echo '<input type="text" name="name" value="'.$name.'" required>';
+                        echo '<input type="text" name="name" value="'.e($name).'" required>';
                     echo '</div><br>';
 
                     echo '<div>';
                         echo '<label>Class:</label><br>';
-                        echo '<input type="text" name="class" value="'.$class.'" required>';
+                        echo '<input type="text" name="class" value="'.e($class).'" required>';
                     echo '</div><br>';
 
                     echo '<div>';
                         echo '<label>Level:</label><br>';
-                        echo '<input type="text" name="level" value="'.$level.'" required>';
+                        echo '<input type="text" name="level" value="'.e($level).'" required>';
                     echo '</div><br>';
                 
-                    echo '<input type="hidden" name="cid" value="'.$cid.'">';
-                    echo '<input type="hidden" name="uid" value="'.$uid.'">';
+                    echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                    echo '<input type="hidden" name="uid" value="'.e($uid).'">';
                 ?>
 
 

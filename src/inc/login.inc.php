@@ -22,8 +22,10 @@
             header("location: ../login.php?err=incorrectLogin");
             exit();
         }
-       
+
         session_start();
+        session_regenerate_id(true);
+
 
         $_SESSION['uid'] = getUIDByName($DB, $name);
         $_SESSION['username'] = $name;
