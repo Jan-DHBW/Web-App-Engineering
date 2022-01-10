@@ -47,6 +47,7 @@ function db_spell_getSpells($con){
         $spell->level = isset($elmt['level']) ? $elmt['level'] : null;
         $spell->attack_type = isset($elmt['attack_type']) ? $elmt['attack_type'] : null;
         $spell->school = isset($elmt['school']) ? $elmt['school'] : null;
+        $spell->area_of_effect = isset($elmt['area_of_effect']) ? $elmt['area_of_effect'] : null;
 
         $result[] = $spell;
     }

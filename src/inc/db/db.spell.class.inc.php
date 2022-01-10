@@ -17,17 +17,11 @@ class Spell
     public $level;
     public $attac_type;
     public $school;
+    public $area_of_effect;
 
 
     function __construct()
     {
         
     }
-
-    // 1. Char aud datenbank geladen
-    // 2.Char wird erstellt
-    //     2.2 neuer datenbank eintrag und der wird dann neu eingelesen
-
-
-
 }
