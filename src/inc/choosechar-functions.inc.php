@@ -22,7 +22,6 @@
             echo '<button type="submit" class="btn btn-primary" name="btnDeleteCharacter" value="true">Delete</button>';
             echo "</form>";
             echo "</td>";
-            //echo "<td><button name='rowID' type='submit' value='{$elmtCnt}' formaction='choosechar.inc.php'>Show Spells</button></td>";
             echo '</tr>';
 
             $elmtCnt++;
