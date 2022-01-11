@@ -14,12 +14,12 @@
         $pwd =  $_POST["pwd"];
 
         if(emptyInputLogin($name, $pwd) !== false){
-            header("location: ../login.php?err=emptyInput");
+            header("location: ../../index.html?err=emptyInput");
             exit();
         }
 
         if(!verifyLogin($DB, $name, $pwd)){
-            header("location: ../login.php?err=incorrectLogin");
+            header("location: ../../index.html?err=incorrectLogin");
             exit();
         }
 

@@ -13,15 +13,15 @@ require_once("inc/head.inc.php");
 </head>
 
 <body>
-    
-    <form action="inc/signup.inc.php" method="post">
+    <div id="error"></div>
+    <form id="form" action="inc/signup.inc.php" method="post">
         <img id="main-bg-img" src="../../img/mythicTome.png">
 
         <div class="signup-form">
             <div>
                 <h1><strong>Sign Up</strong></h1>
                 <label for="uid"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uid" required>
+                <input id="name" type="text" placeholder="Enter Username" name="uid" required>
 
                 <label for="email"><b>E-Mail</b></label>
                 <input type="text" placeholder="Enter E-Mail" name="email" required>
@@ -30,15 +30,15 @@ require_once("inc/head.inc.php");
                 <input type="text" placeholder="Repeat E-Mail" name="emailRepeat" required>
 
                 <label for="pwd"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="pwd" required>
+                <input id="pw" type="password" placeholder="Enter Password" name="pwd" required>
 
                 <label for="pwdRepeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="pwdRepeat" required>
+                <input id="password" type="password" placeholder="Repeat Password" name="pwdRepeat" required>
 
-                <input class="submit" type="submit" value="Sign Up">
-                <div id="err"></div>
+                <button class="submit" type="submit" value="Sign Up">Sign up</button>
             </div>
 
     </form>
+    <script defer src="error.js"></script>
 
 </body>
