@@ -1,12 +1,11 @@
 <?php
 
-function db_user_verifyPasswordByName($con, $name, $pwd)
-{
+function db_user_isEmailVerifiedByUID($con, $uid){
     $collection = $con->users;
 
     $findOneResult = $collection->findOne(
         [
-            'name' => ['$eq' => $name], 
+            'uid' => ['$eq' => $uid], 
             'isVerified' => ['$eq' => true]
         ]
     );

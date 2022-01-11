@@ -1,7 +1,6 @@
 <?php
 
-function db_user_verifyPasswordByName($con, $name, $pwd)
-{
+function db_user_isEmailVerifiedByName($con, $name){
     $collection = $con->users;
 
     $findOneResult = $collection->findOne(
