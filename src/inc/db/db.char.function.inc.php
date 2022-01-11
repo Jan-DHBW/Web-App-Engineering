@@ -25,6 +25,17 @@ function db_char_deleteChar($con, $char_id, $user_id)
     $filter = ['user_id' => ['$eq' => $user_id], '_id' => ['$eq' => $char_id]];
 }
 
+function db_char_getSpells($char_id){
+    $result = array();
+    $col = "characters";
+    $collection = $con->$col;
+    $filter = ['user_id' => ['$eq' => $user_id]];
+    $cursor = $collection->find($filter);
+    $count = count($cursor);
+
+    return null;
+}
+
 
 function db_char_getCharsByUserId($con, $user_id)
 {
