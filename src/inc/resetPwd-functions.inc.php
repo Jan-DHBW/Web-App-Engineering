@@ -16,7 +16,7 @@ function destroyHashTokenResetPwd($con, $token)
 
 function updateUserPwd($con, $token, $pwdHash)
 {
-    db_user_updateUserPwd($con, $token, $pwdHash);
+    db_user_updateUserPwdByResetToken($con, $token, $pwdHash);
 }
 
 

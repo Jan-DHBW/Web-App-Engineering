@@ -5,9 +5,11 @@ if(isset($_GET['token'])){
     require_once("inc/head.inc.php");
     require_once("inc/db/dbh.inc.php");
     require_once("inc/db/db.user.isValidHashTokenResetPwd.inc.php");
+    require_once("inc/regex.inc.php");
+
 
     //sanatize parameter
-    $token = $_GET['token'];
+    $token = sanitizeHashToken($_GET['token']);
 
     //check token valid
     //TODO: check toke expired
@@ -17,7 +19,7 @@ if(isset($_GET['token'])){
     }
 
     echo '<section class ="resetPwd-form">';
-    echo '<h2>Sign Up</h2>';
+    echo '<h2>Password Recovery</h2>';
     echo '<form action ="inc/resetPwd.inc.php" method="post">';
     echo '<label for="pwd"><b>New Password</b></label>';
     echo '<input type="password" placeholder="Enter Password" name="pwd" required>';
@@ -29,6 +31,9 @@ if(isset($_GET['token'])){
     echo '</form>';
 
     //redirect to other site
+}else{
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
 }
 
 
