@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if(!isset($_SESSION['uid'])){
+        header("location: errorPage.php?err=pageNotFound");
+        exit();
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -78,7 +87,7 @@
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
         <div style="
@@ -88,23 +97,23 @@
                 <center>Create new character</center>
             </h1>
             <br>
-            <form style="
+            <form action= "inc/createchar.inc.php" method="POST" style="
                 justify-content: center;
                 display: grid;
             ">
                 <div>
                     <label>Name:</label><br>
-                    <input type="text">
+                    <input type="text" name="name">
                 </div><br>
 
                 <div>
                     <label>Class:</label><br>
-                    <input>
+                    <input type="text" name="class">
                 </div><br>
 
                 <div>
                     <label>Level:</label><br>
-                    <input>
+                    <input type="text" name="level">
                 </div><br>
 
                 <div>
@@ -114,12 +123,7 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="subNewChar" type="button" class="btn btn-primary" name="btnSubNewChar">Submit</button>
-                    <script type="text/javascript">
-                        document.getElementById("subnewChar").onclick = function() {
-                            location.href = "";
-                        };
-                    </script>
+                    <button id="subNewChar" type="submit" class="btn btn-primary" name="btnSubNewChar" value="true">Submit</button>
                 </div>
 
             </form>

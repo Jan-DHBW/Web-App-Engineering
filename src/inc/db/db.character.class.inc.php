@@ -4,8 +4,8 @@ class Character
 {
 
     public $name;
-    public $_id;
-    public $user_id;
+    public $cid;
+    public $uid;
     public $class;
     public $spells;
     public $level;

@@ -96,7 +96,7 @@
 
     <main>
         <?php
-            include("inc/sidebar.html");
+            include("inc/sidebar.php");
         ?>
     </main>
 

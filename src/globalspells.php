@@ -1,3 +1,15 @@
+
+<?php
+    require_once('inc/globalspells-functions.inc.php');
+    require_once('inc/db/dbh.inc.php');
+    require_once('inc/db/db.spell.getSpells.inc.php');
+    require_once('inc/db/db.spell.class.inc.php');
+
+    session_start();
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -78,7 +90,7 @@
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
         <div id="global">
@@ -90,20 +102,22 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Spell</th>
-                        <th scope="col">Prepared</th>
                         <th scope="col">Level</th>
-                        <th scope="col">Time</th>
+                        <th scope="col">Cast Time</th>
                         <th scope="col">School</th>
                         <th scope="col">Description</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                     <?php
-                    for ($i = 1; $i <= 50; $i++) {
+                        showSpells($DB);
+                    ?>
+                    <!--<?php
+                    //for ($i = 1; $i <= 50; $i++) {
                     ?>
                         <tr>
                             <th scope="row">
-                                <?php echo $i; ?>
+                                <?php //echo $i; ?>
                             </th>
                             <td>Fireball</td>
                             <td>xx</td>
@@ -113,8 +127,9 @@
                             <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
                         </tr>
                     <?php
-                    }
+                    //}
                     ?>
+                    -->
 
                 </tbody>
             </table>

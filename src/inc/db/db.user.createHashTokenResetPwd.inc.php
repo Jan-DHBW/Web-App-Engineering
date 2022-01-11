@@ -1,8 +1,5 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-
 function db_user_createHashTokenResetPwd($con, $email, $hashToken)
 {
 

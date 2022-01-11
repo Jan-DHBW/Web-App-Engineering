@@ -1,28 +1,36 @@
 <?php
-function db_char_createChar($con, $name, $user_id, $class, $level)
-{
-    $col = "characters";
-    $collection = $con->$col;
+function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
+    $collection = $con->characters;
 
-    $newChar = array(
-        "name" => $name,
-        "user_id" => $user_id,
-        "level" => $level,
-        "class" => $class
+    $insertOneResult = $collection->insertOne(
+        [   
+            'cid' => $cid,
+            'uid' => $uid,
+            'level' => $level,
+            'name' => $name,
+            'class' => $class           
+        ]);
 
+    if(empty($insertOneResult)){
+        return false;
+    }
 
-    );
-    $collection->insertOne($newChar);
+    return $cid;
 }
 
-function db_char_deleteChar($con, $char_id, $user_id)
+
+function db_char_deleteCharcter($con, $uid, $cid)
 {
-    $col = "characters";
-    $collection = $con->$col;
+    $collection = $con->characters;
 
+    $deleteOneResult = $collection->deleteOne(
+        [
+            'uid' => ['$eq' => $uid], 
+            'cid' => ['$eq' => $cid]
+        ]
+    );
 
-
-    $filter = ['user_id' => ['$eq' => $user_id], '_id' => ['$eq' => $char_id]];
+    return $deleteOneResult;
 }
 
 function db_char_getSpells($char_id){
@@ -37,27 +45,52 @@ function db_char_getSpells($char_id){
 }
 
 
-function db_char_getCharsByUserId($con, $user_id)
+function db_char_getCharactersByUID($con, $uid)
 {
     $result = array();
     $col = "characters";
     $collection = $con->$col;
 
-    $filter = ['user_id' => ['$eq' => $user_id]];
-
-    $cursor = $collection->find($filter);
+    $cursor = $collection->find(
+        ['uid' => ['$eq' => $uid]],
+        [
+            '_id' => 0,
+            'cid' => 1,
+            'uid' => 1,
+            'name' => 1,
+            'class' => 1,
+            'level' => 1
+        ]
+    );
 
 
 
     foreach ($cursor as $doc) {
         $elmt = new Character();
-        $elmt->_id = (string) $doc['_id'];
+        $elmt->cid = $doc['cid'];
+        $elmt->uid = $doc['uid'];
         $elmt->name = $doc['name'];
+        $elmt->class = $doc['class'];
         $elmt->level = $doc['level'];
-        $elmt->user_id = $doc['user_id'];
 
         $result[] = $elmt;
     }
 
     return $result;
+}
+
+
+function db_char_updateCharacter($con, $uid, $cid, $name, $class, $level){
+    $collection = $con->characters;
+
+    $updateOneResult = $collection->updateOne(
+        ['uid'=> ['$eq' => $uid], 'cid' => ['$eq' => $cid]],                        
+        ['$set' =>['name' => $name, 'class' => $class, 'level' => $level]]
+    );
+
+    if(!isset($updateOneResult)){
+        return false;
+    }
+
+    return true;
 }

@@ -7,16 +7,16 @@
         return false;
     }
 
-    function uidExists($con, $uid){
-        return db_user_uidExists($con, $uid);
+    function nameExists($con, $name){
+        return db_user_uidExists($con, $name);
     }
 
-    function verifyLogin($con, $uid, $pwd){
-        return db_user_verifyPassword($con, $uid, $pwd);
+    function verifyLogin($con, $name, $pwd){
+        return db_user_verifyPassword($con, $name, $pwd);
     }
 
-    function getUserId($con, $uid){
-        return db_user_getId($con, $uid);
+    function getUIDByName($con, $name){
+        return db_user_getId($con, $name);
     }
 
 ?>

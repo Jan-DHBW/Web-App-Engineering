@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -78,7 +82,7 @@
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
         <div style="
@@ -124,9 +128,9 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="subNewChar" type="button" class="btn btn-primary" name="btnSubNewChar">Submit</button>
+                    <button id="subNewSpell" type="button" class="btn btn-primary" name="btnSubNewSpell">Submit</button>
                     <script type="text/javascript">
-                        document.getElementById("subnewChar").onclick = function() {
+                        document.getElementById("subnewSpell").onclick = function() {
                             location.href = "";
                         };
                     </script>

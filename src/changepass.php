@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -78,7 +82,7 @@
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
         <div style="

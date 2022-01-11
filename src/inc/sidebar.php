@@ -1,3 +1,8 @@
+<?php
+    require_once('inc/regex.inc.php')
+
+?>
+
 <h1 class="visually-hidden">Sidebars examples</h1>
 
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark nav-parent" style="width: 280px;">
@@ -41,7 +46,9 @@
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
             data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://image.freepik.com/vektoren-kostenlos/ein-suesser-drache-sitzt-und-laechelt-dich-an-karikatur_159446-720.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>More</strong>
+            <?php
+                echo '<strong>'.(isset($_SESSION['username']) ? e($_SESSION['username']) : '').'</strong>';
+            ?>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="changepass.php">Change password</a></li>

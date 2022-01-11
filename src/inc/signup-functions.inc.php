@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function emptyInputSignup($name, $email, $emailRepeat, $pwd, $pwdRepeat)
+function emptyInput($name, $email, $emailRepeat, $pwd, $pwdRepeat)
 {
     if (empty($name)) return true;
     if (empty($email)) return true;
@@ -14,7 +14,7 @@ function emptyInputSignup($name, $email, $emailRepeat, $pwd, $pwdRepeat)
     return false;
 }
 
-function invalidUid($username)
+function invalidName($name)
 {
     //if(preg_match("/^[a-zA-Z0-9]*$/",$username)) return true;
 
@@ -47,14 +47,16 @@ function pwdMatch($pwd, $pwdRepeat)
     return true;
 }
 
-function uidExists($con, $uid)
+function nameExists($con, $name)
 {
-    return db_user_uidExists($con, $uid);
+    return db_user_nameExists($con, $name);
 }
 
-function createUser($con, $uid, $email, $pwd)
-{
-    return db_user_createUser($con, $uid, $email, hashPwd($pwd));;
+function createUser($con, $name, $email, $pwd)
+{   
+    $uid = getHashToken($name);
+    db_user_createUser($con, $uid, $name, $email, hashPwd($pwd));
+    return $uid;
 }
 
 function createAuthHashToken($con, $id)
@@ -69,7 +71,7 @@ function createAuthHashToken($con, $id)
 
 function sendEmailAuthEmail($email, $token) 
 {   
-    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authEmail.php?token='.$token;
+    $link = 'http://'.$_SERVER["SERVER_NAME"].'/src/authEmail.php?token='.e($token);
 
     $mail = new PHPMailer(true);
 

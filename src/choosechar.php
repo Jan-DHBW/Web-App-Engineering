@@ -1,9 +1,19 @@
 <?php
-session_start();
 require_once("inc/db/dbh.inc.php");
 require_once("inc/db/db.character.class.inc.php");
 require_once("inc/db/db.char.function.inc.php");
 require_once("inc/choosechar-functions.inc.php");
+require_once("inc/regex.inc.php");
+
+session_start();
+
+if(!isset($_SESSION['uid'])){
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
+
+$uid = sanitizeHashToken($_SESSION['uid']);
+$_SESSION['uid'] = $uid;
 
 ?>
 
@@ -88,7 +98,7 @@ require_once("inc/choosechar-functions.inc.php");
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
         <div id="firstchoose">
@@ -107,15 +117,15 @@ require_once("inc/choosechar-functions.inc.php");
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Class</th>
                         <th scope="col">Level</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    showCharacters($DB, $_SESSION['current_user_id']);
+                    showCharacters($DB, $uid);
                     ?>
                 </tbody>
             </table>

@@ -1,82 +1,102 @@
-       html, body {
-        margin:0;
-        width:100%;
-        overflow: hidden;
-        color: white;
-        font-family: monospace;
-        font-size: 1.3rem;
-        text-align: center;
+       html,
+       body {
+           margin: 0;
+           width: 100%;
+           overflow: hidden;
+           color: white;
+           font-family: monospace;
+           font-size: 1.3rem;
+           text-align: center;
 
-    }
+       }
 
-    #main-bg-img{
-        width: 100%;
-        height: auto;
-    }
+       #main-bg-img {
+           width: 100%;
+           height: auto;
+       }
 
-    .login-form {
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(18, 4, 39, 0.7);
-        color: white;
-        font-weight: bold;
-        font-size: 5vw;
-        border: 2px solid #f1f1f1;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 30%;
-        padding: 20px;
-        text-align: center;
-    }
+       .login-form {
+           background-color: rgb(0, 0, 0);
+           /* Fallback color */
+           background-color: rgba(18, 4, 39, 0.7);
+           color: white;
+           font-weight: bold;
+           font-size: 5vw;
+           border: 2px solid #f1f1f1;
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           width: 30%;
+           padding: 20px;
+           text-align: center;
+       }
 
-    input[type=text], input[type=password] {
-        width: 70%;
-        padding: 20px 20px;
-        margin: 0 0 0px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        background-color: rgba(38, 4, 39, 0.7);
-        color: #f1f1f1;
-    }
+       .signup-form {
+           background-color: rgb(0, 0, 0);
+           /* Fallback color */
+           background-color: rgba(18, 4, 39, 0.7);
+           color: white;
+           font-weight: bold;
+           font-size: 1vw;
+           border: 2px solid #f1f1f1;
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           width: 45%;
+           padding: 20px;
+           text-align: center;
+       }
 
-    /* Set a style for all buttons */
-    .submit {
-        background-color: rgb(255, 157, 0);
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 70%;
-    }
+       input[type=text],
+       input[type=password] {
+           width: 70%;
+           padding: 20px 20px;
+           margin: 0 15% 0 15%;
+           display: inline-block;
+           border: 1px solid #ccc;
+           box-sizing: border-box;
+           background-color: rgba(38, 4, 39, 0.7);
+           color: #f1f1f1;
+       }
 
-    /* Add a hover effect for buttons */
-    .submit:hover {
-        opacity: 0.8;
-    }
+       /* Set a style for all buttons */
+       .submit {
+           background-color: rgb(255, 157, 0);
+           color: white;
+           padding: 14px 20px;
+           margin: 8px 0;
+           border: none;
+           cursor: pointer;
+           width: 70%;
+       }
 
-    .signup{
-        font-size: 20px;
-        float: left;
-        padding-top: 16px;
-    }
+       /* Add a hover effect for buttons */
+       .submit:hover {
+           opacity: 0.8;
+       }
 
-    .pwd{
-        font-size: 20px;
-        float: right;
-        padding-top: 16px;
-    }
+       .signup {
+           font-size: 20px;
+           float: left;
+           padding-top: 16px;
+       }
 
-    .side-nav{
-        height: 100%;
-        width: 1.5%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: rgb(18, 4, 39);
-        overflow-x: hidden;
-        padding-top: 16px;
-    }
+       .pwd {
+           font-size: 20px;
+           float: right;
+           padding-top: 16px;
+       }
+
+       .side-nav {
+           height: 100%;
+           width: 1.5%;
+           position: fixed;
+           z-index: 1;
+           top: 0;
+           left: 0;
+           background-color: rgb(18, 4, 39);
+           overflow-x: hidden;
+           padding-top: 16px;
+       }

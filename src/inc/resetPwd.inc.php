@@ -2,7 +2,10 @@
 
 if(isset($_POST['resetpwd'])){
     require_once("db/dbh.inc.php");
+    require_once("db/db.user.destroyHashTokenResetPwd.inc.php");
+    require_once("db/db.user.updateUserPwd.inc.php");
     require_once("hash.inc.php");
+    require_once('regex.inc.php');
     require_once("resetPwd-functions.inc.php");
 
 

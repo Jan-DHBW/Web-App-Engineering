@@ -1,11 +1,34 @@
 <?php 
+
+    session_start();
+    
+    if(!isset($_SESSION['cid']) || !isset($_SESSION['uid'])){
+        header("location: errorPage.php?err=pageNotFound");
+        exit();
+    }
+
+
+    //require dependencies
+
     require_once("inc/db/dbh.inc.php");
     require_once("inc/db/db.character.class.inc.php");
     require_once("inc/db/db.char.function.inc.php");
+    require_once("inc/hash.inc.php");
+    require_once('inc/regex.inc.php');
     require_once("inc/choosechar-functions.inc.php");
+
+
+
+    //sanitize user input
+
+    $cid = sanitizeHashToken($_SESSION['cid']);
+    $uid = sanitizeHashToken($_SESSION['uid']);
+    $name = sanitizeCharacterName($_SESSION['name']);
+    $class = sanitizeCharacterClass($_SESSION['class']);
+    $level = sanitizeCharacterLevel($_SESSION['level']);
+
+
 ?>
-
-
 <!doctype html>
 <html lang="en">
 
@@ -86,28 +109,55 @@
 
     <main>
         <?php
-        include("inc/sidebar.html");
+        include("inc/sidebar.php");
         ?>
 
-        <div id="editchar">
-            <h1><center>Edit Character</center></h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Character</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Class</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        showCharacters($DB_spellbook, "61b366ee689f7efa0345ceb5");
-                    ?>
-                </tbody>
-            </table>
+        <div style="
+            width: -webkit-fill-available;
+        ">
+            <h1>
+                <center>Edit Character</center>
+            </h1>
+            <br>
+            <form action= "inc/editchar.inc.php" method="POST" style="
+                justify-content: center;
+                display: grid;
+            ">
+
+
+                <?php
+                    echo '<div>';
+                        echo '<label>Name:</label><br>';
+                        echo '<input type="text" name="name" value="'.e($name).'" required>';
+                    echo '</div><br>';
+
+                    echo '<div>';
+                        echo '<label>Class:</label><br>';
+                        echo '<input type="text" name="class" value="'.e($class).'" required>';
+                    echo '</div><br>';
+
+                    echo '<div>';
+                        echo '<label>Level:</label><br>';
+                        echo '<input type="text" name="level" value="'.e($level).'" required>';
+                    echo '</div><br>';
+                
+                    echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                    echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                ?>
+
+
+
+                <div>
+                    <button id="goMain" type="button" class="btn btn-primary" name="btnCancel">Cancel</button>
+                    <script type="text/javascript">
+                        document.getElementById("goMain").onclick = function() {
+                            location.href = "choosechar.php";
+                        };
+                    </script>
+                    <button id="subEditChar" type="submit" class="btn btn-primary" name="btnSubEditChar" value="true">Submit</button>
+                </div>
+
+            </form>
         </div>
     </main>
 

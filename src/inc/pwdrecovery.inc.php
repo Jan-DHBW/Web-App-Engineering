@@ -7,6 +7,7 @@ if (isset($_POST['pwdrecovery'])) {
     require_once("db/db.user.createHashTokenResetPwd.inc.php");
     require_once("db/db.user.emailExists.inc.php");
     require_once("hash.inc.php");
+    require_once('regex.inc.php');
     require_once("pwdrecovery-functions.inc.php");
 
     //sanitize user input

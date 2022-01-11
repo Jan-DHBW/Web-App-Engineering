@@ -1,10 +1,11 @@
 <?php
-function db_user_createUser($con, $name, $email, $pwdHash)
+function db_user_createUser($con, $uid, $name, $email, $pwdHash)
 {
     $collection = $con->users;
 
     $newDocument = array(
-        "uid" => $name,
+        "uid" => $uid,
+        "name" => $name,
         "email" => $email,
         "pwd" => $pwdHash,
         "isVerified" => false
