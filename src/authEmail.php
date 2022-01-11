@@ -14,16 +14,19 @@ if(isset($_GET['token'])){
     $token = sanitizeHashToken($_GET['token']);
 
     //check token valid
-    //TODO: check toke expired
-    if(isTokenValid($DB, $token) === false){
+    if(!isTokenValid($DB, $token)){
         header('location: errorPage.php?err=pageNotFound');
         exit();
     }
 
     //
     destroyToken($DB, $token);
-    header('location: ../');
+
     //redirect to other site
+    header('location: ../');
+}else{
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
 }
 
 function isTokenValid($con, $token){
