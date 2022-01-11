@@ -22,7 +22,7 @@
 
         
         if(!db_user_isEmailVerifiedByName($DB, $name)){
-            header("location: ../login.php?err=emailNotConfirmed");
+            header("location: ../../index.html?err=emailNotConfirmed");
             exit();
         }
 

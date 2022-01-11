@@ -22,7 +22,7 @@ if(isset($_GET['token'])){
 
     //
     destroyToken($DB, $token);
-    header('location: index.html');
+    header('location: ../');
     //redirect to other site
 }
 

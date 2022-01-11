@@ -5,7 +5,7 @@ function db_user_verifyHashTokenAuthEmail($con, $hashToken)
     $collection = $con->users;
 
     $updateOneResult = $collection->updateOne(
-        ['authHashToken' => ['$eq' => $token]],
+        ['authHashToken' => ['$eq' => $hashToken]],
         ['$set' => ['isVerified' => true]]
     );
     
