@@ -1,0 +1,27 @@
+
+.dropdown-menu{
+    width: 50rem  !important;
+    height: 20rem !important;
+}
+
+
+.spell-details-form{
+    overflow-y: auto;
+}
+
+
+
+.spell-attribute{
+    font-weight: bold;
+}
+
+
+.spell-content{
+    
+}
+
+.spell-desc{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+

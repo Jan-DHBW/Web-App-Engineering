@@ -2,30 +2,113 @@
 
 function showSpells($con){
     $spellList = db_spell_getSpells($con);
-    $spellCount = 0;
+    $spellCounter = 0;
 
     foreach($spellList as $spell){
 
         echo '<tr>';
             echo '<th scope="row">';
-            echo e($spellCount);
+            echo e($spellCounter);
             echo '</th>';
             echo '<td>'.e($spell->name).'</td>';   //name
             echo '<td>'.e($spell->level).'</td>';        //range
+            echo '<td>'.($spell->ritual ? 'yes' : 'no').'</td>';        //ritual
+            echo '<td>'.($spell->concentration ? 'yes' : 'no').'</td>';        //school
+            echo '<td>'.e($spell->casting_time).'</td>';        //cast_time
             echo '<td>'.e($spell->duration).'</td>';        //duration
-            echo '<td>'.e($spell->school).'</td>';        //school
-            echo '<td></td>';           //desc
             echo '<td>';
-                echo '<form name"'.e($spell->index).'" action="inc/globalspells.inc.php" method="post">';
-                    echo '<input type="hidden" name="id" value="'.e($spell->_id).'">';
-                    echo '<button type="submit" onclick="togglePopup" class="btn btn-primary">Show Details</button>';
-                echo "</form>";
+                echo '<div class="dropdown">';
+                    echo '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSpellDetails_'.e($spell->index).'" data-bs-toggle="dropdown" aria-expanded="false">';
+                    echo '</button>';
+                    echo '<form class="dropdown-menu dropdown-menu-dark position-fixed spell-details-form" aria-labelledby="dropdownSpellDetails_'.e($spell->index).'">';
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">'.e($spell->name).'</div>';
+                        echo '</div>';
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">Level</div>';
+                            echo '<div class="spell-content">'.e($spell->level).'</div>';
+                        echo '</div>';
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">Ritual</div>';
+                            echo '<div class="spell-content">'.($spell->ritual ? 'yes' : 'no').'</div>';
+                        echo '</div>';
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">School</div>';
+                            echo '<div class="spell-content">'.e($spell->school).'</div>';
+                        echo '</div>';
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">Concentration</div>';
+                            echo '<div class="spell-content">'.($spell->concentration ? 'yes' : 'no').'</div>';
+                        echo '</div>';
+                        if(isset($spell->dc)){
+                            echo '<div class="mb-3">';
+                                echo '<div class="spell-attribute">Save DC</div>';
+                                echo '<div class="spell-content">'.e($spell->dc).'</div>';
+                            echo '</div>';
+                        }
+                        if(isset($spell->area_of_effect)){
+                            echo '<div class="mb-3">';
+                                echo '<div class="spell-attribute">Area of Effect</div>';
+                                echo '<div class="spell-content">'.e($spell->area_of_effect).'</div>';
+                            echo '</div>';
+                        }
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">Description</div>';
+                            foreach($spell->desc as $desc){
+                                echo '<p class="desc-content">'.e($desc).'</p>';
+                            }
+                        echo '</div>';
+                    echo '</form>';
+                echo '</div>';
             echo '</td>';
             echo '</tr>';
 
-        $spellCount++;
+        $spellCounter++;
     }
 }
+
+
+/*
+
+ echo '<a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownSpell-'.e($spell->index).'" data-bs-toggle="dropdown" aria-expanded="false"></a>';
+                    echo '<ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownSpell-'.e($spell->index).'">';
+                        echo '<li><div class="dropdown-item">';
+                            echo '<div class="spell-details-desc">';
+                                echo '<div class="spell-details-desc-titel">Description</div>';
+                                echo '<p class="spell-details-desc-content">'.e($spell->desc).'</p>';
+                            echo '</div>';
+                        echo '</div></li>';
+                    echo '</ul>';
+
+*/
+
+
+/*
+<div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://image.freepik.com/vektoren-kostenlos/ein-suesser-drache-sitzt-und-laechelt-dich-an-karikatur_159446-720.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+            <?php
+                echo '<strong>'.(isset($_SESSION['username']) ? e($_SESSION['username']) : '').'</strong>';
+            ?>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="changepass.php">Change password</a></li>
+            <li><a class="dropdown-item" href="deleteacc.php">Delete account</a></li>
+        </ul>
+    </div>
+*/
+
+
+
+/*
+echo '<form name"'.e($spell->index).'" action="inc/globalspells.inc.php" method="post">';
+                    echo '<input type="hidden" name="id" value="'.e($spell->_id).'">';
+                    echo '<button type="submit" onclick="togglePopup" class="btn btn-primary">Show Details</button>';
+                echo "</form>";
+
+*/ 
+
 
 //echo '<div class="popup" id="popup-1">';
 //echo '<div class="overlay"></div>';

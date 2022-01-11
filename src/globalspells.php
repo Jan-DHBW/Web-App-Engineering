@@ -23,6 +23,7 @@
     <!-- Custom styles for this template -->
     <link href="../css/style_sidebar.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/style_globalspells.css" rel="stylesheet">
 
 </head>
 
@@ -103,9 +104,10 @@
                         <th scope="col">#</th>
                         <th scope="col">Spell</th>
                         <th scope="col">Level</th>
+                        <th scope="col">Ritual</th>
+                        <th scope="col">Concentration</th>
                         <th scope="col">Cast Time</th>
-                        <th scope="col">School</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">Duration</th>
                     </tr>
                 </thead>
                 <tbody> 
