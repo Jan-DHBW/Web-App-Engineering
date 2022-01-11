@@ -31,6 +31,17 @@ body {
     transform: translateY(-3px) scale(1.1);
 }
 
+.header {
+    overflow: hidden;
+    background-color: #131313;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.mainglobal {
+    margin-top: 30px;
+}
 
 #firstchoose {
     overflow: auto;

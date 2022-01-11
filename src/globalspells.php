@@ -1,4 +1,3 @@
-
 <?php
     
     session_start();
@@ -113,27 +112,31 @@
         ?>
 
         <div id="global">
-            <h1>
-                <center>Global Spells</center>
-            </h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Spell</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Ritual</th>
-                        <th scope="col">Concentration</th>
-                        <th scope="col">Cast Time</th>
-                        <th scope="col">Duration</th>
-                    </tr>
-                </thead>
-                <tbody> 
-                    <?php
+            <div id="globalheader" class="header">
+                <h1><center>Global Spells</h1></center>
+            </div>
+            <br>
+            <div class="mainglobal">
+                <table class="table text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Spell</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Ritual</th>
+                            <th scope="col">Concentration</th>
+                            <th scope="col">Cast Time</th>
+                            <th scope="col">Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                         showSpells($DB);
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
         <div>
 

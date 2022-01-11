@@ -20,52 +20,52 @@ function showSpells($con){
                 echo '<div class="dropdown">';
                     echo '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSpellDetails_'.e($spell->index).'" data-bs-toggle="dropdown" aria-expanded="false">';
                     echo '</button>';
-                    echo '<form class="dropdown-menu dropdown-menu-dark position-fixed spell-details-form" aria-labelledby="dropdownSpellDetails_'.e($spell->index).'">';
+                    echo '<form style="border:4px double skyblue;" class="dropdown-menu dropdown-menu-dark position-fixed spell-details-form" aria-labelledby="dropdownSpellDetails_'.e($spell->index).'">';
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">'.e($spell->name).'</div>';
+                            echo '<div class="spell-attribute" style="color:#EE82EE;text-align:center;font-size: 32px;">'.e($spell->name).'</div>';
                         echo '</div>';
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">Level</div>';
-                            echo '<div class="spell-content">'.e($spell->level).'</div>';
+                        echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Level</div>';
+                            echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($spell->level).'</div>';
                         echo '</div>';
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">Ritual</div>';
-                            echo '<div class="spell-content">'.($spell->ritual ? 'yes' : 'no').'</div>';
+                            echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Ritual</div>';
+                            echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.($spell->ritual ? 'yes' : 'no').'</div>';
                         echo '</div>';
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">School</div>';
-                            echo '<div class="spell-content">'.e($spell->school).'</div>';
+                            echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">School</div>';
+                            echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($spell->school).'</div>';
                         echo '</div>';
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">Concentration</div>';
-                            echo '<div class="spell-content">'.($spell->concentration ? 'yes' : 'no').'</div>';
+                            echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Concentration</div>';
+                            echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.($spell->concentration ? 'yes' : 'no').'</div>';
                         echo '</div>';
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">Components</div>';
-                            echo '<div class="spell-content">'.e($spell->components).'</div>';
+                            echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Components</div>';
+                            echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($spell->components).'</div>';
                         echo '</div>';
                         if(isset($spell->material)){
                             echo '<div class="mb-3">';
-                                echo '<div class="spell-attribute">Material</div>';
-                                echo '<div class="spell-content">'.e($spell->material).'</div>';
+                                echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Material</div>';
+                                echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($spell->material).'</div>';
                             echo '</div>';
                         }
                         if(isset($spell->dc)){
                             echo '<div class="mb-3">';
-                                echo '<div class="spell-attribute">Save DC</div>';
-                                echo '<div class="spell-content">'.e($spell->dc).'</div>';
+                                echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Save DC</div>';
+                                echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($spell->dc).'</div>';
                             echo '</div>';
                         }
                         if(isset($spell->area_of_effect)){
                             echo '<div class="mb-3">';
-                                echo '<div class="spell-attribute">Area of Effect</div>';
-                                echo '<div class="spell-content">'.e($spell->area_of_effect).'</div>';
+                                echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Area of Effect</div>';
+                                echo '<div class="spell-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($spell->area_of_effect).'</div>';
                             echo '</div>';
                         }
                         echo '<div class="mb-3">';
-                            echo '<div class="spell-attribute">Description</div>';
+                            echo '<div class="spell-attribute" style="color:#0074D9;text-align:center;font-size: 20px;">Description</div>';
                             foreach($spell->desc as $desc){
-                                echo '<p class="desc-content">'.e($desc).'</p>';
+                                echo '<p class="desc-content" style="color:#FFFFFF;text-align:center;font-size: 17px;">'.e($desc).'</p>';
                             }
                         echo '</div>';
                     echo '</form>';
