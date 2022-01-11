@@ -18,15 +18,16 @@
     require_once("inc/choosechar-functions.inc.php");
 
 
-
     //sanitize user input
 
     $cid = sanitizeHashToken($_SESSION['cid']);
     $uid = sanitizeHashToken($_SESSION['uid']);
-    $name = sanitizeCharacterName($_SESSION['name']);
-    $class = sanitizeCharacterClass($_SESSION['class']);
-    $level = sanitizeCharacterLevel($_SESSION['level']);
 
+
+    if(!db_char_exists($DB, $uid, $cid)){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
 
 ?>
 <!doctype html>
