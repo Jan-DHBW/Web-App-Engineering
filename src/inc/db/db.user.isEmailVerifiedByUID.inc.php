@@ -14,5 +14,5 @@ function db_user_isEmailVerifiedByUID($con, $uid){
         return false;
     }
 
-    return verifyPwd($pwd, $findOneResult['pwd']);
+    return true;
 }

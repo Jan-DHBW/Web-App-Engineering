@@ -5,7 +5,7 @@ function db_user_destroyHashTokenAuthEmail($con, $hashToken)
     $collection = $con->users;
 
     $updateOneResult = $collection->updateOne(
-        ['authHashToken' => ['$eq' => $token]],
+        ['authHashToken' => ['$eq' => $hashToken]],
         ['$unset' => ['authHashToken' => '']]
     );
     
