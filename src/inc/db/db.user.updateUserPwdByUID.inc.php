@@ -1,12 +1,12 @@
 <?php
 
 
-function db_user_updateUserPwd($con, $token, $pwdHash)
+function db_user_updateUserPwdByUID($con, $uid, $pwdHash)
 {
     $collection = $con->users;
 
     $updateOneResult = $collection->updateOne(
-        ['resetHashToken' => ['$eq' => $token]],
+        ['uid' => ['$eq' => $uid]],
         ['$set' => ['pwd' => $pwdHash]]
     );
 }

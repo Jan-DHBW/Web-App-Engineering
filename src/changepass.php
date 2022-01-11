@@ -92,23 +92,23 @@
                 <center>Change password</center>
             </h1>
             <br>
-            <form style="
+            <form action="inc/changepass.inc.php" method= "post" style="
                 justify-content: center;
                 display: grid;
             ">
                 <div>
-                    <label>Old password:</label><br>
-                    <input type="password" required>
+                    <label for="oldPwd">Old password:</label><br>
+                    <input name="oldPwd" placeholder="Old Password" type="password" required>
                 </div><br>
 
                 <div>
-                    <label>New password:</label><br>
-                    <input type="password" required>
+                    <label for="newPwd">New password:</label><br>
+                    <input name="newPwd" placeholder="New Password" type="password" required>
                 </div><br>
 
                 <div>
-                    <label>Confirm new password:</label><br>
-                    <input type="password" required>
+                    <label for="newPwdRepeat">Confirm new password:</label><br>
+                    <input name="newPwdRepeat" placeholder="Repeat New Password" type="password" required>
                 </div><br>
 
                 <div>
@@ -118,12 +118,7 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="changePw" type="button" class="btn btn-primary" name="btnChangePw">Change password!</button>
-                    <script type="text/javascript">
-                        document.getElementById("changePw").onclick = function() {
-                            location.href = "";
-                        };
-                    </script>
+                    <button id="changePw" type="submit" class="btn btn-primary" name="btnChangePwd" value="true">Change password!</button>
                 </div>
 
             </form>

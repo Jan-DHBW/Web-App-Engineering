@@ -1,11 +1,11 @@
 <?php
 
-function db_user_verifyPassword($con, $name, $pwd)
+function db_user_verifyPasswordByUID($con, $uid, $pwd)
 {
     $col = "users";
     $collection = $con->$col;
 
-    $filter = ['name' => ['$eq' => $name]];
+    $filter = ['uid' => ['$eq' => $uid]];
 
     $resObj = $collection->findOne($filter);
 
