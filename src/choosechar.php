@@ -1,9 +1,4 @@
 <?php
-require_once("inc/db/dbh.inc.php");
-require_once("inc/db/db.character.class.inc.php");
-require_once("inc/db/db.char.function.inc.php");
-require_once("inc/choosechar-functions.inc.php");
-require_once("inc/regex.inc.php");
 
 session_start();
 
@@ -12,8 +7,24 @@ if(!isset($_SESSION['uid'])){
     exit();
 }
 
+require_once("inc/db/dbh.inc.php");
+require_once("inc/db/db.character.class.inc.php");
+require_once("inc/db/db.char.function.inc.php");
+require_once("inc/db/db.user.uidExists.inc.php");
+require_once("inc/choosechar-functions.inc.php");
+require_once("inc/regex.inc.php");
+
+
 $uid = sanitizeHashToken($_SESSION['uid']);
+
+if(!db_user_uidExists($DB, $uid)){
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
+
 $_SESSION['uid'] = $uid;
+
+unset($_SESSION['cid']);
 
 ?>
 

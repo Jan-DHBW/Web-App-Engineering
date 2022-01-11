@@ -1,5 +1,28 @@
 <?php
+
+    
     session_start();
+    
+    if(!isset($_SESSION['uid']) || !isset($_SESSION['cid'])){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+
+    require_once("inc/db/dbh.inc.php");
+    require_once("inc/db/db.character.class.inc.php");
+    require_once("inc/db/db.char.function.inc.php");
+    require_once("inc/regex.inc.php");
+    
+    $uid = sanitizeHashToken($_SESSION['uid']);
+    $cid = sanitizeHashToken($_SESSION['cid']);
+    
+    if(!db_user_exists($DB, $uid, $cid)){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+    
+    $_SESSION['uid'] = $uid;
+    $_SESSION['cid'] = $cid;
 ?>
 <!doctype html>
 <html lang="en">

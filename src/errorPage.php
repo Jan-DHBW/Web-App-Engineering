@@ -78,7 +78,19 @@
 
     <main>
         <?php
-        include("inc/sidebar.php");
+
+            if(isset($_SESSION['uid'])){
+                require_once("inc/db/dbh.inc.php");
+                require_once("inc/db/db.user.uidExists.inc.php");
+                require_once("inc/regex.inc.php");
+
+                $uid = sanitizeHashToken($_SESSION['uid']);
+
+                if(db_user_uidExists($DB, $uid)){
+                    include("inc/sidebar.php");
+                }
+            }
+            
         ?>
 
         <div style="

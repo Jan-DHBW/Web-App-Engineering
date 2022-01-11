@@ -94,3 +94,21 @@ function db_char_updateCharacter($con, $uid, $cid, $name, $class, $level){
 
     return true;
 }
+
+
+function db_char_exists($con, $uid, $cid)
+{
+    $collection = $con->users;
+
+    $findOneResult = $collection->findOne(
+        [
+            'uid' => ['$eq' => $uid],
+            'cid' => ['$eq' => $cid]
+        ]);
+
+    if(empty($findOneResult)) {
+        return false;
+    }
+
+    return true;
+}

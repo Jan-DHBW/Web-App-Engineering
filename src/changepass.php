@@ -1,5 +1,25 @@
 <?php
+
+    
     session_start();
+    
+    if(!isset($_SESSION['uid'])){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+    
+    require_once("inc/db/dbh.inc.php");
+    require_once("inc/db/db.user.uidExists.inc.php");
+    require_once("inc/regex.inc.php");
+
+    $uid = sanitizeHashToken($_SESSION['uid']);
+    
+    if(!db_user_uidExists($DB, $uid)){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+    
+    $_SESSION['uid'] = $uid;
 ?>
 
 <!doctype html>
