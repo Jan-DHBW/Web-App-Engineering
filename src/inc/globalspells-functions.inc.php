@@ -40,6 +40,16 @@ function showSpells($con){
                             echo '<div class="spell-attribute">Concentration</div>';
                             echo '<div class="spell-content">'.($spell->concentration ? 'yes' : 'no').'</div>';
                         echo '</div>';
+                        echo '<div class="mb-3">';
+                            echo '<div class="spell-attribute">Components</div>';
+                            echo '<div class="spell-content">'.e($spell->components).'</div>';
+                        echo '</div>';
+                        if(isset($spell->material)){
+                            echo '<div class="mb-3">';
+                                echo '<div class="spell-attribute">Material</div>';
+                                echo '<div class="spell-content">'.e($spell->material).'</div>';
+                            echo '</div>';
+                        }
                         if(isset($spell->dc)){
                             echo '<div class="mb-3">';
                                 echo '<div class="spell-attribute">Save DC</div>';
