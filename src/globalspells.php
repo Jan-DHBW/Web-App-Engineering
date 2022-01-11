@@ -114,25 +114,6 @@
                     <?php
                         showSpells($DB);
                     ?>
-                    <!--<?php
-                    //for ($i = 1; $i <= 50; $i++) {
-                    ?>
-                        <tr>
-                            <th scope="row">
-                                <?php //echo $i; ?>
-                            </th>
-                            <td>Fireball</td>
-                            <td>xx</td>
-                            <td>120</td>
-                            <td>Idk</td>
-                            <td>old</td>
-                            <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
-                        </tr>
-                    <?php
-                    //}
-                    ?>
-                    -->
-
                 </tbody>
             </table>
         </div>

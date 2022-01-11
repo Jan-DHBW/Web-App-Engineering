@@ -1,14 +1,31 @@
 <?php
-    require_once("inc/head.inc.php");
+require_once("inc/head.inc.php");
 ?>
 
-<section class ="pwdrecovery-form">
-    <h2>Recover Password</h2>
-    <form action ="inc/pwdrecovery.inc.php" method ="post">
-        <label for="email"><b>E-Mail</b></label>
-        <input type="text" placeholder="Enter E-Mail" name="email" required>
-        <button name="pwdrecovery" type="submit" value="true">Recover Password</button>
-        <div id="err"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/style_pwdrecovery.css">
+
+    <title>D&D Spellbook</title>
+</head>
+
+<body>
+
+    <form action="inc/pwdrecovery.inc.php" method="post">
+        <img id="main-bg-img" src="../../img/mythicTome.png">
+
+        <div class="pwdrecovery-form">
+            <div>
+                <h2>Recover Password</h2>
+                <label for="email"><b>E-Mail</b></label>
+                <input type="text" placeholder="Enter E-Mail" name="email" required>
+                <button class="submit" name="pwdrecovery" type="submit" value="true">Recover Password</button>
+                <div id="err"></div>
+            </div>
+        </div>
     </form>
 
-</section>
+</body>

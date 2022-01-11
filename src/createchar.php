@@ -103,17 +103,17 @@
             ">
                 <div>
                     <label>Name:</label><br>
-                    <input type="text" name="name">
+                    <input type="text" name="name" required>
                 </div><br>
 
                 <div>
                     <label>Class:</label><br>
-                    <input type="text" name="class">
+                    <input type="text" name="class" required>
                 </div><br>
 
                 <div>
                     <label>Level:</label><br>
-                    <input type="text" name="level">
+                    <input type="text" name="level" required>
                 </div><br>
 
                 <div>

@@ -98,17 +98,17 @@
             ">
                 <div>
                     <label>Old password:</label><br>
-                    <input type="password">
+                    <input type="password" required>
                 </div><br>
 
                 <div>
                     <label>New password:</label><br>
-                    <input type="password">
+                    <input type="password" required>
                 </div><br>
 
                 <div>
                     <label>Confirm new password:</label><br>
-                    <input type="password">
+                    <input type="password" required>
                 </div><br>
 
                 <div>

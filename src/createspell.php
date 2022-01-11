@@ -98,27 +98,27 @@
             ">
                 <div>
                     <label>Name:</label><br>
-                    <input type="text">
+                    <input type="text" required>
                 </div><br>
 
                 <div>
                     <label>Level:</label><br>
-                    <input>
+                    <input required>
                 </div><br>
 
                 <div>
                     <label>Time:</label><br>
-                    <input>
+                    <input required>
                 </div><br>
 
                 <div>
                     <label>School:</label><br>
-                    <input>
+                    <input required>
                 </div><br>
 
                 <div>
                     <label>Description:</label><br>
-                    <input>
+                    <input required>
                 </div><br>
 
                 <div>
