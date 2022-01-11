@@ -7,6 +7,11 @@
 
     session_start();
 
+    if(!isset($_SESSION['uid'])){
+        header("location: errorPage.php?err=pageNotFound");
+        exit();
+    }
+
 ?>
 
 
