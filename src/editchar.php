@@ -24,7 +24,7 @@
     $uid = sanitizeHashToken($_SESSION['uid']);
 
 
-    if(!db_user_exists($DB, $uid, $cid)){
+    if(!db_char_exists($DB, $uid, $cid)){
         header('location: errorPage.php?err=pageNotFound');
         exit();
     }
