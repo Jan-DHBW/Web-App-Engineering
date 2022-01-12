@@ -1,4 +1,7 @@
 <?php
+
+    require_once("db.spell.class.inc.php")
+
 function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
     $collection = $con->characters;
 
@@ -39,7 +42,19 @@ function db_char_getSpells($char_id){
     $collection = $con->$col;
     $filter = ['user_id' => ['$eq' => $user_id]];
     $cursor = $collection->find($filter);
+    $spelllist = $cursor=>spells;
     $count = count($cursor);
+    $col = "characters";
+    $collection = $con->$col;
+
+    foreach($spelllist as $spell){
+        $spellfilter = ['']
+        $spellcursor = $collection->find()
+        $tmpspell = new Spell();
+        $tmpspell=>
+        
+
+    }
 
     return null;
 }
