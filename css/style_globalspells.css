@@ -29,3 +29,16 @@
     white-space: pre-wrap;
 }
 
+#globalheader {
+    position: absolute;
+    z-index: 10;
+    display: flex !important;
+    width: calc(100% - 280px) !important;
+    background-color: #131313;
+}
+
+#globalheader h1 {
+    justify-content: center;
+    display: flex;
+    width: -webkit-fill-available;
+}
