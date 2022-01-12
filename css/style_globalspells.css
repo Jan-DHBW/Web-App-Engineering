@@ -1,9 +1,13 @@
 
 .dropdown-menu {
-    width: 50vw !important;
-    height: 30vw !important;
+    width: 71vw !important;
+    height: 40vw !important;
 }
 
+
+.row {
+    --bs-gutter-x: 0rem;
+}
 
 .spell-details-form{
     overflow-y: auto;
