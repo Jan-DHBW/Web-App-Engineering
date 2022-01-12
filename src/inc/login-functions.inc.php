@@ -12,7 +12,7 @@
     }
 
     function verifyLogin($con, $name, $pwd){
-        return db_user_verifyPassword($con, $name, $pwd);
+        return db_user_verifyPasswordByName($con, $name, $pwd);
     }
 
     function getUIDByName($con, $name){

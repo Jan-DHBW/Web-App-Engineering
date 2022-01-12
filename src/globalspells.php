@@ -1,11 +1,28 @@
-
 <?php
+    
+    session_start();
+
+    if(!isset($_SESSION['uid'])){
+        header("location: errorPage.php?err=pageNotFound");
+        exit();
+    }
+
     require_once('inc/globalspells-functions.inc.php');
     require_once('inc/db/dbh.inc.php');
+    require_once('inc/regex.inc.php');
+    require_once('inc/db/db.user.uidExists.inc.php');
     require_once('inc/db/db.spell.getSpells.inc.php');
     require_once('inc/db/db.spell.class.inc.php');
 
-    session_start();
+
+    $uid = $uid = sanitizeHashToken($_SESSION['uid']);
+
+    if(!db_user_uidExists($DB, $uid)){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+    
+    $_SESSION['uid'] = $uid;
 
 ?>
 
@@ -23,6 +40,7 @@
     <!-- Custom styles for this template -->
     <link href="../css/style_sidebar.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/style_globalspells.css" rel="stylesheet">
 
 </head>
 
@@ -94,45 +112,31 @@
         ?>
 
         <div id="global">
-            <h1>
-                <center>Global Spells</center>
-            </h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Spell</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Cast Time</th>
-                        <th scope="col">School</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody> 
-                    <?php
-                        showSpells($DB);
-                    ?>
-                    <!--<?php
-                    //for ($i = 1; $i <= 50; $i++) {
-                    ?>
+            <div id="globalheader" class="header">
+                <h1><center>Global Spells</h1></center>
+            </div>
+            <br>
+            <div class="mainglobal">
+                <table class="table text-white">
+                    <thead>
                         <tr>
-                            <th scope="row">
-                                <?php //echo $i; ?>
-                            </th>
-                            <td>Fireball</td>
-                            <td>xx</td>
-                            <td>120</td>
-                            <td>Idk</td>
-                            <td>old</td>
-                            <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
+                            <th scope="col">#</th>
+                            <th scope="col">Spell</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Ritual</th>
+                            <th scope="col">Concentration</th>
+                            <th scope="col">Cast Time</th>
+                            <th scope="col">Duration</th>
                         </tr>
-                    <?php
-                    //}
-                    ?>
-                    -->
+                    </thead>
+                    <tbody>
+                        <?php
+                        showSpells($DB);
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 
-                </tbody>
-            </table>
         </div>
         <div>
 

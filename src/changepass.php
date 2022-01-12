@@ -1,5 +1,25 @@
 <?php
+
+    
     session_start();
+    
+    if(!isset($_SESSION['uid'])){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+    
+    require_once("inc/db/dbh.inc.php");
+    require_once("inc/db/db.user.uidExists.inc.php");
+    require_once("inc/regex.inc.php");
+
+    $uid = sanitizeHashToken($_SESSION['uid']);
+    
+    if(!db_user_uidExists($DB, $uid)){
+        header('location: errorPage.php?err=pageNotFound');
+        exit();
+    }
+    
+    $_SESSION['uid'] = $uid;
 ?>
 
 <!doctype html>
@@ -92,23 +112,23 @@
                 <center>Change password</center>
             </h1>
             <br>
-            <form style="
+            <form action="inc/changepass.inc.php" method= "post" style="
                 justify-content: center;
                 display: grid;
             ">
                 <div>
-                    <label>Old password:</label><br>
-                    <input type="password">
+                    <label for="oldPwd">Old password:</label><br>
+                    <input name="oldPwd" placeholder="Old Password" type="password" required>
                 </div><br>
 
                 <div>
-                    <label>New password:</label><br>
-                    <input type="password">
+                    <label for="newPwd">New password:</label><br>
+                    <input name="newPwd" placeholder="New Password" type="password" required>
                 </div><br>
 
                 <div>
-                    <label>Confirm new password:</label><br>
-                    <input type="password">
+                    <label for="newPwdRepeat">Confirm new password:</label><br>
+                    <input name="newPwdRepeat" placeholder="Repeat New Password" type="password" required>
                 </div><br>
 
                 <div>
@@ -118,12 +138,7 @@
                             location.href = "choosechar.php";
                         };
                     </script>
-                    <button id="changePw" type="button" class="btn btn-primary" name="btnChangePw">Change password!</button>
-                    <script type="text/javascript">
-                        document.getElementById("changePw").onclick = function() {
-                            location.href = "";
-                        };
-                    </script>
+                    <button id="changePw" type="submit" class="btn btn-primary" name="btnChangePwd" value="true">Change password!</button>
                 </div>
 
             </form>

@@ -1,0 +1,44 @@
+
+.dropdown-menu {
+    width: 70vw !important;
+    height: 20vw !important;
+}
+
+
+.row {
+    --bs-gutter-x: 0rem;
+}
+
+.spell-details-form{
+    overflow-y: auto;
+}
+
+
+
+.spell-attribute{
+    font-weight: bold;
+}
+
+
+.spell-content{
+    font-weight: 100;
+}
+
+.spell-desc{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+#globalheader {
+    position: absolute;
+    z-index: 10;
+    display: flex !important;
+    width: calc(100% - 280px) !important;
+    background-color: #131313;
+}
+
+#globalheader h1 {
+    justify-content: center;
+    display: flex;
+    width: -webkit-fill-available;
+}

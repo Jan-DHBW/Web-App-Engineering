@@ -1,10 +1,26 @@
 <?php
-    session_start();
 
-    if(!isset($_SESSION['uid'])){
-        header("location: errorPage.php?err=pageNotFound");
-        exit();
-    }
+
+session_start();
+
+if(!isset($_SESSION['uid'])){
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
+
+require_once("inc/db/dbh.inc.php");
+require_once("inc/db/db.user.uidExists.inc.php");
+require_once("inc/regex.inc.php");
+
+$uid = sanitizeHashToken($_SESSION['uid']);
+
+if(!db_user_uidExists($DB, $uid)){
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
+
+$_SESSION['uid'] = $uid;
+
 ?>
 
 <!doctype html>
@@ -103,17 +119,17 @@
             ">
                 <div>
                     <label>Name:</label><br>
-                    <input type="text" name="name">
+                    <input type="text" name="name" required>
                 </div><br>
 
                 <div>
                     <label>Class:</label><br>
-                    <input type="text" name="class">
+                    <input type="text" name="class" required>
                 </div><br>
 
                 <div>
                     <label>Level:</label><br>
-                    <input type="text" name="level">
+                    <input type="text" name="level" required>
                 </div><br>
 
                 <div>

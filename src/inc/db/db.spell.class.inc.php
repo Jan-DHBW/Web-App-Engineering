@@ -13,7 +13,7 @@ class Spell
     public $ritual;
     public $duration;
     public $concentration;
-    public $cast_time;
+    public $casting_time;
     public $level;
     public $attac_type;
     public $school;

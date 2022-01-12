@@ -100,7 +100,7 @@
             ">
                 <div>
                     <label>Email:</label><br>
-                    <input type="text" size="35">
+                    <input type="text" size="35" required>
                 </div><br>
 
                 <div>
