@@ -24,7 +24,7 @@ if(isset($_POST['btnShowSpells'])){
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
 
 
-    if(strcmp($uid, $_SESSION['uid']) != 0){
+    if(!db_char_exists($DB, $uid, $cid)){
         header('location: ../errorPage.php?err=pageNotFound');
         exit();
     }
@@ -57,8 +57,8 @@ if(isset($_POST['btnEditCharacter'])){
     $level = sanitizeCharacterLevel($_POST['level']);    //validate level
 
 
-    if(strcmp($uid, $_SESSION['uid']) != 0){
-        header('location: errorPage.php?err=pageNotFound');
+    if(!db_char_exists($DB, $uid, $cid)){
+        header('location: ../errorPage.php?err=pageNotFound');
         exit();
     }
 
@@ -90,8 +90,8 @@ if(isset($_POST['btnDeleteCharacter'])){
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
 
 
-    if(strcmp($uid, $_SESSION['uid']) != 0){
-        header('location: errorPage.php?err=pageNotFound');
+    if(!db_char_exists($DB, $uid, $cid)){
+        header('location: ../errorPage.php?err=pageNotFound');
         exit();
     }
 

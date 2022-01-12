@@ -22,6 +22,10 @@
 
     $cid = sanitizeHashToken($_SESSION['cid']);
     $uid = sanitizeHashToken($_SESSION['uid']);
+    $name = sanitizeCharacterName($_SESSION['name']);    
+    $class = sanitizeCharacterClass($_SESSION['class']); 
+    $level = sanitizeCharacterLevel($_SESSION['level']); 
+
 
 
     if(!db_char_exists($DB, $uid, $cid)){
