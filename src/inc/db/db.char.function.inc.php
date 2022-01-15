@@ -40,18 +40,21 @@ function db_char_getSpells($char_id){
     $result = array();
     $col = "characters";
     $collection = $con->$col;
-    $filter = ['user_id' => ['$eq' => $user_id]];
+    $filter = ['cid' => ['$eq' => $$char_id]];
     $cursor = $collection->find($filter);
+
+    foreach($cursor as $entry){
+
+
+    }
+
     $spelllist = $cursor->spells;
     $count = count($cursor);
     $col = "characters";
     $collection = $con->$col;
 
     foreach($spelllist as $spell){
-        $spellfilter = [''];
-        $spellcursor = $collection->find();
-        $tmpspell = new Spell();
-        //$tmpspell=>
+        
         
 
     }

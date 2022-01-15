@@ -1,2 +1,9 @@
 <?php
 
+function getCharSpellList($spelllist)
+
+    
+
+
+
+?>
