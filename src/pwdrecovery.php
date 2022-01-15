@@ -19,7 +19,7 @@ require_once("inc/head.inc.php");
 
         <div class="pwdrecovery-form">
             <div>
-                <h2>Recover Password</h2>
+                <h1 style="font-size: larger;"><strong>Recover Password</strong></h1>
                 <label for="email"><b>E-Mail</b></label>
                 <input type="text" placeholder="Enter E-Mail" name="email" required>
                 <button class="submit" name="pwdrecovery" type="submit" value="true">Recover Password</button>
