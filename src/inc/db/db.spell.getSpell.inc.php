@@ -9,7 +9,8 @@ function getSpell($spellid){
     $tmpspell = new Spell();
     $col = "spells";
     $collection = $DB->$col;
-    if ($spellid instanceof MongoDB\BSON\ObjectID) {
+    if ($spellid instanceof MongoDB\BSON\ObjectID) 
+    {
         $bspellid = $spellid;
     }
     else {
