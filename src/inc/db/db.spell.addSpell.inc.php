@@ -3,10 +3,15 @@
 function addSpell($spell, $cid){
     $col='characters';
     $collection = $DB->$col;
-    $bspellid = new MongoDB\BSON\ObjectID($spellid)
+    if($spellid instanceof MongoDB\BSON\ObjectID){
+        $bspellid = $spellid;
+    };
+    else{
+    $bspellid = new MongoDB\BSON\ObjectID($spellid);
+    };
     $updateOneResult = $collection->updateOne(
         ['cid' => ['$eq' => $cid]],
-        ['$push' => [
+        ['$addToSet' => [
             'spells' =>[
                 'spell_id' => $bspellid,
                 'prepared' => true
@@ -15,7 +20,7 @@ function addSpell($spell, $cid){
         
         
         ]
-    )
+    );
 
 }
 
