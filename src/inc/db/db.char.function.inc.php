@@ -38,28 +38,21 @@ function db_char_deleteCharcter($con, $uid, $cid)
 
 function db_char_getSpells($char_id){
     $result = array();
+    $spelllist = array();
     $col = "characters";
     $collection = $con->$col;
     $filter = ['cid' => ['$eq' => $$char_id]];
-    $cursor = $collection->find($filter);
-
-    foreach($cursor as $entry){
-
-
+    $char = $collection->findOne($filter);
+    $spells = $char['spells'];
+    foreach($spells as $spell){
+        array_push($spelllist, $spell['spell_id']);
     }
-
-    $spelllist = $cursor->spells;
-    $count = count($cursor);
-    $col = "characters";
-    $collection = $con->$col;
 
     foreach($spelllist as $spell){
-        
-        
-
+        array_push($result, getSpell($spell))
     }
 
-    return null;
+    return $result;
 }
 
 

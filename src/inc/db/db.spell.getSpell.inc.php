@@ -9,7 +9,12 @@ function getSpell($spellid){
     $tmpspell = new Spell();
     $col = "spells";
     $collection = $DB->$col;
+    if($spellid instanceof MongoDB\BSON\ObjectID){
+        $bspellid = $spellid;
+    };
+    else{
     $bspellid = new MongoDB\BSON\ObjectID($spellid);
+    };
     $filter = ['_id' =>  $bspellid];
     $result = $collection->find($filter);
     $j = json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($result)), true);
