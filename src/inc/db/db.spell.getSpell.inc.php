@@ -32,10 +32,6 @@ function getSpell($spellid){
     $tmpspell->attack_type = isset($j['attack_type']) ? $j['attack_type'] : null;
     $tmpspell->school = isset($j['school']) ? $j['school']['name'] : null;
     $tmpspell->area_of_effect = isset($j['area_of_effect']) ? implode(', ', $j['area_of_effect']) : null;
-    
-
-
-
     return $tmpspell
 }
 
