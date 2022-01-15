@@ -1,5 +1,5 @@
 <?php
-function addSpell($spell, $cid){
+function removeSpell($spell, $cid){
     $col='characters';
     $collection = $DB->$col;
     if($spellid instanceof MongoDB\BSON\ObjectID){
@@ -10,10 +10,9 @@ function addSpell($spell, $cid){
     };
     $updateOneResult = $collection->updateOne(
         ['cid' => ['$eq' => $cid]],
-        ['$addToSet' => [
+        ['$pull' => [
             'spells' =>[
-                'spell_id' => $bspellid,
-                'prepared' => true
+                'spell_id' => $bspellid
             ]
         ]
         

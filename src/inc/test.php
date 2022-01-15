@@ -16,16 +16,32 @@ function createDbConnection(){
     $collection = $DB->$col;
 
 
-    $result = array();
-    $col = "characters";
-    $collection = $DB->$col;
-    $filter = ['cid' => ['$eq' => 'Drs0OeCBI4uSpuW8mM0gIYbxZuoMabRcUYtahM7gOYI']];
-    $char = $collection->findOne($filter);
-    $tmp = $char['spells'];
-    foreach ($tmp as $spell){
-        array_push($result, $spell['spell_id']);
-    }
+    // $result = array();
+    // $col = "characters";
+    // $collection = $DB->$col;
+    // $filter = ['cid' => ['$eq' => 'Drs0OeCBI4uSpuW8mM0gIYbxZuoMabRcUYtahM7gOYI']];
+    // $char = $collection->findOne($filter);
+    // $tmp = $char['spells'];
+    // foreach ($tmp as $spell){
+    //     array_push($result, $spell['spell_id']);
+    // }
+    // if ($result[0] instanceof MongoDB\BSON\ObjectID){
+    //     $btset = true;
+    // }
 
+    $cid = 'LVlp0RzGXqJd8rhMAqxfs9RXOpKB57yCqQjKM7vw0';
+    $spellid = '61db0f92246f56da35983e9b';
+    //$col = 'characters'
+    //$collection = $DB->$col;
+    $bspellid = new MongoDB\BSON\ObjectID($spellid);
+
+    $updateOneResult = $collection->updateOne(
+        ['cid' => $cid, 'spells.spell_id'=> $bspellid],
+        ['$set' => [
+                'spells.$.prepared' => false
+            ]
+        ]
+    );
 
 
         printf("sdfa");

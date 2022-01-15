@@ -18,6 +18,8 @@ class Spell
     public $attac_type;
     public $school;
     public $area_of_effect;
+    public $prepared;
+    public $user_id;
 
 
     function __construct()

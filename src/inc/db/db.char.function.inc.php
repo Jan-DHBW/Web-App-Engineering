@@ -1,6 +1,7 @@
 <?php
 
 require_once("db.spell.class.inc.php");
+require_once("db.spell.getSpell.inc.php");
 
 function db_char_createCharacter($con, $cid, $uid, $name, $class, $level){
     $collection = $con->characters;
