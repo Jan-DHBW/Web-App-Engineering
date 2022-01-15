@@ -1,8 +1,8 @@
 <?php
 
 
-require_once("\dbh.inc.php");
-require_once("\db.spell.class.inc.php");
+require_once("/dbh.inc.php");
+require_once("/db.spell.class.inc.php");
 
 
 function getSpell($spellid){
