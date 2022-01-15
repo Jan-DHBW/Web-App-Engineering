@@ -42,19 +42,19 @@ function db_char_getSpells($char_id){
     $spelllist = array();
     $col = "characters";
     $collection = $con->$col;
-    $filter = ['cid' => ['$eq' => $$char_id]];
+    $filter = ['cid' => ['$eq' => $char_id]];
     $char = $collection->findOne($filter);
     $spells = $char['spells'];
     foreach($spells as $spell){
         array_push($spelllist, $spell['spell_id']);
-    }
+    };
 
     foreach($spelllist as $spell){
-        array_push($result, getSpell($spell))
-    }
+        array_push($result, getSpell($spell));
+    };
 
     return $result;
-}
+};
 
 
 function db_char_getCharactersByUID($con, $uid)
