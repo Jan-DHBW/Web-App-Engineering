@@ -37,7 +37,7 @@ function db_char_deleteCharcter($con, $uid, $cid)
     return $deleteOneResult;
 }
 
-function db_char_getSpells($char_id){
+function db_char_getSpells($char_id) {
     $result = array();
     $spelllist = array();
     $col = "characters";
