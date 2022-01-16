@@ -1,12 +1,12 @@
 <?php
 
-fuction createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$creator){
+function createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$creator){
     $col = 'charspells';
     $collection = $con->$col;
     $insertOneResult = $collection->insertOne(
         [
         'index' => $index,
-        'name' => $name.
+        'name' => $name,
         'desc' => $desc,
         'range' => $range,
         'components' => $comp,
@@ -22,9 +22,11 @@ fuction createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio
         'area_of_effect' => $area_of_effect,
         'char_id' => $creator
         ]
-
-    )
+        
+        );
+    if(empty($insertOneResult)){
+        return false;
+    }
+    return $insertOneResult;
 }
-
-
 ?>

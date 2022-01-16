@@ -2,11 +2,11 @@
 function prepareSpell($con,$spell, $cid){
     $col='characters';
     $collection = $con->$col;
-    if($spellid instanceof MongoDB\BSON\ObjectID){
-        $bspellid = $spellid;
+    if($spell instanceof MongoDB\BSON\ObjectID){
+        $bspellid = $spell;
     };
     else{
-    $bspellid = new MongoDB\BSON\ObjectID($spellid);
+    $bspellid = new MongoDB\BSON\ObjectID($spell);
     };
     $updateOneResult = $collection->updateOne(
         ['cid' => ['$eq' => $cid], 'spells.spell_id'=>['eq' => $bspellid]],
@@ -20,10 +20,10 @@ function prepareSpell($con,$spell, $cid){
         $col='characters';
         $collection = $con->$col;
         if($spellid instanceof MongoDB\BSON\ObjectID){
-            $bspellid = $spellid;
+            $bspellid = $spell;
         };
         else{
-        $bspellid = new MongoDB\BSON\ObjectID($spellid);
+        $bspellid = new MongoDB\BSON\ObjectID($spell);
         };
         $updateOneResult = $collection->updateOne(
             ['cid' => ['$eq' => $cid], 'spells.spell_id'=>['eq' => $bspellid]],

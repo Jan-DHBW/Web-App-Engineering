@@ -1,12 +1,11 @@
 <?php
-function addSpell($spell, $cid){
+function addSpell($con,$spell, $cid){
     $col='characters';
-    $collection = $DB->$col;
-    if($spellid instanceof MongoDB\BSON\ObjectID){
-        $bspellid = $spellid;
-    };
-    else{
-    $bspellid = new MongoDB\BSON\ObjectID($spellid);
+    $collection = $con->$col;
+    if($spell instanceof MongoDB\BSON\ObjectID){
+        $bspellid = $spell;
+    } else {
+    $bspellid = new MongoDB\BSON\ObjectID($spell);
     };
     $updateOneResult = $collection->updateOne(
         ['cid' => ['$eq' => $cid]],

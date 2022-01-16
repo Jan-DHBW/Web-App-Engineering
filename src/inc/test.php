@@ -1,7 +1,12 @@
 <?php
 
 require_once('db\db.spell.class.inc.php');
+require_once('db\db.spell.addSpell.inc.php');
+require_once('db\db.spell.removeSpell.inc.php');
+require_once('db\db.spell.deleteSpell.inc.php');
+require_once('db\db.spell.createSpell.inc.php');
 require_once('C:\WebEntAbgabe\Web-App-Engineering\vendor\autoload.php');
+
 
 function createDbConnection(){
     //TODO: SEC ISSUE: plaintext pwd
@@ -28,9 +33,30 @@ function createDbConnection(){
     // if ($result[0] instanceof MongoDB\BSON\ObjectID){
     //     $btset = true;
     // }
+    $index='Thunderbolt';
+    $name='Thunderbolt';
+    $desc='Thunderbolt';
+    $range='20 Feet';
+    $comp=['V','S'];
+    $mater='Strom';
+    $ritual=false;
+    $duratio='1 turn';
+    $concentration=false;
+    $lvl=1;
+    $cast_time='insatnt';
+    $attack_type='ranged';
+    $damage='Elektro';
+    $school='evocation';
+    $area_of_effect=false;
+    $creator='s7jgrm6VKUHuDEf8a0XKzeW4A0EBrL424Nuhw0XIs';
 
-    $cid = 'LVlp0RzGXqJd8rhMAqxfs9RXOpKB57yCqQjKM7vw0';
-    $spellid = '61db9f92247f56da35983e8b';
+
+    $cid = 's7jgrm6VKUHuDEf8a0XKzeW4A0EBrL424Nuhw0XIs';
+    $spellid = '61e42344d0270000bc001a72';
+
+    //$tmp = createSpell($DB,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$creator);
+    //$tmp = $tmp->getInsertedID();    
+    deleteSpell($DB,$spellid,$cid);
     //$col = 'characters'
     //$collection = $DB->$col;
     $bspellid = new MongoDB\BSON\ObjectID($spellid);
