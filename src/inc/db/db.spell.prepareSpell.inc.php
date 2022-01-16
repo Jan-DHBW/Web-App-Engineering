@@ -31,7 +31,6 @@ function prepareSpell($con,$spell, $cid){
                     'spells.$.prepared' => false
                 ]
             ]
-            ]
         );
 }
 ?>
