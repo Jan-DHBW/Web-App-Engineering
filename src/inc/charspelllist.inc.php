@@ -61,7 +61,7 @@ if(isset($_POST['btnEditSpellList'])){
 
 
     //remove spell from character
-    unprepareSpell($DB, $spell_id, $cid);
+    prepareSpell($DB, $spell_id, $cid);
 
     header('location: ../charspelllist.php');
     exit();
