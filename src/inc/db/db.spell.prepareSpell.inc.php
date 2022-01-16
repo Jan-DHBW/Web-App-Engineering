@@ -1,7 +1,7 @@
 <?php
-function prepareSpell($spell, $cid){
+function prepareSpell($con,$spell, $cid){
     $col='characters';
-    $collection = $DB->$col;
+    $collection = $con->$col;
     if($spellid instanceof MongoDB\BSON\ObjectID){
         $bspellid = $spellid;
     };
@@ -16,9 +16,9 @@ function prepareSpell($spell, $cid){
         ]
         ]
     );
-    function undprepareSpell($spell, $cid){
+    function undprepareSpell($con,$spell, $cid){
         $col='characters';
-        $collection = $DB->$col;
+        $collection = $con->$col;
         if($spellid instanceof MongoDB\BSON\ObjectID){
             $bspellid = $spellid;
         };

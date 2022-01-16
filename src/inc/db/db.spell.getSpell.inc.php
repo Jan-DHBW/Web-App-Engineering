@@ -1,9 +1,9 @@
 <?php
 
-function getSpell($spellid){
+function getSpell($con,$spellid){
     $tmpspell = new Spell();
     $col = "spells";
-    $collection = $DB->$col;
+    $collection = $con->$col;
     if ($spellid instanceof MongoDB\BSON\ObjectID) {
         $bspellid = $spellid;
     } else {
@@ -31,7 +31,7 @@ function getSpell($spellid){
         return $tmpspell;
     }
     $col = "charspells";
-    $collection = $DB->$col;
+    $collection = $con->$col;
     $result = $collection->findOne($filter);
     if ($result != null){
         $j = json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($result)), true);

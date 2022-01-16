@@ -1,7 +1,7 @@
 <?php
-function removeSpell($spell, $cid){
+function removeSpell($con,$spell, $cid){
     $col='characters';
-    $collection = $DB->$col;
+    $collection = $con->$col;
     if($spellid instanceof MongoDB\BSON\ObjectID){
         $bspellid = $spellid;
     };
