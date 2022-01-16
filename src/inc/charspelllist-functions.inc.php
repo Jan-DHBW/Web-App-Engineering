@@ -1,11 +1,11 @@
 <?php
 
-function showCharSpells($con, $cid){
+function showCharSpells($con, $uid, $cid){
     $spellList = db_char_getSpells($con, $cid);
     $spellCounter = 0;
 
     foreach($spellList as $spell){
-
+        if(!isset($spell)) continue;
         echo '<tr>';
             echo '<th scope="row">';
             echo e($spellCounter);
