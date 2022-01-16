@@ -1,6 +1,6 @@
 <?php
 
-function createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$creator){
+function createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$char_id){
     $col = 'charspells';
     $collection = $con->$col;
     $insertOneResult = $collection->insertOne(
