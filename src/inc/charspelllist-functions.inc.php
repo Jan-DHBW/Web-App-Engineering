@@ -1,15 +1,16 @@
 <?php
 
-function showCharSpells($con, $cid){
-    $spellList = db_spell_getSpells($con);
+function showCharSpells($con, $uid, $cid){
+    $spellList = db_char_getSpells($con, $cid);
     $spellCounter = 0;
 
     foreach($spellList as $spell){
-
+        if(!isset($spell)) continue;
         echo '<tr>';
             echo '<th scope="row">';
             echo e($spellCounter);
             echo '</th>';
+            echo '<td>'.($spell->prepared ? 'yes' : 'no').'</td>';
             echo '<td>'.e($spell->name).'</td>';   //name
             echo '<td>'.e($spell->level).'</td>';        //range
             echo '<td>'.($spell->ritual ? 'yes' : 'no').'</td>';        //ritual
@@ -69,8 +70,19 @@ function showCharSpells($con, $cid){
                             }
                         echo '</div>';
                     echo '</form>';
-                    echo '<td><button type="submit" class="btn btn-primary" name="btnDeleteSpell" value="true">Remove</button></td>';
                 echo '</div>';
+            echo '</td>';
+            echo '<td>';
+                echo '<form action="inc/charspelllist.inc.php" method="POST">';
+                    echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                    echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                    echo '<input type="hidden" name="spell_id" value="'.e($spell->_id).'">';
+                    if($spell->prepared){
+                        echo '<td><button type="submit" class="btn btn-primary" name="btnUnprepareSpell" value="true">unprepare</button></td>';
+                    }else{
+                        echo '<td><button type="submit" class="btn btn-primary" name="btnPrepareSpell" value="true">prepare</button></td>';
+                    }
+                echo '</form>';
             echo '</td>';
             echo '</tr>';
 

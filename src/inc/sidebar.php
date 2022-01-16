@@ -22,10 +22,11 @@
         <li>
             <a href="globalspells.php" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16">
-                    <use xlink:href="#speedometer2" /></svg>
+                    <use xlink:href="#table" /></svg>
                 Global spells
             </a>
         </li>
+        <!--
         <li>
             <a href="createspell.php" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16">
@@ -34,6 +35,15 @@
             </a>
         </li>
         <li>
+        -->
+
+        <li>
+            <a href="changepass.php" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16">
+                    <use xlink:href="#" /></svg>
+                Change Password
+            </a>
+        </li>
             <a href="/src/inc/logout.inc.php" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#people-circle" /></svg>
@@ -42,17 +52,14 @@
         </li>
     </ul>
     <hr>
-    <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
-            data-bs-toggle="dropdown" aria-expanded="false">
+    
+    <div >
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1" aria-expanded="false">
             <img src="https://image.freepik.com/vektoren-kostenlos/ein-suesser-drache-sitzt-und-laechelt-dich-an-karikatur_159446-720.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
             <?php
                 echo '<strong>'.(isset($_SESSION['username']) ? e($_SESSION['username']) : '').'</strong>';
             ?>
         </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="changepass.php">Change password</a></li>
-            <li><a class="dropdown-item" href="deleteacc.php">Delete account</a></li>
-        </ul>
     </div>
+
 </div>

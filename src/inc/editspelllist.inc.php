@@ -9,19 +9,21 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 session_start();
 
 
-//handle show Spells
+//handle remove Spell
 
-if(isset($_POST['btnEditSpellList'])){
+if(isset($_POST['btnRemoveSpell'])){
     
     //require dependencies
     
     require_once('db/dbh.inc.php');
     require_once('db/db.char.function.inc.php');
+    require_once('db/db.spell.removeSpell.inc.php');
     require_once('hash.inc.php');
     require_once('regex.inc.php');
     
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
+    $spell_id = e($_POST['spell_id']);
 
 
     if(!db_char_exists($DB, $uid, $cid)){
@@ -29,77 +31,53 @@ if(isset($_POST['btnEditSpellList'])){
         exit();
     }
 
-    unset($_SESSION['btnEditSpelList']);
+    unset($_SESSION['btnRemoveSpell']);
     $_SESSION['uid'] = $uid;
     $_SESSION['cid'] = $cid;
+
+
+    //remove spell from character
+    removeSpell($DB, $spell_id, $cid);
 
     header('location: ../editspelllist.php');
     exit();
 
 
-}else if(isset($_POST['btnPrepareSpell'])){
 
+}else if(isset($_POST['btnAddSpell'])){
+    
+    //require dependencies
+    
     require_once('db/dbh.inc.php');
     require_once('db/db.char.function.inc.php');
-    require_once('db/db.spell.prepareSpell.inc.php');
+    require_once('db/db.spell.addSpell.inc.php');
     require_once('hash.inc.php');
     require_once('regex.inc.php');
     
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
-    $spell_id = e($POST['spell_id']);
-
+    $spell_id = e($_POST['spell_id']);
 
     if(!db_char_exists($DB, $uid, $cid)){
         header('location: ../errorPage.php?err=pageNotFound');
         exit();
     }
 
-    unset($_SESSION['btnEditSpelList']);
+    unset($_SESSION['btnAddSpell']);
     $_SESSION['uid'] = $uid;
     $_SESSION['cid'] = $cid;
 
 
-    //prepare spell
-    prepareSpell($DB, $spell_id, $cid);
-
-
-    header('location: ../editspelllist.php');
-    exit();
-
-
-}else if(isset($_POST['btnUnrepareSpell'])){
-
-    require_once('db/dbh.inc.php');
-    require_once('db/db.char.function.inc.php');
-    require_once('db/db.spell.prepareSpell.inc.php');
-    require_once('hash.inc.php');
-    require_once('regex.inc.php');
-    
-    $uid = sanitizeHashToken($_POST['uid']);     //validate uid
-    $cid = sanitizeHashToken($_POST['cid']);    //validate cid
-    $spell_id = e($POST['spell_id']);
-
-
-    if(!db_char_exists($DB, $uid, $cid)){
-        header('location: ../errorPage.php?err=pageNotFound');
-        exit();
-    }
-
-    unset($_SESSION['btnEditSpelList']);
-    $_SESSION['uid'] = $uid;
-    $_SESSION['cid'] = $cid;
-
-    //unprepare spell
-    unprepareSpell($DB, $spell_id, $cid);
-
+    //add spell to character
+    addSpell($DB, $spell_id, $cid);
 
     header('location: ../editspelllist.php');
     exit();
-
-
 }
-
 
 header('location: ../errorPage.php?err=pageNotFound');
 exit();
+
+
+
+

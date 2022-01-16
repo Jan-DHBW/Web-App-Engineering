@@ -7,7 +7,7 @@ if (!isset($_SESSION['uid']) || !isset($_SESSION['cid'])) {
     exit();
 }
 
-require_once('inc/charspells-functions.inc.php');
+require_once('inc/charspelllist-functions.inc.php');
 require_once('inc/db/dbh.inc.php');
 require_once('inc/regex.inc.php');
 require_once('inc/db/db.char.function.inc.php');
@@ -121,7 +121,12 @@ $_SESSION['charName'] = $cid;
 
         <div id="global">
             <div id="globalheader" class="header">
-                <?php echo '<h1><center>Character Spells: ' . e($charName) . '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell" style="right: 0;">Edit Spelllist</button></h1></center>'; ?>
+            <form action="inc/charspelllist.inc.php" method="POST">
+                    <?php
+                        echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                        echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                        echo '<h1><center>Character Spells: ' . e($charName) . '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpellList" value="true" style="right: 0;">Edit Spelllist</button></h1></center>'; ?>
+                </form>
             </div>
             <br>
             <div class="mainglobal">
@@ -129,6 +134,7 @@ $_SESSION['charName'] = $cid;
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Prepared</th>
                             <th scope="col">Spell</th>
                             <th scope="col">Level</th>
                             <th scope="col">Ritual</th>
@@ -139,7 +145,7 @@ $_SESSION['charName'] = $cid;
                     </thead>
                     <tbody>
                         <?php
-                        showCharSpells($DB, $cid);
+                        showCharSpells($DB, $uid, $cid);
                         ?>
                     </tbody>
                 </table>
