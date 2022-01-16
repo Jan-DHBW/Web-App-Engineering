@@ -67,7 +67,7 @@ if(isset($_POST['btnEditSpellList'])){
     exit();
 
 
-}else if(isset($_POST['btnUnrepareSpell'])){
+}else if(isset($_POST['btnUnprepareSpell'])){
 
     require_once('db/dbh.inc.php');
     require_once('db/db.char.function.inc.php');
@@ -77,7 +77,7 @@ if(isset($_POST['btnEditSpellList'])){
     
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
-    $spell_id = e($POST['spell_id']);
+    $spell_id = e($_POST['spell_id']);
 
 
     if(!db_char_exists($DB, $uid, $cid)){
@@ -85,7 +85,7 @@ if(isset($_POST['btnEditSpellList'])){
         exit();
     }
 
-    unset($_SESSION['btnEditSpelList']);
+    unset($_SESSION['btnUnprepareSpelList']);
     $_SESSION['uid'] = $uid;
     $_SESSION['cid'] = $cid;
 
@@ -93,7 +93,7 @@ if(isset($_POST['btnEditSpellList'])){
     unprepareSpell($DB, $spell_id, $cid);
 
 
-    header('location: ../editspelllist.php');
+    header('location: ../charspelllist.php');
     exit();
 
 
