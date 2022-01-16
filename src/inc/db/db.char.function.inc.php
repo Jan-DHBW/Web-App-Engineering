@@ -124,3 +124,15 @@ function db_char_exists($con, $uid, $cid)
 
     return true;
 }
+
+function db_char_getCharacternameByCID($con, $uid, $cid){
+    $collection = $con->characters;
+
+    $findOneResult = $collection->findOne(
+        [
+            'uid' => ['$eq' => $uid],
+            'cid' => ['$eq' => $cid]
+        ]);
+
+    return (string) $findOneResult->name;
+}
