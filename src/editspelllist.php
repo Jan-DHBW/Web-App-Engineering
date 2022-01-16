@@ -7,7 +7,7 @@ if (!isset($_SESSION['uid']) || !isset($_SESSION['cid'])) {
     exit();
 }
 
-require_once('inc/charspells-functions.inc.php');
+require_once('inc/editspelllist-functions.inc.php');
 require_once('inc/db/dbh.inc.php');
 require_once('inc/regex.inc.php');
 require_once('inc/db/db.char.function.inc.php');
@@ -124,7 +124,7 @@ $_SESSION['charName'] = $cid;
                 <?php echo '<h1><center>Edit Character Spells: ' . e($charName) . '</h1></center>'; ?>
             </div>
             <div>
-                <button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell">Edit Spelllist</button>
+                
             </div>
             <br>
             <div class="mainglobal">

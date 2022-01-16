@@ -17,7 +17,8 @@ function getSpell($con,$spellid){
         $tmpspell->_id = isset($j['_id']) ? $j['_id']['$oid'] : null;
         $tmpspell->index = isset($j['index']) ? $j['index'] : null;
         $tmpspell->name = isset($j['name']) ? $j['name'] : null;
-        $tmpspell->desc = isset($j['desc']) ? implode(' ', $j['desc']) : null;
+        //$tmpspell->desc = isset($j['desc']) ? implode(' ', $j['desc']) : null;
+        $tmpspell->desc = isset($j['desc']) ? $j['desc'] : null;
         $tmpspell->range = isset($j['range']) ? $j['range'] : null;
         $tmpspell->components = isset($j['components']) ? implode(', ',$j['components']) : null;
         $tmpspell->material = isset($j['material']) ? $j['material'] : null;

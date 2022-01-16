@@ -69,9 +69,21 @@ function showEditCharSpells($con,$cid,$uid){
                             }
                         echo '</div>';
                     echo '</form>';
-                    echo '<td><button type="submit" class="btn btn-primary" name="btnDeleteSpell" value="true">Remove</button></td>';
                 echo '</div>';
             echo '</td>';
+            echo '<form action="inc/editspelllist.inc.php" method="POST">';
+            if(isset($spell->cid)){
+                echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                echo '<input type="hidden" name="spell_id" value="'.e($spell->_id).'">';
+                echo '<td><button type="submit" class="btn btn-primary" name="btnRemoveSpell" value="true">Remove</button></td>';
+            }else{
+                echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                echo '<input type="hidden" name="spell_id" value="'.e($spell->_id).'">';
+                echo '<td><button type="submit" class="btn btn-primary" name="btnAddSpell" value="true">Add</button></td>';
+            }
+            echo '</form>';
             echo '</tr>';
 
         $spellCounter++;

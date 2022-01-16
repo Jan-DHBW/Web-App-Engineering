@@ -121,7 +121,12 @@ $_SESSION['charName'] = $cid;
 
         <div id="global">
             <div id="globalheader" class="header">
-                <?php echo '<h1><center>Character Spells: ' . e($charName) . '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell" style="right: 0;">Edit Spelllist</button></h1></center>'; ?>
+            <form action="inc/charspelllist.inc.php" method="POST">
+                    <?php
+                        echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                        echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                        echo '<h1><center>Character Spells: ' . e($charName) . '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpellList" value="true" style="right: 0;">Edit Spelllist</button></h1></center>'; ?>
+                </form>
             </div>
             <br>
             <div class="mainglobal">

@@ -1,7 +1,7 @@
 <?php
 
 function showCharSpells($con, $cid){
-    $spellList = db_spell_getSpells($con);
+    $spellList = db_char_getSpells($con, $cid);
     $spellCounter = 0;
 
     foreach($spellList as $spell){
@@ -69,7 +69,6 @@ function showCharSpells($con, $cid){
                             }
                         echo '</div>';
                     echo '</form>';
-                    echo '<td><button type="submit" class="btn btn-primary" name="btnDeleteSpell" value="true">Remove</button></td>';
                 echo '</div>';
             echo '</td>';
             echo '</tr>';
