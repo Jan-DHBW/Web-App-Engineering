@@ -1,36 +1,36 @@
 <?php
-    
-    session_start();
 
-    if(!isset($_SESSION['uid']) || !isset($_SESSION['cid'])){
-        header("location: errorPage.php?err=pageNotFound");
-        exit();
-    }
+session_start();
 
-    require_once('inc/charspells-functions.inc.php');
-    require_once('inc/db/dbh.inc.php');
-    require_once('inc/regex.inc.php');
-    require_once('inc/db/db.char.function.inc.php');
-    require_once('inc/db/db.spell.getSpells.inc.php');
-    require_once('inc/db/db.spell.class.inc.php');
+if (!isset($_SESSION['uid']) || !isset($_SESSION['cid'])) {
+    header("location: errorPage.php?err=pageNotFound");
+    exit();
+}
+
+require_once('inc/charspells-functions.inc.php');
+require_once('inc/db/dbh.inc.php');
+require_once('inc/regex.inc.php');
+require_once('inc/db/db.char.function.inc.php');
+require_once('inc/db/db.spell.getSpells.inc.php');
+require_once('inc/db/db.spell.class.inc.php');
 
 
-    $uid = sanitizeHashToken($_SESSION['uid']);
-    $cid = sanitizeHashToken($_SESSION['cid']);
-   
-    
+$uid = sanitizeHashToken($_SESSION['uid']);
+$cid = sanitizeHashToken($_SESSION['cid']);
 
-    if(!db_char_exists($DB, $uid, $cid)){
-        header('location: errorPage.php?err=pageNotFound');
-        exit();
-    }
 
-    $charName = e(db_char_getCharacternameByCID($DB, $uid , $cid));
-    
-    $_SESSION['uid'] = $uid;
-    $_SESSION['cid'] = $cid;
-    $_SESSION['charName'] = $cid;
-    
+
+if (!db_char_exists($DB, $uid, $cid)) {
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
+
+$charName = e(db_char_getCharacternameByCID($DB, $uid, $cid));
+
+$_SESSION['uid'] = $uid;
+$_SESSION['cid'] = $cid;
+$_SESSION['charName'] = $cid;
+
 
 ?>
 
@@ -121,7 +121,7 @@
 
         <div id="global">
             <div id="globalheader" class="header">
-            <?php    echo '<h1><center>Character Spells: '.e($charName).'</h1></center>'; ?>
+                <?php echo '<h1><center>Character Spells: ' . e($charName) . '<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell">Edit Spelllist</button></h1></center>'; ?>
             </div>
             <br>
             <div class="mainglobal">

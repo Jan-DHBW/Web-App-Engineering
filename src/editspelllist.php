@@ -1,6 +1,39 @@
 <?php
-    session_start();
+
+session_start();
+
+if (!isset($_SESSION['uid']) || !isset($_SESSION['cid'])) {
+    header("location: errorPage.php?err=pageNotFound");
+    exit();
+}
+
+require_once('inc/charspells-functions.inc.php');
+require_once('inc/db/dbh.inc.php');
+require_once('inc/regex.inc.php');
+require_once('inc/db/db.char.function.inc.php');
+require_once('inc/db/db.spell.getSpells.inc.php');
+require_once('inc/db/db.spell.class.inc.php');
+
+
+$uid = sanitizeHashToken($_SESSION['uid']);
+$cid = sanitizeHashToken($_SESSION['cid']);
+
+
+
+if (!db_char_exists($DB, $uid, $cid)) {
+    header('location: errorPage.php?err=pageNotFound');
+    exit();
+}
+
+$charName = e(db_char_getCharacternameByCID($DB, $uid, $cid));
+
+$_SESSION['uid'] = $uid;
+$_SESSION['cid'] = $cid;
+$_SESSION['charName'] = $cid;
+
+
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -15,6 +48,7 @@
     <!-- Custom styles for this template -->
     <link href="../css/style_sidebar.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/style_globalspells.css" rel="stylesheet">
 
 </head>
 
@@ -85,44 +119,35 @@
         include("inc/sidebar.php");
         ?>
 
-        <div id="spelllist">
-            <h1>
-                <center>Edit Spelllist</center>
-                <center><img src="https://cdn.animenachrichten.de/wp-content/uploads/2019/05/Demon-Slayer-Kimetsu-no-Yaiba-07.jpg" alt="" border=3 height=100 width=150></img></center>
-            </h1>
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Spell</th>
-                        <th scope="col">Prepared</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">School</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    for ($i = 1; $i <= 20; $i++) {
-                    ?>
+        <div id="global">
+            <div id="globalheader" class="header">
+                <?php echo '<h1><center>Edit Character Spells: ' . e($charName) . '</h1></center>'; ?>
+            </div>
+            <div>
+                <button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell">Edit Spelllist</button>
+            </div>
+            <br>
+            <div class="mainglobal">
+                <table class="table text-white">
+                    <thead>
                         <tr>
-                            <th scope="row">
-                                <?php echo $i; ?>
-                            </th>
-                            <td>Fireball</td>
-                            <td>xx</td>
-                            <td>120</td>
-                            <td>Idk</td>
-                            <td>old</td>
-                            <td>This fireball is so fucking awesomeThis fireball is so fucking awesome and powerfull!!! You can strike everybody away soooooo powerfull omg!</td>
+                            <th scope="col">#</th>
+                            <th scope="col">Spell</th>
+                            <th scope="col">Level</th>
+                            <th scope="col">Ritual</th>
+                            <th scope="col">Concentration</th>
+                            <th scope="col">Cast Time</th>
+                            <th scope="col">Duration</th>
                         </tr>
-                    <?php
-                    }
-                    ?>
+                    </thead>
+                    <tbody>
+                        <?php
+                        showCharSpells($DB, $cid);
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 
-                </tbody>
-            </table>
         </div>
         <div>
 
