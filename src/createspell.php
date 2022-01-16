@@ -96,31 +96,47 @@
                 justify-content: center;
                 display: grid;
             ">
-                <div>
-                    <label>Name:</label><br>
-                    <input type="text" required>
-                </div><br>
 
-                <div>
-                    <label>Level:</label><br>
-                    <input required>
-                </div><br>
+                <?php
+                    echo '<div>';
+                        echo '<label>Name:</label><br>';
+                        echo '<input type="text" name="name" required>';
+                    echo '</div><br>';
 
-                <div>
-                    <label>Time:</label><br>
-                    <input required>
-                </div><br>
+                    echo '<div>';
+                        echo '<label>Level:</label><br>';
+                        echo '<input type="text" name="level" required>';
+                    echo '</div><br>';
 
-                <div>
-                    <label>School:</label><br>
-                    <input required>
-                </div><br>
+                    echo '<div>';
+                        echo '<label>Time:</label><br>';
+                        echo '<input type="text" name="time" required>';
+                    echo '</div><br>';
 
-                <div>
-                    <label>Description:</label><br>
-                    <input required>
-                </div><br>
+                    echo '<div>';
+                        echo '<label>Description:</label><br>';
+                        echo '<input type="text" name="desc" required>';
+                    echo '</div><br>';
 
+                    echo '<div>';
+                        echo '<label>School:</label><br>';
+                        echo '<input type="text" name="school" required>';
+                    echo '</div><br>';
+
+                    echo '<div>';
+                        echo '<label>Description:</label><br>';
+                        echo '<input type="text" name="desc" required>';
+                    echo '</div><br>';
+
+                    echo '<div>';
+                        echo '<label>Description:</label><br>';
+                        echo '<input type="text" name="desc" required>';
+                    echo '</div><br>';
+                
+                    echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                    echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                ?>
+                
                 <div>
                     <button id="goMain" type="button" class="btn btn-primary" name="btnCancel">Cancel</button>
                     <script type="text/javascript">
