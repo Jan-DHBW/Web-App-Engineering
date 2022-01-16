@@ -30,7 +30,7 @@ function getSpell($con,$spellid){
         $tmpspell->area_of_effect = isset($j['area_of_effect']) ? implode(', ', $j['area_of_effect']) : null;
         return $tmpspell;
     }
-    $col = "charspells";
+    $col = "userspells";
     $collection = $con->$col;
     $result = $collection->findOne($filter);
     if ($result != null){
@@ -54,6 +54,8 @@ function getSpell($con,$spellid){
     }
     return null;
 }
+
+
 
 
 ?>

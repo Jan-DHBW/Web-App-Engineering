@@ -1,7 +1,7 @@
 <?php
 
-function deleteSpell($con,$spell,$charid){
-    $col = 'charspells';
+function deleteSpell($con,$spell,$uid){
+    $col = 'userspells';
     $collection = $con->$col;
     if($spell instanceof MongoDB\BSON\ObjectID){
         $bspellid = $spell;
@@ -11,7 +11,7 @@ function deleteSpell($con,$spell,$charid){
     $deleteOneResult = $collection->deleteOne(
         [
             '_id' => ['$eq' => $bspellid], 
-            'char_id' => ['$eq' => $charid]
+            'uid' => ['$eq' => $uid]
         ]
     );
 

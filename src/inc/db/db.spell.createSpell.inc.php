@@ -1,7 +1,7 @@
 <?php
 
-function createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$char_id){
-    $col = 'charspells';
+function createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,$area_of_effect,$uid){
+    $col = 'userspells';
     $collection = $con->$col;
     $insertOneResult = $collection->insertOne(
         [
@@ -20,7 +20,7 @@ function createSpell($con,$index,$name,$desc,$range,$comp,$mater,$ritual,$durati
         'school' => $school,
         'damage' => $damage,
         'area_of_effect' => $area_of_effect,
-        'char_id' => $creator
+        'uid' => $uid
         ]
         
         );

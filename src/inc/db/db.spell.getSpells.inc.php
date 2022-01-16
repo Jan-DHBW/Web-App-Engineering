@@ -57,3 +57,10 @@ function db_spell_getSpells($con){
 
     return $result;
 }
+function db_spell_getCharSpells($con, $uid){
+    
+
+}
+
+
+?>
