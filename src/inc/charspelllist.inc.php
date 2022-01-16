@@ -47,7 +47,7 @@ if(isset($_POST['btnEditSpellList'])){
     
     $uid = sanitizeHashToken($_POST['uid']);     //validate uid
     $cid = sanitizeHashToken($_POST['cid']);    //validate cid
-    $spell_id = e($POST['spell_id']);
+    $spell_id = e($_POST['spell_id']);
 
 
     if(!db_char_exists($DB, $uid, $cid)){
@@ -55,16 +55,15 @@ if(isset($_POST['btnEditSpellList'])){
         exit();
     }
 
-    unset($_SESSION['btnEditSpelList']);
+    unset($_SESSION['btnRemoveSpell']);
     $_SESSION['uid'] = $uid;
     $_SESSION['cid'] = $cid;
 
 
-    //prepare spell
-    prepareSpell($DB, $spell_id, $cid);
+    //remove spell from character
+    unprepareSpell($DB, $spell_id, $cid);
 
-
-    header('location: ../editspelllist.php');
+    header('location: ../charspelllist.php');
     exit();
 
 
@@ -93,7 +92,7 @@ if(isset($_POST['btnEditSpellList'])){
     //unprepare spell
     unprepareSpell($DB, $spell_id, $cid);
 
-    
+
     header('location: ../editspelllist.php');
     exit();
 
