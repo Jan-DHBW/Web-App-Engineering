@@ -10,6 +10,7 @@ function showCharSpells($con, $cid){
             echo '<th scope="row">';
             echo e($spellCounter);
             echo '</th>';
+            echo '<td>'.($spell->prepared ? 'yes' : 'no').'</td>';
             echo '<td>'.e($spell->name).'</td>';   //name
             echo '<td>'.e($spell->level).'</td>';        //range
             echo '<td>'.($spell->ritual ? 'yes' : 'no').'</td>';        //ritual
@@ -70,6 +71,18 @@ function showCharSpells($con, $cid){
                         echo '</div>';
                     echo '</form>';
                 echo '</div>';
+            echo '</td>';
+            echo '<td>';
+                echo '<form action="inc/charspelllist.inc.php" method="POST">';
+                    echo '<input type="hidden" name="cid" value="'.e($cid).'">';
+                    echo '<input type="hidden" name="uid" value="'.e($uid).'">';
+                    echo '<input type="hidden" name="spell_id" value="'.e($spell->_id).'">';
+                    if($spell->prepared){
+                        echo '<td><button type="submit" class="btn btn-primary" name="btnUnprepareSpell" value="true">unprepare</button></td>';
+                    }else{
+                        echo '<td><button type="submit" class="btn btn-primary" name="btnPrepareSpell" value="true">prepare</button></td>';
+                    }
+                echo '</form>';
             echo '</td>';
             echo '</tr>';
 

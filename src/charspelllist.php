@@ -7,7 +7,7 @@ if (!isset($_SESSION['uid']) || !isset($_SESSION['cid'])) {
     exit();
 }
 
-require_once('inc/charspells-functions.inc.php');
+require_once('inc/charspelllist-functions.inc.php');
 require_once('inc/db/dbh.inc.php');
 require_once('inc/regex.inc.php');
 require_once('inc/db/db.char.function.inc.php');
@@ -134,6 +134,7 @@ $_SESSION['charName'] = $cid;
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Prepared</th>
                             <th scope="col">Spell</th>
                             <th scope="col">Level</th>
                             <th scope="col">Ritual</th>
