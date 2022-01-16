@@ -15,7 +15,7 @@
     require_once('inc/db/db.spell.class.inc.php');
 
 
-    $uid = $uid = sanitizeHashToken($_SESSION['uid']);
+    $uid = sanitizeHashToken($_SESSION['uid']);
 
     if(!db_user_uidExists($DB, $uid)){
         header('location: errorPage.php?err=pageNotFound');
