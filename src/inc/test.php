@@ -5,6 +5,7 @@ require_once('db\db.spell.addSpell.inc.php');
 require_once('db\db.spell.removeSpell.inc.php');
 require_once('db\db.spell.deleteSpell.inc.php');
 require_once('db\db.spell.createSpell.inc.php');
+require_once('db\db.char.function.inc.php');
 require_once('db\db.spell.getSpells.inc.php');
 require_once('C:\WebEntAbgabe\Web-App-Engineering\vendor\autoload.php');
 
@@ -53,19 +54,24 @@ function createDbConnection(){
     $creator='3k0MjM2mEsgnnmjQU39hc7AwxjWbOxMGfTi8K5uM';
 
 
-    $uid = '3k0MjM2mEsgnnmjQU39hc7AwxjWbOxMGfTi8K5uM';
-    $spellid = '61e42344d0270000bc001a72';
-
+    $uid = 'vJJrkFv5ibFoh27IORxPegUiUj7HGaKBN5Wq2EwJZg';
+    $spellid = '61db0f93246f56da35983ea0';
+    $char_id = 's7jgrm6VKUHuDEf8a0XKzeW4A0EBrL424Nuhw0XIs';    
     //$tmp = createSpell($DB,$index,$name,$desc,$range,$comp,$mater,$ritual,$duratio,$concentration,$lvl,$cast_time,$attack_type,$damage,$school,null,$creator);
     //$tmp = $tmp->getInsertedID();    
     //deleteSpell($DB,$spellid,$cid);
     //$col = 'characters'
     //$collection = $DB->$col;
 
+    $tmp3 = db_char_getSpells($DB,$char_id);
 
-    
-    $tmp = db_spell_getAllSpells($DB, $uid);
+    $tmp = db_char_getEditSpellList($DB,$uid,$char_id);
+    $tmp4 = $tmp[318];
+    //$tmp = db_spell_getAllSpells($DB, $uid);
+    //$tmp2 = db_char_getSpells($con,$char_id)s
         printf("sdfa");
+
+
     
 
 //     $filter = ['cid' => ['$eq' => 'Drs0OeCBI4uSpuW8mM0gIYbxZuoMabRcUYtahM7gOYI']];

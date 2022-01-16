@@ -142,7 +142,7 @@ $_SESSION['charName'] = $cid;
                     </thead>
                     <tbody>
                         <?php
-                        showCharSpells($DB, $cid);
+                        showEditCharSpells($DB,$cid,$uid);
                         ?>
                     </tbody>
                 </table>

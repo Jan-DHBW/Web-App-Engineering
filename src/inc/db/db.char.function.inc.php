@@ -50,10 +50,32 @@ function db_char_getSpells($con,$char_id) {
     };
 
     foreach($spelllist as $spell){
-        $result[] = getSpell($spell);
+        $result[] = getSpell($con,$spell);
     };
 
     return $result;
+};
+
+function comparespells($a,$b){
+    if($a==$b){
+        $a->cid = $cid;
+        return $a;
+    }
+    return null;
+};
+
+function db_char_getEditSpellList($con,$uid,$cid){
+    $allSpells = db_spell_getAllSpells($con,$uid);
+    $knownSpells = db_char_getSpells($con,$cid);
+    $diff = array_diff($allSpells,$knownSpells);
+    $diff2 = array_intersect($allSpells,$knownSpells);
+    foreach ($diff2 as $entry) {
+        $entry->cid = $cid;
+    }
+
+    
+    return array_merge($diff2,$diff);
+
 };
 
 

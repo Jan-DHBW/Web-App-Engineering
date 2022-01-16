@@ -27,4 +27,8 @@ class Spell
     {
         
     }
+    public function __toString()
+    {
+        return $this->_id;
+    }
 }
