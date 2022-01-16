@@ -7,6 +7,7 @@ require_once('db\db.spell.deleteSpell.inc.php');
 require_once('db\db.spell.createSpell.inc.php');
 require_once('db\db.char.function.inc.php');
 require_once('db\db.spell.getSpells.inc.php');
+require_once('db\db.spell.prepareSpell.inc.php');
 require_once('C:\WebEntAbgabe\Web-App-Engineering\vendor\autoload.php');
 
 
@@ -63,10 +64,8 @@ function createDbConnection(){
     //$col = 'characters'
     //$collection = $DB->$col;
 
-    $tmp3 = db_char_getSpells($DB,$char_id);
-
-    $tmp = db_char_getEditSpellList($DB,$uid,$char_id);
-    $tmp4 = $tmp[318];
+    unprepareSpell($DB,$spellid, $char_id);
+    
     //$tmp = db_spell_getAllSpells($DB, $uid);
     //$tmp2 = db_char_getSpells($con,$char_id)s
         printf("sdfa");

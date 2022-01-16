@@ -9,7 +9,7 @@ function prepareSpell($con,$spell, $cid){
     $bspellid = new MongoDB\BSON\ObjectID($spell);
     };
     $updateOneResult = $collection->updateOne(
-        ['cid' => ['$eq' => $cid], 'spells.spell_id'=>['eq' => $bspellid]],
+        ['cid' => $cid, 'spells.spell_id' => $bspellid],
         ['$set' => [
                 'spells.$.prepared' => true
             ]
@@ -19,14 +19,14 @@ function prepareSpell($con,$spell, $cid){
     function unprepareSpell($con,$spell, $cid){
         $col='characters';
         $collection = $con->$col;
-        if($spellid instanceof MongoDB\BSON\ObjectID){
+        if($spell instanceof MongoDB\BSON\ObjectID){
             $bspellid = $spell;
         }
         else{
         $bspellid = new MongoDB\BSON\ObjectID($spell);
         }
         $updateOneResult = $collection->updateOne(
-            ['cid' => ['$eq' => $cid], 'spells.spell_id'=>['eq' => $bspellid]],
+            ['cid' => $cid, 'spells.spell_id' => $bspellid],
             ['$set' => [
                     'spells.$.prepared' => false
                 ]
