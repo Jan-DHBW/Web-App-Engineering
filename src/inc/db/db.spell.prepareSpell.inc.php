@@ -14,8 +14,7 @@ function prepareSpell($con,$spell, $cid){
                 'spells.$.prepared' => true
             ]
         ]
-        ]
-    );
+    )
 }
     function unprepareSpell($con,$spell, $cid){
         $col='characters';
