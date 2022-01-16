@@ -121,7 +121,7 @@ $_SESSION['charName'] = $cid;
 
         <div id="global">
             <div id="globalheader" class="header">
-                <?php echo '<h1><center>Character Spells: ' . e($charName) . '<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell">Edit Spelllist</button></h1></center>'; ?>
+                <?php echo '<h1><center>Character Spells: ' . e($charName) . '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;<button id="editSpell" type="submit" class="btn btn-primary" name="btnEditSpell" style="right: 0;">Edit Spelllist</button></h1></center>'; ?>
             </div>
             <br>
             <div class="mainglobal">

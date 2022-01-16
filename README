@@ -1,1 +1,27 @@
+Project: DnD Spellbook
 
+
+Auf unserer Website können Sie für das Spiel "Dungeons and Dragons" ein Spellbook anlegen,
+wo Sie eigene Charaktere erstellen können. 
+
+-----------------------------------------------------------------
+
+Um die volle Funktionsfähigkeit testen zu können, legen Sie bitte einen
+eigenen Account mit einer funktionierenden E-Mail an.
+
+-----------------------------------------------------------------
+
+Funktionenübersicht:
+
+-Sign up mit Username & Email (Verifizierungslink wird geschickt)
+-Login
+-Forgot Password
+-Charaktere erstellen
+-Spelllist der Einzelnen Charaktere anzeigen
+-Charakter bearbeiten
+-Charakter löschen
+-Spelllist des ausgewählten Charakter anzeigen/bearbeiten/ lassen
+-Neue Spells hinzufügen
+-Logout
+-Passwort wiederherstellen mit E-Mail
+-Account dauerhaft löschen
