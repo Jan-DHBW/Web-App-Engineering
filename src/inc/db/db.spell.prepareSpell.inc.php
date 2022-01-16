@@ -4,7 +4,7 @@ function prepareSpell($con,$spell, $cid){
     $collection = $con->$col;
     if($spell instanceof MongoDB\BSON\ObjectID){
         $bspellid = $spell;
-    };
+    }
     else{
     $bspellid = new MongoDB\BSON\ObjectID($spell);
     };
@@ -22,7 +22,7 @@ function prepareSpell($con,$spell, $cid){
         $collection = $con->$col;
         if($spellid instanceof MongoDB\BSON\ObjectID){
             $bspellid = $spell;
-        };
+        }
         else{
         $bspellid = new MongoDB\BSON\ObjectID($spell);
         };
