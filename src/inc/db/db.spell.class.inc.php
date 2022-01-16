@@ -19,8 +19,8 @@ class Spell
     public $school;
     public $area_of_effect;
     public $prepared;
-    public $user_id;
-    public $char_id;
+    public $uid;
+    public $cid;
 
 
     function __construct()

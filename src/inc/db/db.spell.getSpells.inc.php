@@ -57,9 +57,42 @@ function db_spell_getSpells($con){
 
     return $result;
 }
-function db_spell_getCharSpells($con, $uid){
-    
+function db_spell_getUserSpells($con, $uid){
+    $result = array();
 
+    $collection = $con->userspells;
+
+    $findResult = $collection->find(
+        ['uid' => $uid],
+        []
+    );
+    foreach($findResult as $elmt){
+        $spell = new Spell();
+        $j = json_decode(MongoDB\BSON\toJSON(MongoDB\BSON\fromPHP($elmt)), true);
+
+        $spell->_id = isset($j['_id']) ? $j['_id']['$oid'] : null;
+        $spell->index = isset($j['index']) ? $j['index'] : null;
+        $spell->name = isset($j['name']) ? $j['name'] : null;
+        $spell->desc = isset($j['desc']) ? $j['desc'] : null;
+        $spell->range = isset($j['range']) ? $j['range'] : null;
+        $spell->components = isset($j['components']) ? implode(', ',$j['components']) : null;
+        $spell->material = isset($j['material']) ? $j['material'] : null;
+        $spell->ritual = isset($j['ritual']) ? $j['ritual'] : false;
+        $spell->duration = isset($j['duration']) ? $j['duration'] : null;
+        $spell->concentration = isset($j['concentration']) ? $j['concentration'] : null;
+        $spell->level = isset($j['level']) ? $j['level'] : null;
+        $spell->casting_time = isset($j['casting_time']) ? $j['casting_time'] : null;
+        $spell->attack_type = isset($j['attack_type']) ? $j['attack_type'] : null;
+        $spell->school = isset($j['school']) ? $j['school']['name'] : null;
+        $spell->area_of_effect = isset($j['area_of_effect']) ? implode(', ', $j['area_of_effect']) : null;
+        $spell->uid = isset($j['uid']) ? $j['uid'] : null;
+
+        $result[] = $spell;
+    }
+    return $result;
+}
+function db_spell_getAllSpells($con,$uid){
+    return array_merge(db_spell_getUserSpells($con,$uid),db_spell_getSpells($con));
 }
 
 
