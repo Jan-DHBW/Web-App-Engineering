@@ -14,15 +14,18 @@ eigenen Account mit einer funktionierenden E-Mail an.
 Funktionenübersicht:
 
 -Sign up mit Username & Email (Verifizierungslink wird geschickt)
--Login
--Forgot Password
+-Login (nur möglich, wenn Verifizierungslink geklickt wurde)
+-Forgot Password (Resetlink wird per Email versendet)
 -Charaktere erstellen
 -Spelllist der Einzelnen Charaktere anzeigen
 -Charakter bearbeiten
 -Charakter löschen
+-Anzeigen der Offizielen in DnD 5e enthaltenen Spells
 -Spelllist des ausgewählten Charakter anzeigen/bearbeiten/ lassen
 -Spells Prepared oder nicht Prepared setzten
--Neue Spells hinzufügen
+-Neue Spells hinzufügen (nicht in UI implementiert)
 -Logout
--Passwort wiederherstellen mit E-Mail
--Account dauerhaft löschen
+-Account dauerhaft löschen (nicht implementiert)
+-Nutzereingaben werden escaped um Crosssite Scripting zu unterbinden
+-Abfangen unauthorisierten zugriffs auf Webseiten anhande der gahashten User ID und Character ID
+-Die identifikation der User wird ueber einen gehashten Wert realisiert
