@@ -17,14 +17,20 @@
 
     $uid = sanitizeHashToken($_SESSION['uid']);
     $cid = sanitizeHashToken($_SESSION['cid']);
+   
     
 
     if(!db_char_exists($DB, $uid, $cid)){
         header('location: errorPage.php?err=pageNotFound');
         exit();
     }
+
+    $charName = e(db_char_getCharacternameByCID($DB, $uid , $cid));
     
     $_SESSION['uid'] = $uid;
+    $_SESSION['cid'] = $cid;
+    $_SESSION['charName'] = $cid;
+    
 
 ?>
 
@@ -115,7 +121,7 @@
 
         <div id="global">
             <div id="globalheader" class="header">
-                <h1><center>Global Spells</h1></center>
+            <?php    echo '<h1><center>Character Spells: '.e($charName).'</h1></center>'; ?>
             </div>
             <br>
             <div class="mainglobal">
