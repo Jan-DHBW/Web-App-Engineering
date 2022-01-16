@@ -93,7 +93,7 @@ if(isset($_POST['btnEditSpellList'])){
     //unprepare spell
     unprepareSpell($DB, $spell_id, $cid);
 
-
+    
     header('location: ../editspelllist.php');
     exit();
 
