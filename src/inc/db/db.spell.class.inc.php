@@ -20,6 +20,8 @@ class Spell
     public $area_of_effect;
     public $prepared;
     public $user_id;
+    public $prepared;
+    public $char_id;
 
 
     function __construct()

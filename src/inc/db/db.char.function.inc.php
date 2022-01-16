@@ -46,11 +46,11 @@ function db_char_getSpells($char_id) {
     $char = $collection->findOne($filter);
     $spells = $char['spells'];
     foreach($spells as $spell){
-        array_push($spelllist, $spell['spell_id']);
+        $spelllist[] = $spell['spell_id'];
     };
 
     foreach($spelllist as $spell){
-        array_push($result, getSpell($spell));
+        $result[] = getSpell($spell);
     };
 
     return $result;
