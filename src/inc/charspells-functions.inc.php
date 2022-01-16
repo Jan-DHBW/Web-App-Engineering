@@ -69,6 +69,7 @@ function showCharSpells($con, $cid){
                             }
                         echo '</div>';
                     echo '</form>';
+                    echo '<td><button type="submit" class="btn btn-primary" name="btnDeleteSpell" value="true">Remove</button></td>';
                 echo '</div>';
             echo '</td>';
             echo '</tr>';
