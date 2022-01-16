@@ -14,7 +14,7 @@ function prepareSpell($con,$spell, $cid){
                 'spells.$.prepared' => true
             ]
         ]
-    )
+        );
 }
     function unprepareSpell($con,$spell, $cid){
         $col='characters';
@@ -24,7 +24,7 @@ function prepareSpell($con,$spell, $cid){
         }
         else{
         $bspellid = new MongoDB\BSON\ObjectID($spell);
-        };
+        }
         $updateOneResult = $collection->updateOne(
             ['cid' => ['$eq' => $cid], 'spells.spell_id'=>['eq' => $bspellid]],
             ['$set' => [
