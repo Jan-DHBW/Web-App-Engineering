@@ -45,23 +45,17 @@ function db_char_getSpells($con,$char_id) {
     $filter = ['cid' => ['$eq' => $char_id]];
     $char = $collection->findOne($filter);
     $spells = $char['spells'];
+    $tmpspell;
     foreach($spells as $spell){
-        $spelllist[] = $spell['spell_id'];
-    };
 
-    foreach($spelllist as $spell){
-        $result[] = getSpell($con,$spell);
-    };
+        $tmpspell = getSpell($con, $spell['spell_id']);
+        $tmpspell->prepared = $spell->prepared;
+        array_push($result, $tmpspell);
+    }
+    
+
 
     return $result;
-};
-
-function comparespells($a,$b){
-    if($a==$b){
-        $a->cid = $cid;
-        return $a;
-    }
-    return null;
 };
 
 function db_char_getEditSpellList($con,$uid,$cid){

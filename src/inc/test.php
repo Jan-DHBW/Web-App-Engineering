@@ -37,7 +37,7 @@ function createDbConnection(){
     // }
     $index='sfsfd';
     $name='dfsghhh';
-    $desc='h543fgqhthrrhh';
+    $desc=['sdjasd'];
     $range='20 Feet';
     $comp=['V','S'];
     $mater='Strom';
@@ -50,7 +50,7 @@ function createDbConnection(){
     $damage='Elektro';
     $school=['name'=>'Evocation',
               'index'=>'Evocation'];
-    $area_of_effect=false;
+    $area_of_effect;
     $creator='3k0MjM2mEsgnnmjQU39hc7AwxjWbOxMGfTi8K5uM';
 
 
